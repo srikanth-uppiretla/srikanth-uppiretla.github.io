@@ -46,11 +46,12 @@
   h2 .hl-soft{color:var(--peach)}
 
   /* buttons */
-  .btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:.74rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;padding:15px 26px;border:1px solid var(--orange);cursor:pointer;transition:all .2s ease}
-  .btn-fill{background:var(--orange);color:#fff;box-shadow:0 0 24px rgba(240,78,35,.35)}
-  .btn-fill:hover{background:#d8431c;box-shadow:0 0 34px rgba(240,78,35,.55)}
-  .btn-line{color:var(--light);border-color:rgba(255,255,255,.35)}
-  .btn-line:hover{border-color:var(--orange);color:var(--orange)}
+  .btn{display:inline-flex;align-items:center;gap:12px;font-family:var(--mono);font-size:.86rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:19px 34px;border:2px solid var(--orange);cursor:pointer;transition:all .2s ease}
+  .btn:hover{transform:translateY(-2px)}
+  .btn-fill{background:var(--orange);color:#fff;box-shadow:0 0 28px rgba(240,78,35,.45)}
+  .btn-fill:hover{background:#d8431c;box-shadow:0 6px 40px rgba(240,78,35,.6)}
+  .btn-line{color:var(--light);border-color:rgba(255,255,255,.45)}
+  .btn-line:hover{border-color:var(--orange);color:var(--orange);box-shadow:0 0 22px rgba(240,78,35,.25)}
   .btn-line-dark{color:var(--ink);border-color:rgba(26,22,17,.35)}
   .btn-line-dark:hover{border-color:var(--orange);color:var(--orange)}
 
@@ -65,7 +66,8 @@
   .nav-links a:not(.nav-cta)::after{content:"";position:absolute;left:12px;right:12px;bottom:1px;height:2px;background:var(--orange);transform:scaleX(0);transform-origin:left;transition:transform .35s cubic-bezier(.22,1,.36,1)}
   .nav-links a.active{color:var(--orange);font-weight:700}
   .nav-links a.active::after{transform:scaleX(1)}
-  .nav-cta{background:var(--orange);color:#fff !important;padding:10px 18px !important;font-weight:700;box-shadow:0 0 18px rgba(240,78,35,.4)}
+  .nav-cta{background:var(--orange);color:#fff !important;padding:12px 24px !important;font-size:.74rem !important;font-weight:700;box-shadow:0 0 20px rgba(240,78,35,.45);transition:all .2s ease}
+  .nav-cta:hover{background:#d8431c;box-shadow:0 0 30px rgba(240,78,35,.6)}
   .nav-toggle{display:none;background:none;border:1px solid var(--line-cream);color:var(--ink);font-family:var(--mono);font-size:.7rem;letter-spacing:.15em;padding:8px 14px;cursor:pointer}
 
   /* ── Hero ────────────────────────────── */
@@ -241,10 +243,10 @@
     <button class="nav-toggle" id="navToggle">MENU</button>
     <ul class="nav-links" id="navLinks">
       <li><a href="#top">About</a></li>
-      <li><a href="#skills">Skills</a></li>
+      <li><a href="#education">Education</a></li>
       <li><a href="#work">Work</a></li>
       <li><a href="#experience">Experience</a></li>
-      <li><a href="#education">Education</a></li>
+      <li><a href="#skills">Skills</a></li>
       <li><a href="#contact">Contact</a></li>
       <li><a class="nav-cta" href="mailto:srikanth.uppiretla@gmail.com">Let's Talk</a></li>
     </ul>
@@ -305,43 +307,41 @@
   </div>
 </header>
 
-<section id="skills" class="grid-dark">
+<section id="education">
   <div class="wrap">
-    <div class="skills-head">
-      <div><p class="label">What I bring</p><h2>The Toolkit<span style="color:var(--orange)">.</span></h2></div>
-      <p class="skills-tag">From hand calculation to nonlinear FEM —<br>instruments of the craft.</p>
-    </div>
-    <div class="toolkit reveal">
-      <div class="tool-col">
-        <p class="t-label">01 / Simulation &amp; Analysis</p>
-        <ul>
-          <li>FEMAP · NX Nastran<small>Linear &amp; nonlinear (SOL 106)</small></li>
-          <li>ANSYS<small>Structural FEM</small></li>
-          <li>Buckling Assessment<small>NASA SP-8007 · Bruhn · CLT</small></li>
-        </ul>
+    <p class="label">Education</p>
+    <h2>Grounded in theory,<br>proven on <span class="hl">hardware</span>.</h2>
+    <div class="edu-grid">
+      <div class="edu-card reveal">
+        <div class="e-logo"><img src="img/logos/uni-bremen.svg" alt="University of Bremen logo"></div>
+        <span class="e-label">University of Bremen</span>
+        <h3>M.Sc. Space Engineering</h3>
+        <p class="e-meta">2020 — 2025 · Bremen, Germany</p>
+        <p class="e-note">Thesis: structural analysis and optimization of the CFRP interstage of an
+        orbital launch vehicle, conducted at Rocket Factory Augsburg.</p>
       </div>
-      <div class="tool-col">
-        <p class="t-label">02 / CAD &amp; Design</p>
-        <ul>
-          <li>CATIA V6<small>Part · Assembly · Surfaces</small></li>
-          <li>Siemens NX<small>Modelling for analysis</small></li>
-          <li>Autodesk Inventor<small>Mechanical design</small></li>
-        </ul>
+      <div class="edu-card reveal">
+        <div class="e-logo"><img src="img/logos/lpu.png" alt="Lovely Professional University logo"></div>
+        <span class="e-label">Lovely Professional University</span>
+        <h3>B.Sc. Mechanical Engineering</h3>
+        <p class="e-meta">2013 — 2017 · India</p>
+        <p class="e-note">Bachelor project: design and fabrication of a four-wheel-steering
+        prototype — mechanical design, fabrication and functional testing.</p>
       </div>
-      <div class="tool-col">
-        <p class="t-label">03 / The Edge</p>
-        <ul>
-          <li>CFRP Structures<small>Filament winding · Laminate design</small></li>
-          <li>Python · MATLAB<small>Parametric optimization frameworks</small></li>
-          <li>Lightweight Design<small>Trade-offs · Margins · Mass budgets</small></li>
-        </ul>
+      <div class="edu-card reveal">
+        <div class="e-logo"><img src="img/logos/gisma.svg" alt="GISMA Business School logo"></div>
+        <span class="e-label">GISMA Business School</span>
+        <h3>German Language A1 — B2</h3>
+        <p class="e-meta">2018 — 2019 · Hannover, Germany</p>
+        <p class="e-note">Intensive German up to B2 working proficiency — engineering
+        conversations, documentation and daily work in German.</p>
       </div>
     </div>
-  </div>
-  <div class="marquee" aria-hidden="true">
-    <div class="marquee-track">
-      <span>FEMAP</span><span class="dia">◆</span><span>NX Nastran</span><span class="dia">◆</span><span>ANSYS</span><span class="dia">◆</span><span>CATIA V6</span><span class="dia">◆</span><span>Siemens NX</span><span class="dia">◆</span><span>Python</span><span class="dia">◆</span><span>MATLAB</span><span class="dia">◆</span><span>CFRP</span><span class="dia">◆</span><span>NASA SP-8007</span><span class="dia">◆</span>
-      <span>FEMAP</span><span class="dia">◆</span><span>NX Nastran</span><span class="dia">◆</span><span>ANSYS</span><span class="dia">◆</span><span>CATIA V6</span><span class="dia">◆</span><span>Siemens NX</span><span class="dia">◆</span><span>Python</span><span class="dia">◆</span><span>MATLAB</span><span class="dia">◆</span><span>CFRP</span><span class="dia">◆</span><span>NASA SP-8007</span><span class="dia">◆</span>
+    <div class="lang-strip reveal">
+      <div class="lang"><div class="l-name">English</div><div class="l-level">C1</div></div>
+      <div class="lang"><div class="l-name">German</div><div class="l-level">B2</div></div>
+      <div class="lang"><div class="l-name">Hindi</div><div class="l-level">Fluent</div></div>
+      <div class="lang"><div class="l-name">Telugu</div><div class="l-level">Native</div></div>
     </div>
   </div>
 </section>
@@ -569,41 +569,43 @@
   </div>
 </section>
 
-<section id="education">
+<section id="skills" class="grid-dark">
   <div class="wrap">
-    <p class="label">Education</p>
-    <h2>Grounded in theory,<br>proven on <span class="hl">hardware</span>.</h2>
-    <div class="edu-grid">
-      <div class="edu-card reveal">
-        <div class="e-logo"><img src="img/logos/uni-bremen.svg" alt="University of Bremen logo"></div>
-        <span class="e-label">University of Bremen</span>
-        <h3>M.Sc. Space Engineering</h3>
-        <p class="e-meta">2020 — 2025 · Bremen, Germany</p>
-        <p class="e-note">Thesis: structural analysis and optimization of the CFRP interstage of an
-        orbital launch vehicle, conducted at Rocket Factory Augsburg.</p>
+    <div class="skills-head">
+      <div><p class="label">What I bring</p><h2>The Toolkit<span style="color:var(--orange)">.</span></h2></div>
+      <p class="skills-tag">From hand calculation to nonlinear FEM —<br>instruments of the craft.</p>
+    </div>
+    <div class="toolkit reveal">
+      <div class="tool-col">
+        <p class="t-label">01 / Simulation &amp; Analysis</p>
+        <ul>
+          <li>FEMAP · NX Nastran<small>Linear &amp; nonlinear (SOL 106)</small></li>
+          <li>ANSYS<small>Structural FEM</small></li>
+          <li>Buckling Assessment<small>NASA SP-8007 · Bruhn · CLT</small></li>
+        </ul>
       </div>
-      <div class="edu-card reveal">
-        <div class="e-logo"><img src="img/logos/lpu.png" alt="Lovely Professional University logo"></div>
-        <span class="e-label">Lovely Professional University</span>
-        <h3>B.Sc. Mechanical Engineering</h3>
-        <p class="e-meta">2013 — 2017 · India</p>
-        <p class="e-note">Bachelor project: design and fabrication of a four-wheel-steering
-        prototype — mechanical design, fabrication and functional testing.</p>
+      <div class="tool-col">
+        <p class="t-label">02 / CAD &amp; Design</p>
+        <ul>
+          <li>CATIA V6<small>Part · Assembly · Surfaces</small></li>
+          <li>Siemens NX<small>Modelling for analysis</small></li>
+          <li>Autodesk Inventor<small>Mechanical design</small></li>
+        </ul>
       </div>
-      <div class="edu-card reveal">
-        <div class="e-logo"><img src="img/logos/gisma.svg" alt="GISMA Business School logo"></div>
-        <span class="e-label">GISMA Business School</span>
-        <h3>German Language A1 — B2</h3>
-        <p class="e-meta">2018 — 2019 · Hannover, Germany</p>
-        <p class="e-note">Intensive German up to B2 working proficiency — engineering
-        conversations, documentation and daily work in German.</p>
+      <div class="tool-col">
+        <p class="t-label">03 / The Edge</p>
+        <ul>
+          <li>CFRP Structures<small>Filament winding · Laminate design</small></li>
+          <li>Python · MATLAB<small>Parametric optimization frameworks</small></li>
+          <li>Lightweight Design<small>Trade-offs · Margins · Mass budgets</small></li>
+        </ul>
       </div>
     </div>
-    <div class="lang-strip reveal">
-      <div class="lang"><div class="l-name">English</div><div class="l-level">C1</div></div>
-      <div class="lang"><div class="l-name">German</div><div class="l-level">B2</div></div>
-      <div class="lang"><div class="l-name">Hindi</div><div class="l-level">Fluent</div></div>
-      <div class="lang"><div class="l-name">Telugu</div><div class="l-level">Native</div></div>
+  </div>
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>FEMAP</span><span class="dia">◆</span><span>NX Nastran</span><span class="dia">◆</span><span>ANSYS</span><span class="dia">◆</span><span>CATIA V6</span><span class="dia">◆</span><span>Siemens NX</span><span class="dia">◆</span><span>Python</span><span class="dia">◆</span><span>MATLAB</span><span class="dia">◆</span><span>CFRP</span><span class="dia">◆</span><span>NASA SP-8007</span><span class="dia">◆</span>
+      <span>FEMAP</span><span class="dia">◆</span><span>NX Nastran</span><span class="dia">◆</span><span>ANSYS</span><span class="dia">◆</span><span>CATIA V6</span><span class="dia">◆</span><span>Siemens NX</span><span class="dia">◆</span><span>Python</span><span class="dia">◆</span><span>MATLAB</span><span class="dia">◆</span><span>CFRP</span><span class="dia">◆</span><span>NASA SP-8007</span><span class="dia">◆</span>
     </div>
   </div>
 </section>
@@ -651,6 +653,11 @@
     </div>
   </div>
 </section>
+
+
+
+
+
 
 <footer>
   <div class="wrap foot-inner">
