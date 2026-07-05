@@ -39,7 +39,7 @@
   .grid-cream{background-image:linear-gradient(var(--line-cream) 1px,transparent 1px),linear-gradient(90deg,var(--line-cream) 1px,transparent 1px);background-size:64px 64px}
 
   /* type helpers */
-  .label{font-family:var(--mono);font-size:.72rem;font-weight:500;letter-spacing:.28em;text-transform:uppercase;color:var(--orange)}
+  .label{font-family:var(--mono);font-size:1.15rem;font-weight:700;letter-spacing:.32em;text-transform:uppercase;color:var(--orange)}
   .label::before{content:"— "}
   h2{font-family:var(--serif);font-weight:500;font-size:clamp(2.4rem,5vw,3.8rem);line-height:1.08;letter-spacing:-.01em;margin:18px 0 60px}
   h2 .hl{color:var(--orange)}
@@ -76,7 +76,7 @@
   .hero-art{position:absolute;right:-8%;top:50%;transform:translateY(-52%);width:min(52vw,760px);opacity:.3;pointer-events:none}
   .hero-content{position:relative;z-index:2}
   .hero .hi{font-size:.78rem;letter-spacing:.34em;text-transform:uppercase;color:var(--orange);margin-bottom:28px}
-  .status-pill{display:inline-flex;align-items:center;gap:10px;font-size:.66rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:#7ddba3;border:1px solid rgba(125,219,163,.35);background:rgba(125,219,163,.07);padding:9px 18px;margin-bottom:26px}
+  .status-pill{display:inline-flex;align-items:center;gap:10px;font-size:.66rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:#7ddba3;border:1px solid rgba(125,219,163,.35);background:rgba(125,219,163,.07);padding:9px 18px;margin-top:34px}
   .status-pill::before{content:"";width:8px;height:8px;border-radius:50%;background:#2ecc71;box-shadow:0 0 10px rgba(46,204,113,.8);animation:pulse 2s ease infinite}
   @keyframes pulse{0%,100%{opacity:1}50%{opacity:.45}}
   .hero-grid{display:grid;grid-template-columns:1.6fr 1fr;gap:70px;align-items:center}
@@ -118,6 +118,10 @@
   /* ── Work (cream) ────────────────────── */
   #work{background:var(--cream);color:var(--ink);padding:130px 0}
   .work-note{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-faint);margin:-40px 0 30px}
+  .work-filter{display:flex;gap:14px;flex-wrap:wrap;margin:0 0 30px}
+  .wf-btn{font-family:var(--mono);font-size:.8rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;padding:13px 30px;border:2px solid var(--line-cream);background:transparent;color:var(--ink-soft);cursor:pointer;transition:all .2s ease}
+  .wf-btn:hover{border-color:var(--orange);color:var(--orange)}
+  .wf-btn.active{background:var(--orange);border-color:var(--orange);color:#fff;box-shadow:0 4px 20px rgba(240,78,35,.35)}
   .work-sub{display:flex;align-items:center;gap:16px;font-family:var(--mono);font-size:.72rem;font-weight:700;letter-spacing:.26em;text-transform:uppercase;color:var(--ink);margin:70px 0 30px}
   .work-sub::before{content:"";width:46px;height:2px;background:var(--orange)}
   .work-sub span{color:var(--ink-faint);font-weight:500}
@@ -275,7 +279,6 @@
   <div class="wrap hero-content">
     <div class="hero-grid">
       <div>
-        <div class="status-pill">Available immediately · Job seeker visa · Open Germany-wide</div>
         <p class="hi">Hi, it's me</p>
         <h1>Srikanth<br>Uppiretla<span class="dot">.</span></h1>
         <div class="hero-role">
@@ -287,6 +290,7 @@
           <a class="btn btn-line" href="cv/Srikanth_Uppiretla_CV.pdf" target="_blank" rel="noopener">◉ View CV</a>
           <a class="btn btn-line" href="#contact">Get in Touch →</a>
         </div>
+        <div class="status-pill">Available immediately · Job seeker visa · Open Germany-wide</div>
       </div>
       <div class="hero-photo">
         <div class="frame"><img src="img/photo.jpg" alt="Srikanth Uppiretla"></div>
@@ -352,6 +356,14 @@
     <h2>Structures built<br>to take the <span class="hl">load</span>.</h2>
     <p class="work-note">Renders and model views are being added as projects are cleared for publication.</p>
 
+    <div class="work-filter">
+      <button class="wf-btn active" data-filter="all">All</button>
+      <button class="wf-btn" data-filter="fea">FEA</button>
+      <button class="wf-btn" data-filter="cad">CAD</button>
+      <button class="wf-btn" data-filter="other">Other</button>
+    </div>
+
+    <div class="work-group" data-group="fea">
     <p class="work-sub">FEA <span>— Structural Simulation · FEMAP / NX Nastran</span></p>
     <div class="work-grid">
 
@@ -437,7 +449,9 @@
         </div>
       </article>
     </div>
+    </div>
 
+    <div class="work-group" data-group="cad">
     <p class="work-sub">CAD <span>— Design &amp; Prototyping · CATIA / NX / Inventor</span></p>
     <div class="work-grid">
 
@@ -474,7 +488,9 @@
         </div>
       </article>
     </div>
+    </div>
 
+    <div class="work-group" data-group="other">
     <p class="work-sub">Other <span>— Composites &amp; Space Systems</span></p>
     <div class="work-grid">
 
@@ -512,6 +528,7 @@
         </div>
       </article>
 
+    </div>
     </div>
   </div>
 </section>
@@ -694,6 +711,17 @@
     car.addEventListener('mouseleave', arm);
     arm();
   });
+
+  // work filter — All / FEA / CAD / Other
+  const wfBtns = document.querySelectorAll('.wf-btn');
+  wfBtns.forEach(btn => btn.addEventListener('click', () => {
+    wfBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const f = btn.dataset.filter;
+    document.querySelectorAll('.work-group').forEach(g => {
+      g.style.display = (f === 'all' || g.dataset.group === f) ? '' : 'none';
+    });
+  }));
 
   // scroll-spy — highlight the nav link of the section in view
   const spyLinks = {};
