@@ -71,6 +71,9 @@
   .hero-art{position:absolute;right:-4%;top:50%;transform:translateY(-52%);width:min(52vw,760px);opacity:.5;pointer-events:none}
   .hero-content{position:relative;z-index:2}
   .hero .hi{font-size:.78rem;letter-spacing:.34em;text-transform:uppercase;color:var(--orange);margin-bottom:28px}
+  .status-pill{display:inline-flex;align-items:center;gap:10px;font-size:.66rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:#7ddba3;border:1px solid rgba(125,219,163,.35);background:rgba(125,219,163,.07);padding:9px 18px;margin-bottom:26px}
+  .status-pill::before{content:"";width:8px;height:8px;border-radius:50%;background:#2ecc71;box-shadow:0 0 10px rgba(46,204,113,.8);animation:pulse 2s ease infinite}
+  @keyframes pulse{0%,100%{opacity:1}50%{opacity:.45}}
   .hero h1{font-family:var(--serif);font-weight:500;font-size:clamp(4rem,11vw,8.5rem);line-height:.95;letter-spacing:-.01em;color:var(--light)}
   .hero h1 .dot{color:var(--orange)}
   .hero-role{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin:34px 0 40px;font-size:.76rem;letter-spacing:.22em;text-transform:uppercase}
@@ -260,6 +263,7 @@
     <circle cx="300" cy="562" r="3" fill="rgba(240,78,35,.8)" stroke="none"/>
   </svg>
   <div class="wrap hero-content">
+    <div class="status-pill">Available immediately · Job seeker visa · Open Germany-wide</div>
     <p class="hi">Hi, it's me</p>
     <h1>Srikanth<br>Uppiretla<span class="dot">.</span></h1>
     <div class="hero-role">
