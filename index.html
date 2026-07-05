@@ -128,6 +128,13 @@
   .proj-media.placeholder{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;background-image:linear-gradient(var(--line-cream) 1px,transparent 1px),linear-gradient(90deg,var(--line-cream) 1px,transparent 1px);background-size:34px 34px}
   .proj-media.placeholder svg{width:64px;height:64px;stroke:var(--ink-faint);opacity:.7}
   .proj-media.placeholder .ph-text{font-size:.62rem;letter-spacing:.26em;text-transform:uppercase;color:var(--ink-faint)}
+  .carousel{cursor:pointer}
+  .carousel img{display:none}
+  .carousel img.on{display:block}
+  .car-count{position:absolute;top:12px;right:14px;font-family:var(--mono);font-size:.62rem;font-weight:700;letter-spacing:.15em;background:rgba(255,255,255,.9);color:var(--ink-soft);padding:4px 11px;z-index:2}
+  .car-dots{position:absolute;bottom:12px;left:0;right:0;display:flex;gap:7px;justify-content:center;z-index:2}
+  .car-dots i{width:7px;height:7px;border-radius:50%;background:rgba(26,22,17,.22);transition:background .15s}
+  .car-dots i.on{background:var(--orange)}
   .proj-body{padding:30px 32px 34px;display:flex;flex-direction:column;gap:16px;flex:1}
   .proj-top{display:flex;justify-content:space-between;align-items:center}
   .proj-num{font-size:.8rem;font-weight:700;color:var(--orange);letter-spacing:.1em}
@@ -367,8 +374,13 @@
     <div class="work-grid">
 
       <article class="proj reveal">
-        <div class="proj-media">
-          <img src="img/interstage.jpg" alt="Stiffened CFRP interstage — CAD model and first buckling mode shape from eigenvalue FEM analysis" loading="lazy">
+        <div class="proj-media carousel" title="Click for more views">
+          <img class="on" src="img/interstage-1.jpg" alt="CAD model of the stiffened CFRP interstage shell" loading="lazy">
+          <img src="img/interstage-2.jpg" alt="Close-up of external axial stringers on the shell surface" loading="lazy">
+          <img src="img/interstage-3.jpg" alt="Close-up of internal T-stringers, Design B" loading="lazy">
+          <img src="img/interstage-4.jpg" alt="First buckling mode shape from eigenvalue FEM analysis" loading="lazy">
+          <span class="car-count">1 / 4</span>
+          <div class="car-dots"></div>
         </div>
         <div class="proj-body">
           <div class="proj-top"><span class="proj-num">01</span>
@@ -385,8 +397,11 @@
       </article>
 
       <article class="proj reveal">
-        <div class="proj-media">
-          <img src="img/assembly-fem.jpg" alt="Annotated full-scale FEM model of the launch vehicle interface assembly and its nonlinear deformation result" loading="lazy">
+        <div class="proj-media carousel" title="Click for more views">
+          <img class="on" src="img/assembly-1.jpg" alt="Annotated full-scale FEM model of the launch vehicle interface assembly" loading="lazy">
+          <img src="img/assembly-2.jpg" alt="Nonlinear collapse deformation of the full interstage assembly" loading="lazy">
+          <span class="car-count">1 / 2</span>
+          <div class="car-dots"></div>
         </div>
         <div class="proj-body">
           <div class="proj-top"><span class="proj-num">02</span>
@@ -403,8 +418,12 @@
       </article>
 
       <article class="proj reveal">
-        <div class="proj-media">
-          <img src="img/nonlinear-buckling.jpg" alt="FEM mesh of the stiffened composite shell and nonlinear post-buckling deformation pattern" loading="lazy">
+        <div class="proj-media carousel" title="Click for more views">
+          <img class="on" src="img/nlb-1.jpg" alt="Finite element mesh of the stiffened composite shell" loading="lazy">
+          <img src="img/nlb-2.jpg" alt="Nonlinear post-buckling deformation pattern, Design A" loading="lazy">
+          <img src="img/nlb-3.jpg" alt="Nonlinear post-buckling deformation pattern, Design B" loading="lazy">
+          <span class="car-count">1 / 3</span>
+          <div class="car-dots"></div>
         </div>
         <div class="proj-body">
           <div class="proj-top"><span class="proj-num">03</span>
@@ -655,6 +674,21 @@
     { threshold: .1 }
   );
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+  // project image carousels — click to advance
+  document.querySelectorAll('.carousel').forEach(car => {
+    const imgs = [...car.querySelectorAll('img')];
+    const dots = car.querySelector('.car-dots');
+    const count = car.querySelector('.car-count');
+    imgs.forEach((_, i) => { const d = document.createElement('i'); if (i === 0) d.className = 'on'; dots.appendChild(d); });
+    let idx = 0;
+    car.addEventListener('click', () => {
+      idx = (idx + 1) % imgs.length;
+      imgs.forEach((im, i) => im.classList.toggle('on', i === idx));
+      [...dots.children].forEach((d, i) => d.classList.toggle('on', i === idx));
+      count.textContent = (idx + 1) + ' / ' + imgs.length;
+    });
+  });
 
   // mobile nav
   const toggle = document.getElementById('navToggle'), links = document.getElementById('navLinks');
