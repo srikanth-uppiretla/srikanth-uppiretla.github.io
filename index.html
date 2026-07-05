@@ -119,7 +119,10 @@
 
   /* ── Work (cream) ────────────────────── */
   #work{background:var(--cream);color:var(--ink);padding:130px 0}
-  .work-note{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-faint);margin:-40px 0 60px}
+  .work-note{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-faint);margin:-40px 0 30px}
+  .work-sub{display:flex;align-items:center;gap:16px;font-family:var(--mono);font-size:.72rem;font-weight:700;letter-spacing:.26em;text-transform:uppercase;color:var(--ink);margin:70px 0 30px}
+  .work-sub::before{content:"";width:46px;height:2px;background:var(--orange)}
+  .work-sub span{color:var(--ink-faint);font-weight:500}
   .work-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:34px}
   .proj{background:var(--light);border:1px solid var(--line-cream);display:flex;flex-direction:column;transition:transform .2s ease,box-shadow .2s ease}
   .proj:hover{transform:translateY(-5px);box-shadow:0 18px 44px rgba(26,22,17,.12)}
@@ -371,6 +374,8 @@
     <p class="label">Selected work</p>
     <h2>Structures built<br>to take the <span class="hl">load</span>.</h2>
     <p class="work-note">Renders and model views are being added as projects are cleared for publication.</p>
+
+    <p class="work-sub">FEA <span>— Structural Simulation · FEMAP / NX Nastran</span></p>
     <div class="work-grid">
 
       <article class="proj reveal">
@@ -454,40 +459,10 @@
           <div class="proj-foot"><b>Internship</b> — Rocket Factory Augsburg · 2024</div>
         </div>
       </article>
+    </div>
 
-      <article class="proj reveal">
-        <div class="proj-media placeholder">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1"><path d="M12 2c2.5 3 3.5 6 3.5 9.5S14.5 18 12 21c-2.5-3-3.5-6-3.5-9.5S9.5 5 12 2z"/><path d="M8.5 14h7" opacity=".5"/><path d="M9 9.5h6" opacity=".5"/></svg>
-          <span class="ph-text">Fabrication photos — coming soon</span>
-        </div>
-        <div class="proj-body">
-          <div class="proj-top"><span class="proj-num">05</span>
-            <div class="proj-tags"><span>Filament winding</span><span>CFRP</span><span>Hands-on</span></div></div>
-          <h3>Filament-Wound Rocket Outer Shell</h3>
-          <p>Design and fabrication of a filament-wound CFRP outer shell for a sounding rocket:
-          winding angles, mandrel geometry and ply layup connected to a manufacturable laminate.
-          Supervised fabrication, curing and quality control; FEM under internal pressurization
-          fed improvements back into the laminate design.</p>
-          <div class="proj-foot"><b>Composite Structural Engineer</b> — ASTRA e.V. · 2022–2023</div>
-        </div>
-      </article>
-
-      <article class="proj reveal">
-        <div class="proj-media placeholder">
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="1"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4" opacity=".6"/><circle cx="12" cy="12" r="8" stroke-dasharray="3 4" opacity=".5"/></svg>
-          <span class="ph-text">Concept views — coming soon</span>
-        </div>
-        <div class="proj-body">
-          <div class="proj-top"><span class="proj-num">06</span>
-            <div class="proj-tags"><span>Systems</span><span>Mission concept</span><span>DLR</span></div></div>
-          <h3>Main Belt Comet Micro-Lander — System Study</h3>
-          <p>Baseline concept selection for a small-body lander carrying a model payload.
-          Concept evaluation structured around feasibility, practical implementation and
-          engineering trade-offs from a systems-engineering perspective, with technical
-          documentation of the decision logic.</p>
-          <div class="proj-foot"><b>DLR / University Project</b> · 2023</div>
-        </div>
-      </article>
+    <p class="work-sub">CAD <span>— Design &amp; Prototyping · CATIA / NX / Inventor</span></p>
+    <div class="work-grid">
 
       <article class="proj reveal">
         <div class="proj-media placeholder">
@@ -495,7 +470,7 @@
           <span class="ph-text">Prototype photos — coming soon</span>
         </div>
         <div class="proj-body">
-          <div class="proj-top"><span class="proj-num">07</span>
+          <div class="proj-top"><span class="proj-num">05</span>
             <div class="proj-tags"><span>Design</span><span>Fabrication</span><span>Prototype</span></div></div>
           <h3>Four-Wheel Steering — Working Prototype</h3>
           <p>Bachelor project: designed and built a working prototype with front-, rear- and
@@ -512,13 +487,51 @@
           <span class="ph-text">CATIA models — in progress</span>
         </div>
         <div class="proj-body">
-          <div class="proj-top"><span class="proj-num">08</span>
+          <div class="proj-top"><span class="proj-num">06</span>
             <div class="proj-tags"><span>CATIA</span><span>Assemblies</span><span>Drafting</span></div></div>
           <h3>CAD Design Portfolio — CATIA Projects</h3>
           <p>A growing set of CATIA part and assembly projects — parametric modelling, fully
           constrained multi-part assemblies and DIN/ISO manufacturing drawings. Models and
           renders will appear here as the current CAD course wraps up.</p>
           <div class="proj-foot"><b>Ongoing</b> — models coming soon</div>
+        </div>
+      </article>
+    </div>
+
+    <p class="work-sub">Other <span>— Composites &amp; Space Systems</span></p>
+    <div class="work-grid">
+
+      <article class="proj reveal">
+        <div class="proj-media placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1"><path d="M12 2c2.5 3 3.5 6 3.5 9.5S14.5 18 12 21c-2.5-3-3.5-6-3.5-9.5S9.5 5 12 2z"/><path d="M8.5 14h7" opacity=".5"/><path d="M9 9.5h6" opacity=".5"/></svg>
+          <span class="ph-text">Fabrication photos — coming soon</span>
+        </div>
+        <div class="proj-body">
+          <div class="proj-top"><span class="proj-num">07</span>
+            <div class="proj-tags"><span>Filament winding</span><span>CFRP</span><span>Hands-on</span></div></div>
+          <h3>Filament-Wound Rocket Outer Shell</h3>
+          <p>Design and fabrication of a filament-wound CFRP outer shell for a sounding rocket:
+          winding angles, mandrel geometry and ply layup connected to a manufacturable laminate.
+          Supervised fabrication, curing and quality control; FEM under internal pressurization
+          fed improvements back into the laminate design.</p>
+          <div class="proj-foot"><b>Composite Structural Engineer</b> — ASTRA e.V. · 2022–2023</div>
+        </div>
+      </article>
+
+      <article class="proj reveal">
+        <div class="proj-media placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4" opacity=".6"/><circle cx="12" cy="12" r="8" stroke-dasharray="3 4" opacity=".5"/></svg>
+          <span class="ph-text">Concept views — coming soon</span>
+        </div>
+        <div class="proj-body">
+          <div class="proj-top"><span class="proj-num">08</span>
+            <div class="proj-tags"><span>Systems</span><span>Mission concept</span><span>DLR</span></div></div>
+          <h3>Main Belt Comet Micro-Lander — System Study</h3>
+          <p>Baseline concept selection for a small-body lander carrying a model payload.
+          Concept evaluation structured around feasibility, practical implementation and
+          engineering trade-offs from a systems-engineering perspective, with technical
+          documentation of the decision logic.</p>
+          <div class="proj-foot"><b>DLR / University Project</b> · 2023</div>
         </div>
       </article>
 
@@ -675,19 +688,24 @@
   );
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-  // project image carousels — click to advance
+  // project image carousels — auto-advance every 4s, click to skip ahead
   document.querySelectorAll('.carousel').forEach(car => {
     const imgs = [...car.querySelectorAll('img')];
     const dots = car.querySelector('.car-dots');
     const count = car.querySelector('.car-count');
     imgs.forEach((_, i) => { const d = document.createElement('i'); if (i === 0) d.className = 'on'; dots.appendChild(d); });
-    let idx = 0;
-    car.addEventListener('click', () => {
-      idx = (idx + 1) % imgs.length;
+    let idx = 0, timer;
+    const show = n => {
+      idx = (n + imgs.length) % imgs.length;
       imgs.forEach((im, i) => im.classList.toggle('on', i === idx));
       [...dots.children].forEach((d, i) => d.classList.toggle('on', i === idx));
       count.textContent = (idx + 1) + ' / ' + imgs.length;
-    });
+    };
+    const arm = () => { clearInterval(timer); timer = setInterval(() => show(idx + 1), 4000); };
+    car.addEventListener('click', () => { show(idx + 1); arm(); });
+    car.addEventListener('mouseenter', () => clearInterval(timer));
+    car.addEventListener('mouseleave', arm);
+    arm();
   });
 
   // mobile nav
