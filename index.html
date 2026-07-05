@@ -60,8 +60,11 @@
   .brand{font-family:var(--serif);font-weight:700;font-size:1.15rem;color:var(--ink)}
   .brand span{color:var(--orange)}
   .nav-links{display:flex;gap:8px;list-style:none;align-items:center}
-  .nav-links a{font-size:.68rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft);padding:8px 12px;transition:color .15s}
+  .nav-links a{font-size:.68rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft);padding:8px 12px;transition:color .25s ease;position:relative}
   .nav-links a:hover{color:var(--orange)}
+  .nav-links a:not(.nav-cta)::after{content:"";position:absolute;left:12px;right:12px;bottom:1px;height:2px;background:var(--orange);transform:scaleX(0);transform-origin:left;transition:transform .35s cubic-bezier(.22,1,.36,1)}
+  .nav-links a.active{color:var(--orange);font-weight:700}
+  .nav-links a.active::after{transform:scaleX(1)}
   .nav-cta{background:var(--orange);color:#fff !important;padding:10px 18px !important;font-weight:700;box-shadow:0 0 18px rgba(240,78,35,.4)}
   .nav-toggle{display:none;background:none;border:1px solid var(--line-cream);color:var(--ink);font-family:var(--mono);font-size:.7rem;letter-spacing:.15em;padding:8px 14px;cursor:pointer}
 
@@ -74,21 +77,20 @@
   .status-pill{display:inline-flex;align-items:center;gap:10px;font-size:.66rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:#7ddba3;border:1px solid rgba(125,219,163,.35);background:rgba(125,219,163,.07);padding:9px 18px;margin-bottom:26px}
   .status-pill::before{content:"";width:8px;height:8px;border-radius:50%;background:#2ecc71;box-shadow:0 0 10px rgba(46,204,113,.8);animation:pulse 2s ease infinite}
   @keyframes pulse{0%,100%{opacity:1}50%{opacity:.45}}
-  .hero-grid{display:grid;grid-template-columns:1.55fr 1fr;gap:60px;align-items:center}
-  .hero h1{font-family:var(--serif);font-weight:500;font-size:clamp(3.2rem,8vw,6.6rem);line-height:.97;letter-spacing:-.01em;color:var(--light)}
+  .hero-grid{display:grid;grid-template-columns:1.6fr 1fr;gap:70px;align-items:center}
+  .hero h1{font-family:var(--serif);font-weight:500;font-size:clamp(3.6rem,9vw,7.4rem);line-height:.96;letter-spacing:-.01em;color:var(--light)}
   .hero h1 .dot{color:var(--orange)}
   .hero-role{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin:30px 0 26px;font-size:.76rem;letter-spacing:.22em;text-transform:uppercase}
   .hero-role .dia{color:var(--orange);font-size:.7rem}
   .hero-role .r1{color:var(--orange);font-weight:700}
   .hero-role .r2{color:var(--light-soft)}
-  .hero-about{font-family:var(--serif);font-size:1.08rem;line-height:1.75;color:var(--light-soft);max-width:580px;margin:0 0 34px}
+  .hero-cta{display:flex;gap:16px;flex-wrap:wrap;margin-top:38px}
+  .hero-photo{position:relative;max-width:300px;justify-self:end}
+  .hero-photo .frame{position:relative;z-index:0}
+  .hero-photo .frame::before{content:"";position:absolute;inset:0;border:2px solid var(--orange);transform:translate(16px,16px);z-index:-1;opacity:.85}
+  .hero-photo img{width:100%;border:1px solid rgba(255,255,255,.28);padding:8px;background:rgba(255,255,255,.04);filter:grayscale(8%)}
+  .hero-about{font-family:var(--serif);font-size:.98rem;line-height:1.75;color:var(--light-soft);margin-top:34px}
   .hero-about strong{color:var(--light);font-weight:600}
-  .hero-cta{display:flex;gap:16px;flex-wrap:wrap}
-  .hero-photo{position:relative;max-width:380px;justify-self:end}
-  .hero-photo .frame{position:relative}
-  .hero-photo img{width:100%;border:1px solid rgba(255,255,255,.18);filter:grayscale(10%)}
-  .hero-photo .frame::after{content:"";position:absolute;left:-13px;bottom:-13px;width:96px;height:96px;border-left:3px solid var(--orange);border-bottom:3px solid var(--orange)}
-  .hero-photo .photo-cap{margin-top:24px;font-size:.64rem;letter-spacing:.22em;text-transform:uppercase;color:var(--light-faint)}
   .hero-meta{position:relative;z-index:2;display:grid;grid-template-columns:repeat(3,1fr);gap:36px;margin-top:110px}
   .hero-meta .m-label{font-size:.66rem;letter-spacing:.26em;text-transform:uppercase;color:var(--light-faint);margin-bottom:8px}
   .hero-meta .m-value{font-family:var(--serif);font-size:1.28rem;color:var(--light);line-height:1.35}
@@ -278,14 +280,6 @@
           <span class="dia">◆</span><span class="r1">Structural Analysis Engineer</span>
           <span class="r2">Composite Structures · FEM · Lightweight Design</span>
         </div>
-        <p class="hero-about">
-          I work on <strong>composite launch vehicle structures</strong> — finite element
-          analysis, buckling assessment and design optimization of CFRP shells that have to
-          be as light as physics allows. M.Sc. Space Engineering at the
-          <strong>University of Bremen</strong>, thesis at <strong>Rocket Factory
-          Augsburg</strong>, two years of hands-on composite work with
-          <strong>ASTRA e.V.</strong> — and a B.Sc. in Mechanical Engineering underneath it all.
-        </p>
         <div class="hero-cta">
           <a class="btn btn-fill" href="cv/Srikanth_Uppiretla_CV.pdf" download>↓ Download CV</a>
           <a class="btn btn-line" href="cv/Srikanth_Uppiretla_CV.pdf" target="_blank" rel="noopener">◉ View CV</a>
@@ -294,7 +288,13 @@
       </div>
       <div class="hero-photo">
         <div class="frame"><img src="img/photo.jpg" alt="Srikanth Uppiretla"></div>
-        <p class="photo-cap">Bremen, Germany · German B2 · Open to relocate</p>
+        <p class="hero-about">
+          I work on <strong>composite launch vehicle structures</strong> — finite element
+          analysis, buckling assessment and design optimization of CFRP shells that have to
+          be as light as physics allows. M.Sc. Space Engineering at the
+          <strong>University of Bremen</strong>, thesis at <strong>Rocket Factory
+          Augsburg</strong>, hands-on composite work with <strong>ASTRA e.V.</strong>
+        </p>
       </div>
     </div>
   </div>
@@ -686,6 +686,22 @@
     car.addEventListener('mouseenter', () => clearInterval(timer));
     car.addEventListener('mouseleave', arm);
     arm();
+  });
+
+  // scroll-spy — highlight the nav link of the section in view
+  const spyLinks = {};
+  document.querySelectorAll('.nav-links a:not(.nav-cta)').forEach(a => spyLinks[a.getAttribute('href')] = a);
+  const spy = new IntersectionObserver(es => {
+    es.forEach(e => {
+      if (!e.isIntersecting) return;
+      document.querySelectorAll('.nav-links a.active').forEach(x => x.classList.remove('active'));
+      const link = spyLinks['#' + e.target.id];
+      if (link) link.classList.add('active');
+    });
+  }, { rootMargin: '-40% 0px -55% 0px' });
+  ['top', 'skills', 'work', 'experience', 'education', 'contact'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) spy.observe(el);
   });
 
   // mobile nav
