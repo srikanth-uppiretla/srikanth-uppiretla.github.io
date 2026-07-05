@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Srikanth Uppiretla — Mechanical Design Engineer | CAD &amp; Structural Analysis</title>
+<meta name="description" content="Portfolio of Srikanth Uppiretla — Mechanical design engineer specializing in CATIA V5 design and structural analysis. Based in Bremen, Germany.">
+<style>
+  :root{
+    --ink:#16212b;
+    --ink-soft:#4a5a68;
+    --ink-faint:#7d8b97;
+    --accent:#0f4c81;
+    --accent-strong:#0a3a63;
+    --accent-tint:#eaf1f8;
+    --bg:#ffffff;
+    --bg-alt:#f6f8fa;
+    --line:#e3e8ed;
+    --radius:14px;
+    --shadow:0 2px 8px rgba(22,33,43,.06);
+    --shadow-hover:0 10px 30px rgba(15,76,129,.14);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:"Segoe UI",Inter,-apple-system,"Helvetica Neue",Arial,sans-serif;
+    color:var(--ink);background:var(--bg);line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--accent);text-decoration:none}
+  img{max-width:100%;display:block}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+  section{padding:88px 0}
+  .kicker{
+    display:inline-block;font-size:.78rem;font-weight:700;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--accent);margin-bottom:10px;
+  }
+  h2{font-size:2rem;letter-spacing:-.02em;margin-bottom:14px}
+  .lede{color:var(--ink-soft);max-width:640px;margin-bottom:44px}
+
+  /* ── Nav ─────────────────────────────── */
+  nav{
+    position:sticky;top:0;z-index:50;background:rgba(255,255,255,.88);
+    backdrop-filter:blur(10px);border-bottom:1px solid var(--line);
+  }
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:62px}
+  .brand{font-weight:800;letter-spacing:-.02em;color:var(--ink);font-size:1.05rem}
+  .brand span{color:var(--accent)}
+  .nav-links{display:flex;gap:26px;align-items:center;list-style:none}
+  .nav-links a{color:var(--ink-soft);font-size:.92rem;font-weight:600}
+  .nav-links a:hover{color:var(--accent)}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:.92rem;
+    padding:11px 20px;border-radius:10px;border:1.5px solid transparent;
+    transition:all .18s ease;cursor:pointer;
+  }
+  .btn-primary{background:var(--accent);color:#fff}
+  .btn-primary:hover{background:var(--accent-strong);transform:translateY(-1px)}
+  .btn-ghost{border-color:var(--line);color:var(--ink)}
+  .btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
+  .btn-sm{padding:8px 16px;font-size:.85rem}
+
+  /* ── Hero ────────────────────────────── */
+  header.hero{
+    padding:96px 0 84px;
+    background:
+      radial-gradient(1100px 500px at 85% -10%, var(--accent-tint), transparent 60%),
+      linear-gradient(180deg,#fbfcfd, #fff);
+    border-bottom:1px solid var(--line);
+    position:relative;overflow:hidden;
+  }
+  .hero-grid-bg{
+    position:absolute;inset:0;pointer-events:none;opacity:.5;
+    background-image:
+      linear-gradient(var(--line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size:56px 56px;
+    mask-image:radial-gradient(720px 420px at 78% 30%, #000 0%, transparent 70%);
+    -webkit-mask-image:radial-gradient(720px 420px at 78% 30%, #000 0%, transparent 70%);
+  }
+  .hero-inner{position:relative;display:grid;grid-template-columns:1.5fr 1fr;gap:48px;align-items:center}
+  .status-pill{
+    display:inline-flex;align-items:center;gap:8px;font-size:.82rem;font-weight:600;
+    color:#0a6b3d;background:#e7f6ee;border:1px solid #c4e8d3;
+    padding:6px 14px;border-radius:999px;margin-bottom:22px;
+  }
+  .status-pill::before{content:"";width:8px;height:8px;border-radius:50%;background:#12a45c}
+  h1{font-size:clamp(2.2rem,5vw,3.3rem);line-height:1.08;letter-spacing:-.03em;margin-bottom:16px}
+  h1 em{font-style:normal;color:var(--accent)}
+  .hero-sub{font-size:1.13rem;color:var(--ink-soft);max-width:560px;margin-bottom:30px}
+  .hero-cta{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:34px}
+  .hero-meta{display:flex;gap:26px;flex-wrap:wrap;color:var(--ink-faint);font-size:.9rem;font-weight:600}
+  .hero-meta span{display:inline-flex;align-items:center;gap:7px}
+  .hero-visual{
+    aspect-ratio:1/1;border-radius:20px;background:linear-gradient(145deg,#0f4c81,#12608f 55%,#1a7aa8);
+    display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow-hover);
+    position:relative;overflow:hidden;
+  }
+  .hero-visual svg{width:72%;height:72%}
+
+  /* ── About ───────────────────────────── */
+  .about-grid{display:grid;grid-template-columns:1fr 1.7fr;gap:52px;align-items:start}
+  .headshot{
+    aspect-ratio:4/5;border-radius:var(--radius);background:var(--bg-alt);
+    border:1px dashed var(--line);display:flex;flex-direction:column;gap:10px;
+    align-items:center;justify-content:center;color:var(--ink-faint);
+    font-size:.88rem;text-align:center;padding:20px;
+  }
+  .about-text p{margin-bottom:16px;color:var(--ink-soft)}
+  .about-text strong{color:var(--ink)}
+  .fact-row{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px}
+  .fact{
+    background:var(--bg-alt);border:1px solid var(--line);border-radius:var(--radius);
+    padding:18px 20px;
+  }
+  .fact b{display:block;font-size:1.3rem;letter-spacing:-.02em;color:var(--accent)}
+  .fact small{color:var(--ink-faint);font-weight:600;font-size:.8rem}
+
+  /* ── Skills ──────────────────────────── */
+  #skills{background:var(--bg-alt);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+  .skill-card{
+    background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+    padding:26px;box-shadow:var(--shadow);
+  }
+  .skill-card h3{font-size:1rem;margin-bottom:14px;display:flex;align-items:center;gap:10px}
+  .skill-card h3 .dot{width:10px;height:10px;border-radius:3px;background:var(--accent)}
+  .tags{display:flex;flex-wrap:wrap;gap:8px}
+  .tag{
+    font-size:.82rem;font-weight:600;color:var(--accent-strong);background:var(--accent-tint);
+    padding:5px 12px;border-radius:999px;border:1px solid #d5e3f0;
+  }
+  .lang-row{display:flex;justify-content:space-between;align-items:center;padding:8px 0;border-bottom:1px solid var(--line);font-size:.92rem}
+  .lang-row:last-child{border-bottom:0}
+  .lang-row b{font-weight:700}
+  .lang-row span{color:var(--ink-faint);font-weight:600;font-size:.82rem}
+
+  /* ── Projects ────────────────────────── */
+  .proj-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:26px}
+  .proj-card{
+    background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+    overflow:hidden;box-shadow:var(--shadow);transition:all .2s ease;
+    display:flex;flex-direction:column;
+  }
+  .proj-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-hover);border-color:#c8d8e6}
+  .proj-thumb{aspect-ratio:16/9;background:linear-gradient(135deg,#eef3f8,#e2ebf3);position:relative;display:flex;align-items:center;justify-content:center}
+  .proj-thumb svg{width:38%;height:38%;opacity:.55}
+  .proj-thumb .replace-hint{
+    position:absolute;bottom:10px;right:12px;font-size:.7rem;font-weight:700;
+    color:var(--ink-faint);background:rgba(255,255,255,.85);padding:3px 10px;border-radius:999px;
+  }
+  .proj-body{padding:24px 26px 26px;display:flex;flex-direction:column;gap:12px;flex:1}
+  .proj-body h3{font-size:1.15rem;letter-spacing:-.01em}
+  .proj-body p{color:var(--ink-soft);font-size:.94rem;flex:1}
+  .proj-stats{display:flex;gap:18px;font-size:.82rem;color:var(--ink-faint);font-weight:600}
+  .proj-link{font-weight:700;font-size:.9rem}
+  .proj-link::after{content:" →"}
+
+  /* ── Thesis / FEA ────────────────────── */
+  #analysis{background:linear-gradient(180deg,#0e1c2a,#132a40);color:#e8eef4}
+  #analysis .kicker{color:#7fb4dd}
+  #analysis h2{color:#fff}
+  #analysis .lede{color:#a8bccb}
+  .fea-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:44px;align-items:start}
+  .fea-steps{display:flex;flex-direction:column;gap:0}
+  .fea-step{display:flex;gap:18px;padding:20px 0;border-bottom:1px solid rgba(255,255,255,.1)}
+  .fea-step:last-child{border-bottom:0}
+  .fea-num{
+    flex:0 0 38px;height:38px;border-radius:10px;background:rgba(127,180,221,.15);
+    color:#7fb4dd;font-weight:800;display:flex;align-items:center;justify-content:center;font-size:.95rem;
+  }
+  .fea-step h4{font-size:1rem;margin-bottom:4px;color:#fff}
+  .fea-step p{font-size:.9rem;color:#a8bccb}
+  .fea-visual{
+    border-radius:var(--radius);background:rgba(255,255,255,.05);
+    border:1px dashed rgba(255,255,255,.25);aspect-ratio:4/3;
+    display:flex;flex-direction:column;gap:10px;align-items:center;justify-content:center;
+    color:#8fa8bb;font-size:.88rem;text-align:center;padding:24px;
+  }
+  .fea-note{
+    margin-top:22px;font-size:.82rem;color:#8fa8bb;background:rgba(255,255,255,.05);
+    border-radius:10px;padding:14px 18px;border:1px solid rgba(255,255,255,.08);
+  }
+
+  /* ── Timeline ────────────────────────── */
+  .timeline{position:relative;padding-left:30px;max-width:700px}
+  .timeline::before{content:"";position:absolute;left:8px;top:6px;bottom:6px;width:2px;background:var(--line)}
+  .tl-item{position:relative;padding-bottom:36px}
+  .tl-item:last-child{padding-bottom:0}
+  .tl-item::before{
+    content:"";position:absolute;left:-30px;top:6px;width:18px;height:18px;border-radius:50%;
+    background:#fff;border:4px solid var(--accent);
+  }
+  .tl-date{font-size:.8rem;font-weight:700;color:var(--accent);letter-spacing:.06em;text-transform:uppercase}
+  .tl-item h3{font-size:1.1rem;margin:4px 0 2px}
+  .tl-item .org{color:var(--ink-faint);font-weight:600;font-size:.9rem;margin-bottom:6px}
+  .tl-item p{color:var(--ink-soft);font-size:.94rem}
+
+  /* ── Contact ─────────────────────────── */
+  #contact{background:var(--bg-alt);border-top:1px solid var(--line);text-align:center}
+  #contact .lede{margin:0 auto 36px}
+  .contact-row{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+  footer{padding:28px 0;text-align:center;color:var(--ink-faint);font-size:.82rem;border-top:1px solid var(--line)}
+
+  /* ── Reveal animation ────────────────── */
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .55s ease,transform .55s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  /* ── Responsive ──────────────────────── */
+  @media (max-width:840px){
+    .hero-inner{grid-template-columns:1fr}
+    .hero-visual{max-width:340px;display:none}
+    .about-grid{grid-template-columns:1fr}
+    .headshot{max-width:280px}
+    .proj-grid{grid-template-columns:1fr}
+    .fea-grid{grid-template-columns:1fr}
+    .fact-row{grid-template-columns:1fr 1fr}
+    .nav-links{display:none}
+    section{padding:64px 0}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top">S<span>.</span>Uppiretla</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">CAD Projects</a></li>
+      <li><a href="#analysis">Structural Analysis</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a class="btn btn-primary btn-sm" href="mailto:srikanth.u1111@gmail.com">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="hero-grid-bg"></div>
+  <div class="wrap hero-inner">
+    <div>
+      <span class="status-pill">Open to opportunities in Germany</span>
+      <h1>Srikanth Uppiretla<br><em>Mechanical Design&nbsp;Engineer</em></h1>
+      <p class="hero-sub">
+        CAD design in <strong>CATIA V5</strong> and structural analysis — from first sketch to
+        fully constrained assemblies and manufacturing drawings. Master's thesis in
+        satellite engineering at ZARM, University of Bremen.
+      </p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#projects">View Projects</a>
+        <a class="btn btn-ghost" href="mailto:srikanth.u1111@gmail.com">✉ &nbsp;Get in Touch</a>
+      </div>
+      <div class="hero-meta">
+        <span>📍 Bremen, Germany</span>
+        <span>🎓 M.Sc. (University of Bremen)</span>
+        <span>🛠 CATIA V5 · FEM</span>
+      </div>
+    </div>
+    <div class="hero-visual" aria-hidden="true">
+      <!-- Simple isometric wireframe cube motif -->
+      <svg viewBox="0 0 200 200" fill="none" stroke="rgba(255,255,255,.85)" stroke-width="2">
+        <polygon points="100,20 170,55 170,135 100,170 30,135 30,55" stroke-width="2.5"/>
+        <polyline points="30,55 100,90 170,55"/>
+        <line x1="100" y1="90" x2="100" y2="170"/>
+        <polyline points="65,37.5 65,117.5 100,135" stroke-dasharray="4 5" opacity=".6"/>
+        <polyline points="135,37.5 135,117.5 100,135" stroke-dasharray="4 5" opacity=".6"/>
+        <circle cx="100" cy="90" r="4" fill="rgba(255,255,255,.9)" stroke="none"/>
+        <circle cx="170" cy="55" r="4" fill="rgba(255,255,255,.9)" stroke="none"/>
+        <circle cx="30" cy="55" r="4" fill="rgba(255,255,255,.9)" stroke="none"/>
+      </svg>
+    </div>
+  </div>
+</header>
+
+<section id="about">
+  <div class="wrap about-grid">
+    <div class="headshot reveal">
+      <svg width="54" height="54" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 3.5-6.5 8-6.5s8 2.5 8 6.5"/></svg>
+      <span><b>Your photo here</b><br>Replace with a professional headshot<br><code>photo.jpg</code></span>
+    </div>
+    <div class="about-text reveal">
+      <span class="kicker">About Me</span>
+      <h2>Design intent first, geometry second.</h2>
+      <p>
+        I am a mechanical engineer based in <strong>Bremen, Germany</strong>, currently completing my
+        Master's degree at the University of Bremen. My thesis work at
+        <strong>ZARM (Center of Applied Space Technology and Microgravity)</strong> combines hands-on
+        hardware development with analysis — an environment where a design is only finished
+        once it survives the load case.
+      </p>
+      <p>
+        In parallel, I design mechanical components and multi-part assemblies in
+        <strong>CATIA V5</strong>: parametric part modelling, fully constrained assemblies, and
+        production-ready 2D drawings to DIN/ISO standards. Every project on this page follows the same
+        discipline — a stated design intent, clean feature trees, and a drawing package at the end.
+      </p>
+      <p><!-- EDIT: adjust the sentence below to your actual availability -->
+        I am currently looking for engineering roles in design and development in Germany.
+      </p>
+      <div class="fact-row">
+        <div class="fact"><b>CATIA V5</b><small>Part · Assembly · Drafting</small></div>
+        <div class="fact"><b>FEM</b><small>Structural analysis</small></div>
+        <div class="fact"><b>DIN / ISO</b><small>Drawing standards</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <span class="kicker">Skills</span>
+    <h2>Toolbox</h2>
+    <p class="lede">The tools and methods behind the projects below.</p>
+    <div class="skills-grid">
+      <div class="skill-card reveal">
+        <h3><span class="dot"></span>CAD — CATIA V5</h3>
+        <div class="tags">
+          <span class="tag">Part Design</span><span class="tag">Assembly Design</span>
+          <span class="tag">Drafting</span><span class="tag">Sketcher</span>
+          <span class="tag">Exploded Views</span><span class="tag">BOM</span>
+        </div>
+      </div>
+      <div class="skill-card reveal">
+        <h3><span class="dot"></span>Simulation &amp; Analysis</h3>
+        <div class="tags">
+          <!-- EDIT: replace with your actual FEM tool(s), e.g. ANSYS / Abaqus / HyperWorks -->
+          <span class="tag">FEM Structural Analysis</span><span class="tag">Static &amp; Modal</span>
+          <span class="tag">Mesh Convergence</span><span class="tag">Result Interpretation</span>
+        </div>
+      </div>
+      <div class="skill-card reveal">
+        <h3><span class="dot"></span>Methods &amp; Standards</h3>
+        <div class="tags">
+          <span class="tag">GD&amp;T</span><span class="tag">DIN / ISO Drawings</span>
+          <span class="tag">Tolerancing</span><span class="tag">Design for Manufacturing</span>
+        </div>
+      </div>
+      <div class="skill-card reveal">
+        <h3><span class="dot"></span>Languages</h3>
+        <!-- EDIT: set your real language levels -->
+        <div class="lang-row"><b>English</b><span>Fluent (C1)</span></div>
+        <div class="lang-row"><b>German</b><span>B1 — actively improving</span></div>
+        <div class="lang-row"><b>Telugu</b><span>Native</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="wrap">
+    <span class="kicker">Portfolio</span>
+    <h2>CAD Projects</h2>
+    <p class="lede">
+      Selected design projects in CATIA V5. Each project includes a stated design intent,
+      a fully constrained assembly, and a 2D manufacturing drawing package.
+      Interactive 3D models are available on
+      <a href="https://grabcad.com/" target="_blank" rel="noopener">GrabCAD</a>. <!-- EDIT: your GrabCAD profile URL -->
+    </p>
+    <div class="proj-grid">
+
+      <!-- EDIT: Project 1 — replace title, text, stats and thumbnail image -->
+      <article class="proj-card reveal">
+        <div class="proj-thumb">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#0f4c81" stroke-width="1.2"><path d="M3 8l9-5 9 5v8l-9 5-9-5V8z"/><path d="M3 8l9 5 9-5M12 13v8"/></svg>
+          <span class="replace-hint">replace with render — img/project1.jpg</span>
+        </div>
+        <div class="proj-body">
+          <h3>Bench Vise Assembly</h3>
+          <p>
+            Multi-part functional assembly with lead-screw mechanism. Design intent: 100&nbsp;mm jaw
+            opening, standard DIN fasteners throughout. Motion checked with assembly constraints;
+            complete drawing package with BOM.
+          </p>
+          <div class="proj-stats"><span>⬡ 12 parts</span><span>📐 6 drawings</span><span>🔩 DIN hardware</span></div>
+          <a class="proj-link" href="https://grabcad.com/" target="_blank" rel="noopener">View 3D model</a>
+        </div>
+      </article>
+
+      <!-- EDIT: Project 2 -->
+      <article class="proj-card reveal">
+        <div class="proj-thumb">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#0f4c81" stroke-width="1.2"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M19.1 4.9L17 7M7 17l-2.1 2.1"/></svg>
+          <span class="replace-hint">replace with render — img/project2.jpg</span>
+        </div>
+        <div class="proj-body">
+          <h3>Gearbox Housing — Cast Part Design</h3>
+          <p>
+            Machined casting with draft angles, ribs, bosses and pattern features. Focus on
+            castability and post-machining datums; fully dimensioned drawing with GD&amp;T
+            on bearing seats.
+          </p>
+          <div class="proj-stats"><span>⬡ Complex part</span><span>📐 GD&amp;T</span><span>⚙ Draft analysis</span></div>
+          <a class="proj-link" href="https://grabcad.com/" target="_blank" rel="noopener">View 3D model</a>
+        </div>
+      </article>
+
+      <!-- EDIT: Project 3 -->
+      <article class="proj-card reveal">
+        <div class="proj-thumb">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#0f4c81" stroke-width="1.2"><path d="M14 3v5h5M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-5z"/><path d="M8 13h8M8 17h5"/></svg>
+          <span class="replace-hint">replace with render — img/project3.jpg</span>
+        </div>
+        <div class="proj-body">
+          <h3>Reverse Engineering — Measured Component</h3>
+          <p>
+            Real component measured with calipers and micrometer, rebuilt as a parametric model.
+            Demonstrates measurement practice, fit and tolerance selection, and validation
+            against the physical part.
+          </p>
+          <div class="proj-stats"><span>⬡ Parametric</span><span>📏 Measured</span><span>📐 Fits &amp; tolerances</span></div>
+          <a class="proj-link" href="https://grabcad.com/" target="_blank" rel="noopener">View 3D model</a>
+        </div>
+      </article>
+
+      <!-- EDIT: Project 4 -->
+      <article class="proj-card reveal">
+        <div class="proj-thumb">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#0f4c81" stroke-width="1.2"><path d="M2 12c3-7 8-7 10 0s7 7 10 0"/><path d="M2 17c3-7 8-7 10 0s7 7 10 0" opacity=".4"/></svg>
+          <span class="replace-hint">replace with render — img/project4.jpg</span>
+        </div>
+        <div class="proj-body">
+          <h3>Surfacing Study — Generative Shape Design</h3>
+          <p>
+            Freeform surface model built with GSD: multi-section surfaces, curvature-continuous
+            blends and a closed solid at the end. Focus on surface quality and clean
+            geometrical construction history.
+          </p>
+          <div class="proj-stats"><span>⬡ GSD</span><span>〰 Class-B surfaces</span><span>✓ Closed solid</span></div>
+          <a class="proj-link" href="https://grabcad.com/" target="_blank" rel="noopener">View 3D model</a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section id="analysis">
+  <div class="wrap">
+    <span class="kicker">Master's Thesis · ZARM, University of Bremen</span>
+    <h2>Structural Analysis Work</h2>
+    <p class="lede">
+      Analysis conducted as part of my Master's thesis at the Center of Applied Space
+      Technology and Microgravity (ZARM). The workflow below reflects how I approach
+      every structural problem — the setup and interpretation matter more than the contour plot.
+    </p>
+    <div class="fea-grid">
+      <div class="fea-steps">
+        <div class="fea-step reveal">
+          <div class="fea-num">01</div>
+          <div><h4>Problem definition &amp; load cases</h4>
+          <p>Requirements and load cases derived from the mission environment — quasi-static launch loads and the relevant safety factors.</p></div>
+        </div>
+        <div class="fea-step reveal">
+          <div class="fea-num">02</div>
+          <div><h4>Idealization &amp; boundary conditions</h4>
+          <p>Geometry simplification, material properties, contact and constraint definition — documented so the model is reproducible.</p></div>
+        </div>
+        <div class="fea-step reveal">
+          <div class="fea-num">03</div>
+          <div><h4>Meshing &amp; convergence</h4>
+          <p>Element selection and local refinement at critical features, with a mesh convergence check before trusting any result.</p></div>
+        </div>
+        <div class="fea-step reveal">
+          <div class="fea-num">04</div>
+          <div><h4>Results → design decisions</h4>
+          <p>Margins of safety against yield at critical locations, and the concrete design changes the analysis drove.</p></div>
+        </div>
+      </div>
+      <div>
+        <div class="fea-visual reveal">
+          <svg width="46" height="46" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="3" width="18" height="14" rx="2"/><path d="M7 13l3-4 3 2 4-5"/></svg>
+          <span><b>Result plot placeholder</b><br>Add a cleared analysis image here<br><code>img/fea-result.jpg</code></span>
+        </div>
+        <div class="fea-note">
+          Selected results are shown with the permission of my thesis supervisors; detailed
+          geometry and mission-specific data are omitted for confidentiality.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="education">
+  <div class="wrap">
+    <span class="kicker">Background</span>
+    <h2>Education &amp; Experience</h2>
+    <p class="lede">&nbsp;</p>
+    <div class="timeline">
+      <!-- EDIT: fill in your real dates, degree names and previous experience -->
+      <div class="tl-item reveal">
+        <span class="tl-date">2024 — Present</span>
+        <h3>M.Sc. — Master's Thesis at ZARM</h3>
+        <div class="org">University of Bremen · Bremen, Germany</div>
+        <p>Thesis in satellite engineering at the Center of Applied Space Technology and
+        Microgravity — hardware development, control software and structural analysis.</p>
+      </div>
+      <div class="tl-item reveal">
+        <span class="tl-date">Year — Year</span>
+        <h3>[Your M.Sc. program name]</h3>
+        <div class="org">University of Bremen</div>
+        <p>[One line on focus areas — e.g. space engineering, structural mechanics, systems engineering.]</p>
+      </div>
+      <div class="tl-item reveal">
+        <span class="tl-date">Year — Year</span>
+        <h3>[B.Tech / B.E. — Mechanical Engineering]</h3>
+        <div class="org">[University, Country]</div>
+        <p>[One line — final-year project or standout achievement.]</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <span class="kicker">Contact</span>
+    <h2>Let's talk.</h2>
+    <p class="lede">
+      I'm happy to walk through any project in detail — models, drawings and analysis
+      documentation are available on request.
+    </p>
+    <div class="contact-row">
+      <a class="btn btn-primary" href="mailto:srikanth.u1111@gmail.com">✉ &nbsp;srikanth.u1111@gmail.com</a>
+      <!-- EDIT: your real LinkedIn and GrabCAD URLs -->
+      <a class="btn btn-ghost" href="https://www.linkedin.com/" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn btn-ghost" href="https://grabcad.com/" target="_blank" rel="noopener">GrabCAD</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">© 2026 Srikanth Uppiretla · Built as a static page, hosted on GitHub Pages · Bremen, Germany</div>
+</footer>
+
+<script>
+  const io = new IntersectionObserver(
+    entries => entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }),
+    { threshold: 0.12 }
+  );
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
