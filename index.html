@@ -68,36 +68,30 @@
   /* ── Hero ────────────────────────────── */
   .hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden;padding:120px 0 60px}
   .hero-glow{position:absolute;inset:0;background:radial-gradient(900px 600px at 82% 62%,rgba(240,78,35,.14),transparent 65%);pointer-events:none}
-  .hero-art{position:absolute;right:-4%;top:50%;transform:translateY(-52%);width:min(52vw,760px);opacity:.5;pointer-events:none}
+  .hero-art{position:absolute;right:-8%;top:50%;transform:translateY(-52%);width:min(52vw,760px);opacity:.3;pointer-events:none}
   .hero-content{position:relative;z-index:2}
   .hero .hi{font-size:.78rem;letter-spacing:.34em;text-transform:uppercase;color:var(--orange);margin-bottom:28px}
   .status-pill{display:inline-flex;align-items:center;gap:10px;font-size:.66rem;font-weight:500;letter-spacing:.2em;text-transform:uppercase;color:#7ddba3;border:1px solid rgba(125,219,163,.35);background:rgba(125,219,163,.07);padding:9px 18px;margin-bottom:26px}
   .status-pill::before{content:"";width:8px;height:8px;border-radius:50%;background:#2ecc71;box-shadow:0 0 10px rgba(46,204,113,.8);animation:pulse 2s ease infinite}
   @keyframes pulse{0%,100%{opacity:1}50%{opacity:.45}}
-  .hero h1{font-family:var(--serif);font-weight:500;font-size:clamp(4rem,11vw,8.5rem);line-height:.95;letter-spacing:-.01em;color:var(--light)}
+  .hero-grid{display:grid;grid-template-columns:1.55fr 1fr;gap:60px;align-items:center}
+  .hero h1{font-family:var(--serif);font-weight:500;font-size:clamp(3.2rem,8vw,6.6rem);line-height:.97;letter-spacing:-.01em;color:var(--light)}
   .hero h1 .dot{color:var(--orange)}
-  .hero-role{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin:34px 0 40px;font-size:.76rem;letter-spacing:.22em;text-transform:uppercase}
+  .hero-role{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin:30px 0 26px;font-size:.76rem;letter-spacing:.22em;text-transform:uppercase}
   .hero-role .dia{color:var(--orange);font-size:.7rem}
   .hero-role .r1{color:var(--orange);font-weight:700}
   .hero-role .r2{color:var(--light-soft)}
+  .hero-about{font-family:var(--serif);font-size:1.08rem;line-height:1.75;color:var(--light-soft);max-width:580px;margin:0 0 34px}
+  .hero-about strong{color:var(--light);font-weight:600}
   .hero-cta{display:flex;gap:16px;flex-wrap:wrap}
+  .hero-photo{position:relative;max-width:380px;justify-self:end}
+  .hero-photo .frame{position:relative}
+  .hero-photo img{width:100%;border:1px solid rgba(255,255,255,.18);filter:grayscale(10%)}
+  .hero-photo .frame::after{content:"";position:absolute;left:-13px;bottom:-13px;width:96px;height:96px;border-left:3px solid var(--orange);border-bottom:3px solid var(--orange)}
+  .hero-photo .photo-cap{margin-top:24px;font-size:.64rem;letter-spacing:.22em;text-transform:uppercase;color:var(--light-faint)}
   .hero-meta{position:relative;z-index:2;display:grid;grid-template-columns:repeat(3,1fr);gap:36px;margin-top:110px}
   .hero-meta .m-label{font-size:.66rem;letter-spacing:.26em;text-transform:uppercase;color:var(--light-faint);margin-bottom:8px}
   .hero-meta .m-value{font-family:var(--serif);font-size:1.28rem;color:var(--light);line-height:1.35}
-
-  /* ── About (cream) ───────────────────── */
-  #about{background:var(--cream);color:var(--ink);padding:130px 0}
-  .about-grid{display:grid;grid-template-columns:1fr 1.55fr;gap:70px;align-items:start}
-  .photo-frame{position:relative}
-  .photo-frame img{width:100%;filter:grayscale(18%);border:1px solid var(--line-cream)}
-  .photo-frame::after{content:"";position:absolute;left:-14px;bottom:-14px;width:110px;height:110px;border-left:3px solid var(--orange);border-bottom:3px solid var(--orange)}
-  .photo-cap{margin-top:26px;font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-faint)}
-  .about-text p{font-family:var(--serif);font-size:1.22rem;line-height:1.7;color:var(--ink-soft);margin-bottom:22px}
-  .about-text p strong{color:var(--ink);font-weight:600}
-  .about-facts{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line-cream);border:1px solid var(--line-cream);margin-top:44px}
-  .fact{background:var(--cream);padding:22px 24px}
-  .fact .f-label{font-size:.64rem;letter-spacing:.24em;text-transform:uppercase;color:var(--orange);margin-bottom:6px}
-  .fact .f-value{font-family:var(--serif);font-size:1.05rem;color:var(--ink)}
 
   /* ── Skills (dark) ───────────────────── */
   #skills{background:var(--dark);padding:130px 0 0;position:relative}
@@ -218,8 +212,8 @@
     .work-grid{grid-template-columns:1fr}
     .edu-grid{grid-template-columns:1fr}
     .contact-grid{grid-template-columns:1fr}
-    .about-grid{grid-template-columns:1fr}
-    .photo-frame{max-width:320px}
+    .hero-grid{grid-template-columns:1fr;gap:40px}
+    .hero-photo{max-width:280px;justify-self:start}
     .hero-art{opacity:.22;width:90vw}
     .hero-meta{grid-template-columns:1fr;gap:22px;margin-top:70px}
     .tl-row{grid-template-columns:1fr;gap:8px}
@@ -244,7 +238,7 @@
     <a class="brand" href="#top">SU<span>.</span></a>
     <button class="nav-toggle" id="navToggle">MENU</button>
     <ul class="nav-links" id="navLinks">
-      <li><a href="#about">About</a></li>
+      <li><a href="#top">About</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#work">Work</a></li>
       <li><a href="#experience">Experience</a></li>
@@ -275,17 +269,33 @@
     <circle cx="300" cy="562" r="3" fill="rgba(240,78,35,.8)" stroke="none"/>
   </svg>
   <div class="wrap hero-content">
-    <div class="status-pill">Available immediately · Job seeker visa · Open Germany-wide</div>
-    <p class="hi">Hi, it's me</p>
-    <h1>Srikanth<br>Uppiretla<span class="dot">.</span></h1>
-    <div class="hero-role">
-      <span class="dia">◆</span><span class="r1">Structural Analysis Engineer</span>
-      <span class="r2">Composite Structures · FEM · Lightweight Design</span>
-    </div>
-    <div class="hero-cta">
-      <a class="btn btn-fill" href="cv/Srikanth_Uppiretla_CV.pdf" download>↓ Download CV</a>
-      <a class="btn btn-line" href="cv/Srikanth_Uppiretla_CV.pdf" target="_blank" rel="noopener">◉ View CV</a>
-      <a class="btn btn-line" href="#contact">Get in Touch →</a>
+    <div class="hero-grid">
+      <div>
+        <div class="status-pill">Available immediately · Job seeker visa · Open Germany-wide</div>
+        <p class="hi">Hi, it's me</p>
+        <h1>Srikanth<br>Uppiretla<span class="dot">.</span></h1>
+        <div class="hero-role">
+          <span class="dia">◆</span><span class="r1">Structural Analysis Engineer</span>
+          <span class="r2">Composite Structures · FEM · Lightweight Design</span>
+        </div>
+        <p class="hero-about">
+          I work on <strong>composite launch vehicle structures</strong> — finite element
+          analysis, buckling assessment and design optimization of CFRP shells that have to
+          be as light as physics allows. M.Sc. Space Engineering at the
+          <strong>University of Bremen</strong>, thesis at <strong>Rocket Factory
+          Augsburg</strong>, two years of hands-on composite work with
+          <strong>ASTRA e.V.</strong> — and a B.Sc. in Mechanical Engineering underneath it all.
+        </p>
+        <div class="hero-cta">
+          <a class="btn btn-fill" href="cv/Srikanth_Uppiretla_CV.pdf" download>↓ Download CV</a>
+          <a class="btn btn-line" href="cv/Srikanth_Uppiretla_CV.pdf" target="_blank" rel="noopener">◉ View CV</a>
+          <a class="btn btn-line" href="#contact">Get in Touch →</a>
+        </div>
+      </div>
+      <div class="hero-photo">
+        <div class="frame"><img src="img/photo.jpg" alt="Srikanth Uppiretla"></div>
+        <p class="photo-cap">Bremen, Germany · German B2 · Open to relocate</p>
+      </div>
     </div>
   </div>
   <div class="wrap hero-meta">
@@ -294,41 +304,6 @@
     <div><div class="m-label">Toolchain</div><div class="m-value">FEMAP · NX Nastran · ANSYS · CATIA · Python</div></div>
   </div>
 </header>
-
-<section id="about">
-  <div class="wrap">
-    <p class="label">About me</p>
-    <h2>Designed for load,<br>built <span class="hl">light</span>.</h2>
-    <div class="about-grid">
-      <div class="reveal">
-        <div class="photo-frame"><img src="img/photo.jpg" alt="Srikanth Uppiretla"></div>
-        <p class="photo-cap">Bremen, Germany — available immediately</p>
-      </div>
-      <div class="reveal">
-        <div class="about-text">
-          <p>
-            I'm a structural analysis engineer working on <strong>composite launch vehicle
-            structures</strong> — finite element analysis, buckling assessment and design
-            optimization of CFRP shells that have to be as light as physics allows.
-          </p>
-          <p>
-            My M.Sc. in Space Engineering at the <strong>University of Bremen</strong> ended where
-            theory meets hardware: a thesis at <strong>Rocket Factory Augsburg</strong> optimizing
-            a stiffened CFRP interstage, and two years designing and fabricating a filament-wound
-            rocket shell with <strong>ASTRA e.V.</strong> Before space, a B.Sc. in Mechanical
-            Engineering taught me to design, build and check things that move.
-          </p>
-        </div>
-        <div class="about-facts">
-          <div class="fact"><div class="f-label">Location</div><div class="f-value">Bremen, Germany — open to relocate</div></div>
-          <div class="fact"><div class="f-label">Availability</div><div class="f-value">Immediately</div></div>
-          <div class="fact"><div class="f-label">Degree</div><div class="f-value">M.Sc. Space Engineering (Uni Bremen)</div></div>
-          <div class="fact"><div class="f-label">German</div><div class="f-value">B2 — working proficiency</div></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <section id="skills" class="grid-dark">
   <div class="wrap">
