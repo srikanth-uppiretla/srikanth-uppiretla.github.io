@@ -167,6 +167,8 @@
   #education{background:var(--cream);color:var(--ink);padding:130px 0;border-top:1px solid var(--line-cream)}
   .edu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
   .edu-card{background:var(--light);border:1px solid var(--line-cream);padding:38px 34px;display:flex;flex-direction:column;gap:14px}
+  .edu-card .e-logo{height:54px;display:flex;align-items:center;margin-bottom:4px}
+  .edu-card .e-logo img{max-height:54px;max-width:82%;width:auto}
   .edu-card .e-label{font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--orange);font-weight:700}
   .edu-card h3{font-family:var(--serif);font-weight:600;font-size:1.4rem;line-height:1.3;color:var(--ink);flex:1}
   .edu-card .e-meta{font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint);line-height:2}
@@ -598,6 +600,7 @@
     <h2>Grounded in theory,<br>proven on <span class="hl">hardware</span>.</h2>
     <div class="edu-grid">
       <div class="edu-card reveal">
+        <div class="e-logo"><img src="img/logos/uni-bremen.svg" alt="University of Bremen logo"></div>
         <span class="e-label">University of Bremen</span>
         <h3>M.Sc. Space Engineering</h3>
         <p class="e-meta">2020 — 2025 · Bremen, Germany</p>
@@ -605,13 +608,15 @@
         orbital launch vehicle, conducted at Rocket Factory Augsburg.</p>
       </div>
       <div class="edu-card reveal">
-        <span class="e-label">LP University</span>
+        <div class="e-logo"><img src="img/logos/lpu.png" alt="Lovely Professional University logo"></div>
+        <span class="e-label">Lovely Professional University</span>
         <h3>B.Sc. Mechanical Engineering</h3>
         <p class="e-meta">2013 — 2017 · India</p>
         <p class="e-note">Bachelor project: design and fabrication of a four-wheel-steering
         prototype — mechanical design, fabrication and functional testing.</p>
       </div>
       <div class="edu-card reveal">
+        <div class="e-logo"><img src="img/logos/gisma.svg" alt="GISMA Business School logo"></div>
         <span class="e-label">GISMA Business School</span>
         <h3>German Language A1 — B2</h3>
         <p class="e-meta">2018 — 2019 · Hannover, Germany</p>
