@@ -2,19 +2,31 @@
 
 Live site: **https://uppiretla.github.io**
 
-Single-page portfolio (CATIA V5 CAD projects + structural analysis from Master's thesis at ZARM, University of Bremen). Everything lives in one file: `index.html`.
+Single-page portfolio in the style of a modern design-engineer portfolio: dark/cream sections,
+serif display type (Playfair Display), monospace labels (JetBrains Mono), orange accent.
+Everything lives in `index.html`; assets in `img/` and `cv/`.
 
-## How to update content
+Content source: `E:\Application system\01_Master_CV\Master_CV_English.md` (the master truth file).
+When the CV changes, update both.
 
-Search `index.html` for `EDIT:` comments — each marks a placeholder to replace:
+## Structure
 
-1. **Photo** — add `photo.jpg` (professional headshot) and replace the placeholder box in the About section with `<img src="photo.jpg" alt="Srikanth Uppiretla">`.
-2. **Project cards** — replace the 4 example projects (titles, descriptions, part counts). Put renders in an `img/` folder (e.g. `img/project1.jpg`, 16:9, ~1200px wide, JPEG) and replace each `.proj-thumb` SVG placeholder with `<img src="img/project1.jpg" alt="...">`.
-3. **Links** — replace the placeholder `grabcad.com` and `linkedin.com` URLs with your real profile URLs (they appear in the Projects intro, project cards, and Contact section).
-4. **FEM tool** — in the Skills section, name your actual simulation tool (ANSYS / Abaqus / etc.).
-5. **Languages** — set your real levels (currently guesses).
-6. **Education timeline** — fill in real dates, degree names, and previous experience (bracketed placeholders).
-7. **Thesis analysis image** — add a cleared result plot as `img/fea-result.jpg` **only after confirming with your supervisor what may be published**.
+- **Hero** — name, role (Structural Analysis Engineer), Download/View CV, discipline/focus/toolchain
+- **About** — photo, summary, facts (location, availability, degree, German B2)
+- **Skills** — "The Toolkit": Simulation & Analysis / CAD & Design / The Edge + marquee
+- **Work** — 6 project cards (RFA thesis, LOX tunnel, ASTRA shell, DLR lander study, 4WS prototype, CATIA portfolio)
+- **Experience** — timeline (RFA thesis, RFA internship, ASTRA e.V.)
+- **Education** — M.Sc. / B.Sc. / German B2 cards + language strip
+- **Contact** — email card, LinkedIn/GitHub/GrabCAD, direct-message form (opens visitor's mail client)
+
+## Placeholders still to fill
+
+1. **Project images** — every card has a "coming soon" placeholder. Add images to `img/`
+   (16:9, ~1200px, <300 KB) and replace the `.proj-media.placeholder` div with
+   `<div class="proj-media"><img src="img/xxx.jpg" alt="..."></div>`.
+   ⚠ RFA project images need employer clearance before publishing.
+2. **CATIA card (06)** — update text/images when the CAD course projects are done.
+3. **GrabCAD link** — in Contact section, replace the "coming soon" entry once the profile exists.
 
 ## Publishing changes
 
@@ -24,10 +36,10 @@ git commit -m "Update content"
 git push
 ```
 
-The site updates automatically within ~1 minute (GitHub Pages).
+Site updates automatically in ~1 minute (GitHub Pages).
 
 ## Notes
 
-- Keep images compressed (< 300 KB each) so the page stays fast.
-- German applications: attach the PDF portfolio as an Anlage too — this site is the clickable link for CV header / LinkedIn.
-- Optional: if you use this site beyond job applications, consider adding an Impressum page (German § 5 DDG requirement for business-like sites).
+- `cv/Srikanth_Uppiretla_CV.pdf` is publicly downloadable — keep in mind it contains
+  personal contact details; swap in a portfolio version without address/phone if preferred.
+- Local preview: Claude launch config "portfolio" (npx serve, port 5544).
