@@ -1,6 +1,6 @@
 # Engineering Portfolio — Srikanth Uppiretla
 
-**Live site:** https://uppiretla.github.io
+**Live site:** https://srikanth-uppiretla.github.io
 
 Personal portfolio for engineering job applications in Germany.
 Dark/cream editorial design — Playfair Display serif headings, JetBrains Mono labels,
@@ -123,7 +123,7 @@ A red ✗ means the deploy failed — open the run to see why, fix, and push aga
 
 **Deploy stuck or erroring repeatedly?** This repo once had a wedged deployment;
 the fix was cancelling it via API:
-`gh api -X POST repos/uppiretla/uppiretla.github.io/pages/deployments/<commit-sha>/cancel`
+`gh api -X POST repos/srikanth-uppiretla/srikanth-uppiretla.github.io/pages/deployments/<commit-sha>/cancel`
 then pushing a fresh (even empty) commit: `git commit --allow-empty -m "redeploy" && git push`.
 
 **Want to test on your phone?** After `npx serve .`, visit
