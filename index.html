@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Srikanth Uppiretla — Structural Analysis Engineer Portfolio</title>
 <meta name="description" content="Srikanth Uppiretla — Structural analysis engineer specializing in composite launch vehicle structures, FEM and lightweight design. M.Sc. Space Engineering, University of Bremen. Based in Bremen, Germany.">
+<link rel="icon" type="image/svg+xml" href="img/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
@@ -41,7 +42,7 @@
   /* type helpers */
   .label{font-family:var(--mono);font-size:1.15rem;font-weight:700;letter-spacing:.32em;text-transform:uppercase;color:var(--orange)}
   .label::before{content:"— "}
-  h2{font-family:var(--serif);font-weight:500;font-size:clamp(2.4rem,5vw,3.8rem);line-height:1.08;letter-spacing:-.01em;margin:18px 0 60px}
+  h2{font-family:var(--serif);font-weight:500;font-size:clamp(2.4rem,5vw,3.8rem);line-height:1.08;letter-spacing:-.01em;margin:18px 0 48px}
   h2 .hl{color:var(--orange)}
   h2 .hl-soft{color:var(--peach)}
 
@@ -95,7 +96,7 @@
   .hero-about strong{color:var(--light);font-weight:600}
 
   /* ── Skills (dark) ───────────────────── */
-  #skills{background:var(--dark);padding:130px 0 0;position:relative}
+  #skills{background:var(--dark);padding:90px 0 0;position:relative}
   .skills-head{display:flex;justify-content:space-between;align-items:flex-end;gap:40px}
   .skills-tag{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--light-faint);text-align:right;line-height:2;padding-bottom:70px}
   .toolkit{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line-dark);background:var(--dark-2)}
@@ -113,7 +114,7 @@
   @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
   /* ── Work (cream) ────────────────────── */
-  #work{background:var(--cream);color:var(--ink);padding:130px 0}
+  #work{background:var(--cream);color:var(--ink);padding:90px 0;border-top:1px solid var(--line-cream)}
   .work-note{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-faint);margin:-40px 0 30px}
   .work-filter{display:flex;gap:14px;flex-wrap:wrap;margin:0 0 30px}
   .wf-btn{font-family:var(--mono);font-size:.8rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;padding:13px 30px;border:2px solid var(--line-cream);background:transparent;color:var(--ink-soft);cursor:pointer;transition:all .2s ease}
@@ -148,7 +149,7 @@
   .proj-foot b{color:var(--orange);font-weight:700}
 
   /* ── Experience (cream) ──────────────── */
-  #experience{background:var(--cream-2);color:var(--ink);padding:130px 0;border-top:1px solid var(--line-cream)}
+  #experience{background:var(--cream-2);color:var(--ink);padding:90px 0;border-top:1px solid var(--line-cream)}
   .tl{max-width:860px}
   .tl-row{display:grid;grid-template-columns:240px 40px 1fr;padding:26px 0}
   .tl-when .d1{font-size:.7rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--orange)}
@@ -163,7 +164,7 @@
   .tl-what li::before{content:"◆";position:absolute;left:0;top:0;font-size:.5rem;color:var(--orange)}
 
   /* ── Education (cream) ───────────────── */
-  #education{background:var(--cream);color:var(--ink);padding:130px 0;border-top:1px solid var(--line-cream)}
+  #education{background:var(--cream);color:var(--ink);padding:90px 0;border-top:1px solid var(--line-cream)}
   .edu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
   .edu-card{background:var(--light);border:1px solid var(--line-cream);padding:38px 34px;display:flex;flex-direction:column;gap:14px}
   .edu-card .e-logo{height:54px;display:flex;align-items:center;margin-bottom:4px}
@@ -175,11 +176,11 @@
   .lang-strip{display:flex;gap:0;margin-top:60px;border:1px solid var(--line-cream);background:var(--light)}
   .lang{flex:1;padding:24px 28px;border-right:1px solid var(--line-cream)}
   .lang:last-child{border-right:0}
-  .lang .l-name{font-family:var(--serif);font-size:1.15rem;color:var(--ink)}
-  .lang .l-level{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--orange);margin-top:4px;font-weight:700}
+  .lang .l-name{font-family:var(--serif);font-size:1.3rem;font-weight:600;color:var(--ink)}
+  .lang .l-level{font-size:1.05rem;letter-spacing:.18em;text-transform:uppercase;color:var(--orange);margin-top:8px;font-weight:700}
 
   /* ── Contact (dark) ──────────────────── */
-  #contact{background:var(--dark);padding:140px 0 100px;position:relative;overflow:hidden}
+  #contact{background:var(--dark);padding:100px 0 80px;position:relative;overflow:hidden}
   #contact .contact-glow{position:absolute;inset:0;background:radial-gradient(800px 500px at 20% 20%,rgba(240,78,35,.1),transparent 60%);pointer-events:none}
   .contact-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:34px;position:relative;z-index:2}
   .email-card{border:1px solid var(--orange);padding:34px 36px;display:block;transition:background .2s;box-shadow:0 0 30px rgba(240,78,35,.15)}
