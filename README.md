@@ -116,9 +116,11 @@ the title, text and `data-pdf` filename, then place the matching PDF in
 
 ## Updating the CV PDF
 
-Replace `cv/Srikanth_Uppiretla_CV.pdf` with the new file (same filename!), then
-commit + push. Source of truth for content:
-`E:\Application system\01_Master_CV\` (keep site text and CV consistent).
+Replace `cv/Srikanth_Uppiretla_CV.pdf` with the latest general CV PDF (same
+filename!), then commit + push. Current source:
+`E:\Application system\01_Master_CV\CV_Agent_Bundle_Test\Srikanth_Uppiretla_Lebenslauf.pdf`.
+Keep the hero, skills and project wording aligned with the latest general and
+daily tailored CV positioning in `E:\Application system\04_Generated_Applications\`.
 
 > ⚠ The PDF is **publicly downloadable**. Consider a portfolio version without
 > home address and phone number.
