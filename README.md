@@ -16,7 +16,8 @@ orange accent (`#f04e23`).
 | `img/photo.jpg` | Profile photo (About section) |
 | `img/` | Put project renders / screenshots here |
 | `certificates/` | Put recruiter-visible certificate PDFs here |
-| `cv/Srikanth_Uppiretla_CV.pdf` | The CV behind the "Download CV" button |
+| `cv/Srikanth_Uppiretla_CV.pdf` | English CV behind the English "Download CV" button |
+| `cv/Srikanth_Uppiretla_Lebenslauf.pdf` | German CV behind the German "Lebenslauf herunterladen" button |
 | `.github/workflows/pages.yml` | Auto-deploys the site on every push — don't touch |
 | `.nojekyll` | Tells GitHub to serve files as-is — don't touch |
 
@@ -116,11 +117,16 @@ the title, text and `data-pdf` filename, then place the matching PDF in
 
 ## Updating the CV PDF
 
-Replace `cv/Srikanth_Uppiretla_CV.pdf` with the latest general CV PDF (same
-filename!), then commit + push. Current source:
-`E:\Application system\01_Master_CV\CV_Agent_Bundle_Test\Srikanth_Uppiretla_Lebenslauf.pdf`.
-Keep the hero, skills and project wording aligned with the latest general and
-daily tailored CV positioning in `E:\Application system\04_Generated_Applications\`.
+Replace both public CV PDFs when the general CV changes, then commit + push:
+
+- English: `cv/Srikanth_Uppiretla_CV.pdf`
+- German: `cv/Srikanth_Uppiretla_Lebenslauf.pdf`
+
+Current bilingual source:
+`E:\Application system\01_Master_CV\Portfolio_General_CV_Bilingual\`.
+Keep the hero, skills, experience and project wording aligned with the latest
+general and daily tailored CV positioning in
+`E:\Application system\04_Generated_Applications\`.
 
 > ⚠ The PDF is **publicly downloadable**. Consider a portfolio version without
 > home address and phone number.

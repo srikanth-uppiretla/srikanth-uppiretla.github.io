@@ -69,6 +69,10 @@
   .nav-links a.active::after{transform:scaleX(1)}
   .nav-cta{background:var(--orange);color:#fff !important;padding:12px 24px !important;font-size:.74rem !important;font-weight:700;box-shadow:0 0 20px rgba(240,78,35,.45);transition:all .2s ease}
   .nav-cta:hover{background:#d8431c;box-shadow:0 0 30px rgba(240,78,35,.6)}
+  .lang-switch{display:flex;gap:4px;border:1px solid var(--line-cream);padding:3px;background:rgba(255,255,255,.28)}
+  .lang-btn{border:0;background:transparent;color:var(--ink-soft);font-family:var(--mono);font-size:.6rem;font-weight:700;letter-spacing:0;text-transform:uppercase;padding:7px 9px;cursor:pointer;transition:all .2s ease;white-space:nowrap}
+  .lang-btn:hover{color:var(--orange)}
+  .lang-btn.active{background:var(--orange);color:#fff}
   .nav-toggle{display:none;background:none;border:1px solid var(--line-cream);color:var(--ink);font-family:var(--mono);font-size:.7rem;letter-spacing:.15em;padding:8px 14px;cursor:pointer}
 
   /* ── Hero ────────────────────────────── */
@@ -262,6 +266,7 @@
     .nav-links{display:none;position:absolute;top:64px;left:0;right:0;background:var(--cream);flex-direction:column;align-items:stretch;padding:10px 0;border-bottom:1px solid var(--line-cream)}
     .nav-links.open{display:flex}
     .nav-links a{padding:14px 28px}
+    .lang-switch{margin:8px 28px 4px;align-self:flex-start}
     .nav-toggle{display:block}
     .form-row{grid-template-columns:1fr}
     .skills-head{flex-direction:column;align-items:flex-start}
@@ -286,6 +291,10 @@
       <li><a href="#certificates">Certificates</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#contact">Contact</a></li>
+      <li class="lang-switch" aria-label="Language selector">
+        <button class="lang-btn active" type="button" data-lang="en" aria-pressed="true">🇬🇧 English</button>
+        <button class="lang-btn" type="button" data-lang="de" aria-pressed="false">🇩🇪 Deutsch</button>
+      </li>
       <li><a class="nav-cta" href="mailto:srikanth.uppiretla@gmail.com">Let's Talk</a></li>
     </ul>
   </div>
@@ -575,10 +584,11 @@
           <h3>Master's Thesis — Structural Optimization</h3>
           <p class="org">Rocket Factory Augsburg AG · Augsburg, Germany</p>
           <ul>
-            <li>Parametric optimization framework (Python) for stiffened CFRP interstage shells under axial compression.</li>
-            <li>Analytical stability via CLT, NASA SP-8007 knock-down factors and Bruhn local panel buckling.</li>
-            <li>Linear eigenvalue and nonlinear SOL 106 FEM in FEMAP / NX Nastran with geometric imperfections.</li>
-            <li>Selected an optimized lightweight configuration and evaluated full-assembly interface effects.</li>
+            <li>Developed a Python-based optimization framework for stiffened CFRP cylindrical shells under axial compression.</li>
+            <li>Evaluated design variables such as skin thickness, stringer spacing, ring spacing and stiffener arrangement for lightweight structures.</li>
+            <li>Validated finite element models in FEMAP and NX Nastran using composite layups, shell elements and realistic load assumptions.</li>
+            <li>Compared analytical buckling checks with linear and nonlinear FEM results to support robust engineering design decisions.</li>
+            <li>Documented assumptions, technical results and optimization steps clearly for engineering reviews and traceable decisions.</li>
           </ul>
         </div>
       </div>
@@ -590,9 +600,11 @@
           <h3>Structural Analysis Intern / Working Student</h3>
           <p class="org">Rocket Factory Augsburg AG · Augsburg, Germany</p>
           <ul>
-            <li>FEM analysis of the LOX tunnel under axial and radial pressure; dome inversion risk and stress hotspots.</li>
-            <li>CAD surfaces for FTS simulations and integration planning.</li>
-            <li>Engine transport jigs and pusher mechanisms assessed under critical loads.</li>
+            <li>Analyzed a LOX tunnel under axial and radial pressure using FEM and structured load assessment.</li>
+            <li>Identified stress hotspots and evaluated dome inversion risks for technical reviews in a development environment.</li>
+            <li>Created CAD surfaces for FTS simulations and supported simulation-oriented integration planning.</li>
+            <li>Assessed transport jigs and pusher mechanisms under critical loads for mechanical functional reliability.</li>
+            <li>Connected analysis, CAD-oriented geometry work and documentation in practical engineering tasks.</li>
           </ul>
         </div>
       </div>
@@ -604,9 +616,11 @@
           <h3>Composite Structural Engineer</h3>
           <p class="org">ASTRA e.V. Rocketry Group · Bremen, Germany</p>
           <ul>
-            <li>Designed and fabricated a filament-wound CFRP outer shell for a sounding rocket.</li>
-            <li>Defined winding angles, mandrel geometry and ply layup for a manufacturable laminate.</li>
-            <li>Supervised fabrication, curing and quality control; FEM under internal pressurization.</li>
+            <li>Designed and fabricated a filament-wound CFRP outer shell for a student sounding rocket.</li>
+            <li>Defined winding angles, mandrel geometry and ply layup for a manufacturable composite structure.</li>
+            <li>Supported fabrication, curing and quality control to review part quality during the project.</li>
+            <li>Performed FEM simulations under internal pressure and used the results to improve the laminate design.</li>
+            <li>Worked at the interface of design, manufacturing, analysis and quality review within the rocket team.</li>
           </ul>
         </div>
       </div>
@@ -769,6 +783,450 @@
 </footer>
 
 <script>
+  const translations = {
+    en: {
+      docTitle: 'Srikanth Uppiretla — Engineering Portfolio | CAD/CAE & Mechanical Design',
+      metaDescription: 'Srikanth Uppiretla — mechanical and space engineering portfolio covering CAD/CAE, FEM, mechanical design, composite structures, prototyping and technical documentation. Based in Bremen, Germany.',
+      cvHref: 'cv/Srikanth_Uppiretla_CV.pdf',
+      cvDownloadName: 'Srikanth_Uppiretla_CV.pdf',
+      navAbout: 'About',
+      navEducation: 'Education',
+      navWork: 'Work',
+      navExperience: 'Experience',
+      navCertificates: 'Certificates',
+      navSkills: 'Skills',
+      navContact: 'Contact',
+      navTalk: "Let's Talk",
+      navMenu: 'MENU',
+      heroHi: "Hi, it's me",
+      heroRolePrimary: 'Engineering Portfolio',
+      heroRoleSecondary: 'CAD/CAE · Mechanical Design · FEM · Technical Documentation',
+      downloadCv: '↓ Download CV',
+      viewCv: '◉ View CV',
+      getInTouch: 'Get in Touch →',
+      statusPill: 'Available immediately · Job seeker visa · Open Germany-wide',
+      heroAbout: 'I work across <strong>CAD/CAE, mechanical design and structural analysis</strong> — from CAD surfaces, prototype mechanisms and technical documentation to FEM-driven design validation. M.Sc. Space Engineering at the <strong>University of Bremen</strong>, thesis at <strong>Rocket Factory Augsburg</strong>, hands-on composite work with <strong>ASTRA e.V.</strong>',
+      educationLabel: 'Education',
+      educationTitle: 'Grounded in theory,<br>proven on <span class="hl">hardware</span>.',
+      edu1Meta: '2020 — 2025 · Bremen, Germany',
+      edu1Note: 'Thesis: structural analysis and optimization of the CFRP interstage of an orbital launch vehicle, conducted at Rocket Factory Augsburg.',
+      edu2Title: 'B.Sc. Mechanical Engineering',
+      edu2Meta: '2013 — 2017 · India',
+      edu2Note: 'Bachelor project: design and fabrication of a four-wheel-steering prototype — mechanical design, fabrication and functional testing.',
+      edu3Title: 'German Language A1 — B2',
+      edu3Meta: '2018 — 2019 · Hannover, Germany',
+      edu3Note: 'Intensive German up to B2 working proficiency — engineering conversations, documentation and daily work in German.',
+      langEnglish: 'English',
+      langGerman: 'German',
+      langHindi: 'Hindi',
+      langTelugu: 'Telugu',
+      langFluent: 'Fluent',
+      langNative: 'Native',
+      workLabel: 'Selected work',
+      workTitle: 'Design and analysis<br>with <span class="hl">proof</span>.',
+      workNote: 'CAD, FEM and project evidence are added as material is cleared for publication.',
+      filterAll: 'All',
+      filterOther: 'Other',
+      workSubFea: 'FEA <span>— Structural Simulation · FEMAP / NX Nastran</span>',
+      workSubCad: 'CAD <span>— Design &amp; Prototyping · CATIA / NX / Inventor</span>',
+      workSubOther: 'Other <span>— Composites &amp; Space Systems</span>',
+      p1Title: 'CFRP Interstage — Structural Optimization',
+      p1Text: 'Python-based parametric optimization of a stiffened CFRP interstage under axial compression. Classical Laminate Theory, NASA SP-8007 knock-down factors and Bruhn local panel checks, validated with linear and nonlinear FEM in FEMAP / NX Nastran. The optimization converged on a lightweight stiffened configuration with close correlation between analytical and FEM-predicted buckling capacity.',
+      p1Foot: '<b>Master\'s Thesis</b> — Rocket Factory Augsburg · 2024–2025',
+      p2Title: 'Full Stage-Interface Assembly — Nonlinear FEM',
+      p2Text: 'Extension of the isolated shell analysis to the full launch-vehicle interface: CFRP interstage, aluminum separation flanges, steel integration skirt and the stage-1 tank dome, tied together with RBE2 connections. Nonlinear collapse analysis under combined axial compression and internal tank pressure showed how realistic boundary conditions change the buckling behavior versus the isolated shell.',
+      p2Foot: '<b>Master\'s Thesis</b> — Rocket Factory Augsburg · 2024–2025',
+      p3Title: 'Nonlinear Buckling with Geometric Imperfections',
+      p3Text: 'Post-buckling behavior of both stiffener concepts analyzed with nonlinear static solutions (SOL 106), seeding initial geometric imperfections derived from the first eigenmode. The deformation follows classical shell-instability patterns; comparing imperfection-sensitive FEM capacity against knock-down-factor predictions validated the analytical design approach.',
+      p3Foot: '<b>Master\'s Thesis</b> — Rocket Factory Augsburg · 2024–2025',
+      p4Title: 'LOX Tunnel &amp; Launch Vehicle Hardware Analysis',
+      p4Text: 'FEM analysis of a LOX tunnel under axial and radial pressure — dome inversion risk and stress hotspot identification. CAD surfaces for FTS simulations and integration planning; assessment of engine transport jigs and pusher mechanisms under critical loads.',
+      p4Foot: '<b>Internship</b> — Rocket Factory Augsburg · 2024',
+      p5Title: 'Four-Wheel Steering — Working Prototype',
+      p5Text: 'Bachelor project: designed and built a working prototype with front-, rear- and four-wheel steering modes — from steering concept to mechanical prototype, covering movement, assembly and functional behavior as proof of concept for multiple steering configurations.',
+      p5Foot: '<b>B.Sc. Project</b> — LP University · 2016–2017',
+      p6Title: 'CAD Design Portfolio — CATIA Projects',
+      p6Text: 'A growing set of CATIA part and assembly projects — parametric modelling, fully constrained multi-part assemblies and DIN/ISO manufacturing drawings. Models and renders will appear here as the current CAD course wraps up.',
+      p6Foot: '<b>Ongoing</b> — models coming soon',
+      p7Title: 'Filament-Wound Rocket Outer Shell',
+      p7Text: 'Design and fabrication of a filament-wound CFRP outer shell for a sounding rocket: winding angles, mandrel geometry and ply layup connected to a manufacturable laminate. Supervised fabrication, curing and quality control; FEM under internal pressurization fed improvements back into the laminate design.',
+      p7Foot: '<b>Composite Structural Engineer</b> — ASTRA e.V. · 2022–2023',
+      p8Title: 'Main Belt Comet Micro-Lander — System Study',
+      p8Text: 'Baseline concept selection for a small-body lander carrying a model payload. Concept evaluation structured around feasibility, practical implementation and engineering trade-offs from a systems-engineering perspective, with technical documentation of the decision logic.',
+      p8Foot: '<b>DLR / University Project</b> · 2023',
+      phAnalysis: 'Analysis views — coming soon',
+      phPrototype: 'Prototype photos — coming soon',
+      phCatia: 'CATIA models — in progress',
+      phFabrication: 'Fabrication photos — coming soon',
+      phConcept: 'Concept views — coming soon',
+      experienceLabel: 'Experience',
+      experienceTitle: 'On the shop floor,<br>in the <span class="hl">loop</span>.',
+      exp1Date: 'Apr 2024 — Jun 2025',
+      exp1Duration: '15 months',
+      exp1Title: "Master's Thesis — Structural Optimization",
+      exp1Org: 'Rocket Factory Augsburg AG · Augsburg, Germany',
+      exp1Bullets: [
+        'Developed a Python-based optimization framework for stiffened CFRP cylindrical shells under axial compression.',
+        'Evaluated design variables such as skin thickness, stringer spacing, ring spacing and stiffener arrangement for lightweight structures.',
+        'Validated finite element models in FEMAP and NX Nastran using composite layups, shell elements and realistic load assumptions.',
+        'Compared analytical buckling checks with linear and nonlinear FEM results to support robust engineering design decisions.',
+        'Documented assumptions, technical results and optimization steps clearly for engineering reviews and traceable decisions.'
+      ],
+      exp2Date: 'Jan 2024 — Mar 2024',
+      exp2Duration: '3 months',
+      exp2Title: 'Structural Analysis Intern / Working Student',
+      exp2Org: 'Rocket Factory Augsburg AG · Augsburg, Germany',
+      exp2Bullets: [
+        'Analyzed a LOX tunnel under axial and radial pressure using FEM and structured load assessment.',
+        'Identified stress hotspots and evaluated dome inversion risks for technical reviews in a development environment.',
+        'Created CAD surfaces for FTS simulations and supported simulation-oriented integration planning.',
+        'Assessed transport jigs and pusher mechanisms under critical loads for mechanical functional reliability.',
+        'Connected analysis, CAD-oriented geometry work and documentation in practical engineering tasks.'
+      ],
+      exp3Date: 'Aug 2022 — Dec 2023',
+      exp3Duration: '17 months',
+      exp3Title: 'Composite Structural Engineer',
+      exp3Org: 'ASTRA e.V. Rocketry Group · Bremen, Germany',
+      exp3Bullets: [
+        'Designed and fabricated a filament-wound CFRP outer shell for a student sounding rocket.',
+        'Defined winding angles, mandrel geometry and ply layup for a manufacturable composite structure.',
+        'Supported fabrication, curing and quality control to review part quality during the project.',
+        'Performed FEM simulations under internal pressure and used the results to improve the laminate design.',
+        'Worked at the interface of design, manufacturing, analysis and quality review within the rocket team.'
+      ],
+      certLabel: 'Certificates',
+      certTitle: 'Proof ready<br>for <span class="hl">review</span>.',
+      certIntro: 'Recruiter-facing documents for education, language and technical training.',
+      certStatus: { pending: 'PDF pending', ready: 'PDF ready', local: 'Local preview' },
+      certOpen: 'Open certificate',
+      cert1Label: 'Language',
+      cert1Title: 'German Language B2',
+      cert1Meta: 'GISMA Business School · Hannover',
+      cert1Note: 'Proof document for German language training from A1 to B2, supporting engineering communication and daily work in Germany.',
+      cert2Label: 'Degree',
+      cert2Title: 'M.Sc. Space Engineering',
+      cert2Meta: 'University of Bremen · 2025',
+      cert2Note: 'Recruiter-facing proof for the master\'s degree connected to structural analysis, space systems and launch vehicle engineering.',
+      cert3Title: 'B.Sc. Mechanical Engineering',
+      cert3Meta: 'Lovely Professional University · 2017',
+      cert3Note: 'Recruiter-facing proof for the mechanical engineering foundation behind CAD design, prototyping and structural analysis work.',
+      skillsLabel: 'What I bring',
+      skillsTitle: 'The Toolkit<span style="color:var(--orange)">.</span>',
+      skillsTag: 'From CAD models to FEM checks —<br>tools for practical engineering work.',
+      skill1Label: '01 / CAD &amp; Mechanical Design',
+      skill1a: 'CATIA V6<small>Part · Assembly · Surfaces</small>',
+      skill1b: 'Siemens NX · Inventor<small>CAD for design and analysis</small>',
+      skill1c: 'Mechanical Design<small>Prototypes · Jigs · CAD surfaces</small>',
+      skill2Label: '02 / FEM &amp; CAE',
+      skill2a: 'FEMAP · NX Nastran<small>Linear &amp; nonlinear (SOL 106)</small>',
+      skill2b: 'ANSYS<small>Structural FEM</small>',
+      skill2c: 'Strength &amp; Buckling<small>NASA SP-8007 · Bruhn · CLT</small>',
+      skill3Label: '03 / Engineering Delivery',
+      skill3a: 'Python · MATLAB<small>Parametric optimization frameworks</small>',
+      skill3b: 'CFRP &amp; Manufacturing<small>Filament winding · Quality review</small>',
+      skill3c: 'Technical Documentation<small>Trade-offs · Reviews · Decisions</small>',
+      marquee: '<span>CATIA V6</span><span class="dia">◆</span><span>Siemens NX</span><span class="dia">◆</span><span>FEMAP</span><span class="dia">◆</span><span>NX Nastran</span><span class="dia">◆</span><span>ANSYS</span><span class="dia">◆</span><span>Python</span><span class="dia">◆</span><span>MATLAB</span><span class="dia">◆</span><span>CFRP</span><span class="dia">◆</span><span>Technical Documentation</span><span class="dia">◆</span><span>CATIA V6</span><span class="dia">◆</span><span>Siemens NX</span><span class="dia">◆</span><span>FEMAP</span><span class="dia">◆</span><span>NX Nastran</span><span class="dia">◆</span><span>ANSYS</span><span class="dia">◆</span><span>Python</span><span class="dia">◆</span><span>MATLAB</span><span class="dia">◆</span><span>CFRP</span><span class="dia">◆</span><span>Technical Documentation</span><span class="dia">◆</span>',
+      contactLabel: 'Get in touch',
+      contactTitle: 'Let\'s build something<br>that <span class="hl">works</span>.',
+      emailLabel: 'Email',
+      emailGo: '→ Click to send a message',
+      connectLabel: 'Connect',
+      grabcadSoon: 'Profile coming soon',
+      directMessage: 'Direct message',
+      messageTitle: 'Send me a note <span class="hl-soft">straight to my inbox</span>.',
+      nameLabel: 'Name',
+      namePlaceholder: 'Your name',
+      mailLabel: 'Email',
+      mailPlaceholder: 'you@example.com',
+      msgLabel: 'Message',
+      msgPlaceholder: 'Tell me about your project, role or opportunity…',
+      sendMessage: 'Send Message →',
+      mailSubjectPrefix: 'Portfolio contact from ',
+      footerMiddle: 'Engineering · CAD/CAE · Mechanical Design',
+      footerLocation: 'Bremen, Germany',
+      projectTags: [
+        'CFRP','Buckling','Optimization','Assembly FEM','Interfaces','Nonlinear','SOL 106','Imperfections','Post-buckling','FEM','Cryogenics','Loads','Design','Fabrication','Prototype','CATIA','Assemblies','Drafting','Filament winding','CFRP','Hands-on','Systems','Mission concept','DLR'
+      ]
+    },
+    de: {
+      docTitle: 'Srikanth Uppiretla — Ingenieurportfolio | CAD/CAE & Maschinenbau',
+      metaDescription: 'Srikanth Uppiretla — Ingenieurportfolio für CAD/CAE, FEM, mechanische Konstruktion, Composite-Strukturen, Prototypenarbeit und technische Dokumentation. Standort Bremen, Deutschland.',
+      cvHref: 'cv/Srikanth_Uppiretla_Lebenslauf.pdf',
+      cvDownloadName: 'Srikanth_Uppiretla_Lebenslauf.pdf',
+      navAbout: 'Profil',
+      navEducation: 'Ausbildung',
+      navWork: 'Projekte',
+      navExperience: 'Erfahrung',
+      navCertificates: 'Zertifikate',
+      navSkills: 'Kenntnisse',
+      navContact: 'Kontakt',
+      navTalk: 'Kontakt',
+      navMenu: 'MENÜ',
+      heroHi: 'Hallo, ich bin',
+      heroRolePrimary: 'Ingenieurportfolio',
+      heroRoleSecondary: 'CAD/CAE · Maschinenbau · FEM · technische Dokumentation',
+      downloadCv: '↓ Lebenslauf herunterladen',
+      viewCv: '◉ Lebenslauf ansehen',
+      getInTouch: 'Kontakt aufnehmen →',
+      statusPill: 'Sofort verfügbar · Jobsuchvisum · deutschlandweit offen',
+      heroAbout: 'Ich arbeite an der Schnittstelle von <strong>CAD/CAE, mechanischer Konstruktion und Strukturanalyse</strong> — von CAD-Flächen, Prototypenmechanismen und technischer Dokumentation bis zur FEM-gestützten Designvalidierung. M.Sc. Space Engineering an der <strong>University of Bremen</strong>, Masterarbeit bei <strong>Rocket Factory Augsburg</strong>, praktische Composite-Erfahrung bei <strong>ASTRA e.V.</strong>',
+      educationLabel: 'Ausbildung',
+      educationTitle: 'Fundiert in der Theorie,<br>bewährt an <span class="hl">Hardware</span>.',
+      edu1Meta: '2020 — 2025 · Bremen, Deutschland',
+      edu1Note: 'Masterarbeit: Strukturanalyse und Optimierung der CFK-Interstage eines orbitalen Trägersystems, durchgeführt bei Rocket Factory Augsburg.',
+      edu2Title: 'B.Sc. Mechanical Engineering',
+      edu2Meta: '2013 — 2017 · Indien',
+      edu2Note: 'Bachelorprojekt: Konstruktion und Fertigung eines Vierradlenkungs-Prototyps — mechanische Konstruktion, Fertigung und Funktionsprüfung.',
+      edu3Title: 'Deutschkurs A1 — B2',
+      edu3Meta: '2018 — 2019 · Hannover, Deutschland',
+      edu3Note: 'Intensiver Deutschkurs bis B2 — technische Gespräche, Dokumentation und Arbeitsalltag in deutscher Sprache.',
+      langEnglish: 'Englisch',
+      langGerman: 'Deutsch',
+      langHindi: 'Hindi',
+      langTelugu: 'Telugu',
+      langFluent: 'Fließend',
+      langNative: 'Muttersprache',
+      workLabel: 'Ausgewählte Projekte',
+      workTitle: 'Konstruktion und Analyse<br>mit <span class="hl">Nachweis</span>.',
+      workNote: 'CAD-, FEM- und Projektnachweise werden ergänzt, sobald Material für die Veröffentlichung freigegeben ist.',
+      filterAll: 'Alle',
+      filterOther: 'Weitere',
+      workSubFea: 'FEA <span>— Struktursimulation · FEMAP / NX Nastran</span>',
+      workSubCad: 'CAD <span>— Konstruktion &amp; Prototyping · CATIA / NX / Inventor</span>',
+      workSubOther: 'Weitere <span>— Composites &amp; Raumfahrtsysteme</span>',
+      p1Title: 'CFK-Interstage — Strukturoptimierung',
+      p1Text: 'Python-basierte parametrische Optimierung einer versteiften CFK-Interstage unter axialer Druckbelastung. Klassische Laminattheorie, NASA-SP-8007-Knock-down-Faktoren und Bruhn-Nachweise für lokale Paneelbeulung wurden mit linearer und nichtlinearer FEM in FEMAP / NX Nastran validiert. Die Optimierung führte zu einer leichten versteiften Konfiguration mit enger Korrelation zwischen analytischer und FEM-basierter Beultragfähigkeit.',
+      p1Foot: '<b>Masterarbeit</b> — Rocket Factory Augsburg · 2024–2025',
+      p2Title: 'Vollständige Stufen-Interface-Baugruppe — nichtlineare FEM',
+      p2Text: 'Erweiterung der isolierten Schalenanalyse auf die vollständige Trägerraketen-Schnittstelle: CFK-Interstage, Aluminium-Trennflansche, Stahl-Integrationsskirt und Stage-1-Tankdom, verbunden über RBE2-Verbindungen. Die nichtlineare Kollapsanalyse unter kombinierter axialer Drucklast und internem Tankdruck zeigte, wie realistische Randbedingungen das Beulverhalten gegenüber dem isolierten Schalenmodell verändern.',
+      p2Foot: '<b>Masterarbeit</b> — Rocket Factory Augsburg · 2024–2025',
+      p3Title: 'Nichtlineares Beulen mit geometrischen Imperfektionen',
+      p3Text: 'Post-Buckling-Verhalten beider Versteifungskonzepte mit nichtlinearen statischen Lösungen (SOL 106), inklusive Anfangsimperfektionen aus der ersten Eigenform. Die Verformung folgt klassischen Schaleninstabilitätsmustern; der Vergleich imperfektionssensitiver FEM-Tragfähigkeit mit Knock-down-Faktor-Prognosen validierte den analytischen Entwurfsansatz.',
+      p3Foot: '<b>Masterarbeit</b> — Rocket Factory Augsburg · 2024–2025',
+      p4Title: 'LOX-Tunnel & Launch-Vehicle-Hardwareanalyse',
+      p4Text: 'FEM-Analyse eines LOX-Tunnels unter axialem und radialem Druck — Bewertung von Dome-Inversion-Risiko und Spannungshotspots. CAD-Flächen für FTS-Simulationen und Integrationsplanung; Bewertung von Engine-Transport-Jigs und Pusher-Mechanismen unter kritischen Lasten.',
+      p4Foot: '<b>Praktikum</b> — Rocket Factory Augsburg · 2024',
+      p5Title: 'Vierradlenkung — funktionsfähiger Prototyp',
+      p5Text: 'Bachelorprojekt: Konstruktion und Bau eines funktionsfähigen Prototyps mit Front-, Heck- und Vierradlenkung — vom Lenkungskonzept bis zum mechanischen Prototyp, inklusive Bewegungsablauf, Montage und Funktionsverhalten als Proof of Concept für mehrere Lenkkonfigurationen.',
+      p5Foot: '<b>B.Sc. Projekt</b> — LP University · 2016–2017',
+      p6Title: 'CAD-Designportfolio — CATIA-Projekte',
+      p6Text: 'Wachsende Sammlung von CATIA-Teile- und Baugruppenprojekten — parametrische Modellierung, vollständig definierte Mehrteilbaugruppen und DIN/ISO-Fertigungszeichnungen. Modelle und Renderings werden ergänzt, sobald der aktuelle CAD-Kurs abgeschlossen ist.',
+      p6Foot: '<b>Laufend</b> — Modelle folgen',
+      p7Title: 'Filamentgewickelte Raketen-Außenhülle',
+      p7Text: 'Konstruktion und Fertigung einer filamentgewickelten CFK-Außenhülle für eine Höhenforschungsrakete: Wickelwinkel, Mandrel-Geometrie und Lagenaufbau wurden mit einem fertigbaren Laminat verbunden. Begleitung von Fertigung, Aushärtung und Qualitätskontrolle; FEM unter Innendruck floss in die Verbesserung des Laminatdesigns ein.',
+      p7Foot: '<b>Composite Structural Engineer</b> — ASTRA e.V. · 2022–2023',
+      p8Title: 'Main-Belt-Comet-Micro-Lander — Systemstudie',
+      p8Text: 'Auswahl eines Basiskonzepts für einen Small-Body-Lander mit Modellnutzlast. Die Konzeptbewertung wurde nach Machbarkeit, praktischer Umsetzbarkeit und technischen Trade-offs strukturiert, inklusive Dokumentation der Entscheidungslogik aus Systems-Engineering-Sicht.',
+      p8Foot: '<b>DLR / Universitätsprojekt</b> · 2023',
+      phAnalysis: 'Analyseansichten — folgen',
+      phPrototype: 'Prototypfotos — folgen',
+      phCatia: 'CATIA-Modelle — in Arbeit',
+      phFabrication: 'Fertigungsfotos — folgen',
+      phConcept: 'Konzeptansichten — folgen',
+      experienceLabel: 'Erfahrung',
+      experienceTitle: 'In der Werkstatt,<br>im <span class="hl">Review</span>.',
+      exp1Date: 'Apr 2024 — Jun 2025',
+      exp1Duration: '15 Monate',
+      exp1Title: 'Masterarbeit — Strukturoptimierung',
+      exp1Org: 'Rocket Factory Augsburg AG · Augsburg, Deutschland',
+      exp1Bullets: [
+        'Entwickelte ein Python-basiertes Optimierungsframework für versteifte CFK-Zylinderschalen unter axialer Druckbelastung.',
+        'Bewertete Designvariablen wie Hautdicke, Stringerabstand, Ringabstand und Versteifungsanordnung für leichte Strukturen.',
+        'Validierte finite-Elemente-Modelle in FEMAP und NX Nastran mit Composite-Layups, Schalelementen und realistischen Lastannahmen.',
+        'Verglich analytische Beulnachweise mit linearen und nichtlinearen FEM-Ergebnissen für belastbare Designentscheidungen.',
+        'Dokumentierte Randbedingungen, technische Ergebnisse und Optimierungsschritte nachvollziehbar für Engineering-Bewertungen.'
+      ],
+      exp2Date: 'Jan 2024 — Mär 2024',
+      exp2Duration: '3 Monate',
+      exp2Title: 'Praktikum / Werkstudent Strukturanalyse',
+      exp2Org: 'Rocket Factory Augsburg AG · Augsburg, Deutschland',
+      exp2Bullets: [
+        'Analysierte den LOX-Tunnel unter axialem und radialem Druck mit FEM und strukturierter Lastbewertung.',
+        'Identifizierte Spannungshotspots und bewertete Dome-Inversion-Risiken für technische Reviews im Entwicklungskontext.',
+        'Erstellte CAD-Flächen für FTS-Simulationen und unterstützte damit simulationsnahe Integrationsplanung.',
+        'Bewertete Transportvorrichtungen und Pusher-Mechanismen unter kritischen Lasten für mechanische Funktionssicherheit.',
+        'Verknüpfte Analyse, CAD-nahe Geometriearbeit und Dokumentation in praktischen Engineering-Aufgaben.'
+      ],
+      exp3Date: 'Aug 2022 — Dez 2023',
+      exp3Duration: '17 Monate',
+      exp3Title: 'Ingenieur für Composite-Strukturen',
+      exp3Org: 'ASTRA e.V. Rocketry Group · Bremen, Deutschland',
+      exp3Bullets: [
+        'Konstruierte und fertigte eine filamentgewickelte CFK-Außenhülle für eine studentische Höhenforschungsrakete.',
+        'Definierte Wickelwinkel, Mandrel-Geometrie und Lagenaufbau für eine fertigbare Composite-Struktur.',
+        'Begleitete Fertigung, Aushärtung und Qualitätskontrolle zur Prüfung der Bauteilqualität im Projekt.',
+        'Führte FEM-Simulationen unter Innendruck durch und nutzte Ergebnisse zur Verbesserung des Laminatdesigns.',
+        'Arbeitete an der Schnittstelle von Konstruktion, Fertigung, Analyse und Qualitätsreview im Raketenteam.'
+      ],
+      certLabel: 'Zertifikate',
+      certTitle: 'Nachweise bereit<br>für <span class="hl">Recruiter</span>.',
+      certIntro: 'Recruiter-relevante Dokumente für Ausbildung, Sprache und technische Weiterbildung.',
+      certStatus: { pending: 'PDF fehlt', ready: 'PDF bereit', local: 'Lokale Vorschau' },
+      certOpen: 'Zertifikat öffnen',
+      cert1Label: 'Sprache',
+      cert1Title: 'Deutsch B2',
+      cert1Meta: 'GISMA Business School · Hannover',
+      cert1Note: 'Nachweis für den Deutschkurs von A1 bis B2, relevant für technische Kommunikation und Arbeitsalltag in Deutschland.',
+      cert2Label: 'Abschluss',
+      cert2Title: 'M.Sc. Space Engineering',
+      cert2Meta: 'University of Bremen · 2025',
+      cert2Note: 'Recruiter-relevanter Nachweis für den Masterabschluss mit Bezug zu Strukturanalyse, Raumfahrtsystemen und Launch-Vehicle-Engineering.',
+      cert3Title: 'B.Sc. Mechanical Engineering',
+      cert3Meta: 'Lovely Professional University · 2017',
+      cert3Note: 'Recruiter-relevanter Nachweis für die Maschinenbau-Basis hinter CAD-Konstruktion, Prototyping und Strukturanalyse.',
+      skillsLabel: 'Was ich mitbringe',
+      skillsTitle: 'Werkzeugkasten<span style="color:var(--orange)">.</span>',
+      skillsTag: 'Von CAD-Modellen bis FEM-Checks —<br>Werkzeuge für praktische Engineering-Aufgaben.',
+      skill1Label: '01 / CAD &amp; Maschinenbau',
+      skill1a: 'CATIA V6<small>Part · Assembly · Surfaces</small>',
+      skill1b: 'Siemens NX · Inventor<small>CAD für Konstruktion und Analyse</small>',
+      skill1c: 'Mechanische Konstruktion<small>Prototypen · Jigs · CAD-Flächen</small>',
+      skill2Label: '02 / FEM &amp; CAE',
+      skill2a: 'FEMAP · NX Nastran<small>Linear &amp; nichtlinear (SOL 106)</small>',
+      skill2b: 'ANSYS<small>Struktur-FEM</small>',
+      skill2c: 'Festigkeit &amp; Beulen<small>NASA SP-8007 · Bruhn · CLT</small>',
+      skill3Label: '03 / Engineering Delivery',
+      skill3a: 'Python · MATLAB<small>Parametrische Optimierungsframeworks</small>',
+      skill3b: 'CFK &amp; Fertigung<small>Filament Winding · Qualitätsreview</small>',
+      skill3c: 'Technische Dokumentation<small>Trade-offs · Reviews · Entscheidungen</small>',
+      marquee: '<span>CATIA V6</span><span class="dia">◆</span><span>Siemens NX</span><span class="dia">◆</span><span>FEMAP</span><span class="dia">◆</span><span>NX Nastran</span><span class="dia">◆</span><span>ANSYS</span><span class="dia">◆</span><span>Python</span><span class="dia">◆</span><span>MATLAB</span><span class="dia">◆</span><span>CFK</span><span class="dia">◆</span><span>Technische Dokumentation</span><span class="dia">◆</span><span>CATIA V6</span><span class="dia">◆</span><span>Siemens NX</span><span class="dia">◆</span><span>FEMAP</span><span class="dia">◆</span><span>NX Nastran</span><span class="dia">◆</span><span>ANSYS</span><span class="dia">◆</span><span>Python</span><span class="dia">◆</span><span>MATLAB</span><span class="dia">◆</span><span>CFK</span><span class="dia">◆</span><span>Technische Dokumentation</span><span class="dia">◆</span>',
+      contactLabel: 'Kontakt',
+      contactTitle: 'Lassen Sie uns etwas<br><span class="hl">Solides</span> entwickeln.',
+      emailLabel: 'E-Mail',
+      emailGo: '→ Nachricht senden',
+      connectLabel: 'Vernetzen',
+      grabcadSoon: 'Profil folgt',
+      directMessage: 'Direktnachricht',
+      messageTitle: 'Senden Sie mir eine Nachricht <span class="hl-soft">direkt ins Postfach</span>.',
+      nameLabel: 'Name',
+      namePlaceholder: 'Ihr Name',
+      mailLabel: 'E-Mail',
+      mailPlaceholder: 'sie@example.com',
+      msgLabel: 'Nachricht',
+      msgPlaceholder: 'Schreiben Sie kurz zur Rolle, Aufgabe oder Gelegenheit…',
+      sendMessage: 'Nachricht senden →',
+      mailSubjectPrefix: 'Portfolio-Kontakt von ',
+      footerMiddle: 'Engineering · CAD/CAE · Maschinenbau',
+      footerLocation: 'Bremen, Deutschland',
+      projectTags: [
+        'CFK','Beulen','Optimierung','Baugruppen-FEM','Schnittstellen','Nichtlinear','SOL 106','Imperfektionen','Post-Buckling','FEM','Kryogenik','Lasten','Konstruktion','Fertigung','Prototyp','CATIA','Baugruppen','Zeichnungen','Filament Winding','CFK','Praxis','Systeme','Missionskonzept','DLR'
+      ]
+    }
+  };
+
+  const bindings = [
+    ['.nav-toggle', 'navMenu'], ['.nav-links a[href="#top"]', 'navAbout'], ['.nav-links a[href="#education"]', 'navEducation'],
+    ['.nav-links a[href="#work"]', 'navWork'], ['.nav-links a[href="#experience"]', 'navExperience'],
+    ['.nav-links a[href="#certificates"]', 'navCertificates'], ['.nav-links a[href="#skills"]', 'navSkills'],
+    ['.nav-links a[href="#contact"]', 'navContact'], ['.nav-cta', 'navTalk'],
+    ['.hero .hi', 'heroHi'], ['.hero-role .r1', 'heroRolePrimary'], ['.hero-role .r2', 'heroRoleSecondary'],
+    ['.hero-cta a:nth-child(1)', 'downloadCv'], ['.hero-cta a:nth-child(2)', 'viewCv'], ['.hero-cta a:nth-child(3)', 'getInTouch'],
+    ['.status-pill', 'statusPill'], ['.hero-about', 'heroAbout', 'html'],
+    ['#education .label', 'educationLabel'], ['#education h2', 'educationTitle', 'html'],
+    ['#education .edu-card:nth-child(1) .e-meta', 'edu1Meta'], ['#education .edu-card:nth-child(1) .e-note', 'edu1Note'],
+    ['#education .edu-card:nth-child(2) h3', 'edu2Title'], ['#education .edu-card:nth-child(2) .e-meta', 'edu2Meta'],
+    ['#education .edu-card:nth-child(2) .e-note', 'edu2Note'], ['#education .edu-card:nth-child(3) h3', 'edu3Title'],
+    ['#education .edu-card:nth-child(3) .e-meta', 'edu3Meta'], ['#education .edu-card:nth-child(3) .e-note', 'edu3Note'],
+    ['.lang:nth-child(1) .l-name', 'langEnglish'], ['.lang:nth-child(2) .l-name', 'langGerman'],
+    ['.lang:nth-child(3) .l-name', 'langHindi'], ['.lang:nth-child(3) .l-level', 'langFluent'],
+    ['.lang:nth-child(4) .l-name', 'langTelugu'], ['.lang:nth-child(4) .l-level', 'langNative'],
+    ['#work .label', 'workLabel'], ['#work h2', 'workTitle', 'html'], ['#work .work-note', 'workNote'],
+    ['.wf-btn[data-filter="all"]', 'filterAll'], ['.wf-btn[data-filter="other"]', 'filterOther'], ['.work-group[data-group="fea"] .work-sub', 'workSubFea', 'html'],
+    ['.work-group[data-group="cad"] .work-sub', 'workSubCad', 'html'], ['.work-group[data-group="other"] .work-sub', 'workSubOther', 'html'],
+    ['.work-group[data-group="fea"] .proj:nth-of-type(1) h3', 'p1Title'], ['.work-group[data-group="fea"] .proj:nth-of-type(1) p:not(.work-sub)', 'p1Text'],
+    ['.work-group[data-group="fea"] .proj:nth-of-type(1) .proj-foot', 'p1Foot', 'html'],
+    ['.work-group[data-group="fea"] .proj:nth-of-type(2) h3', 'p2Title'], ['.work-group[data-group="fea"] .proj:nth-of-type(2) p:not(.work-sub)', 'p2Text'],
+    ['.work-group[data-group="fea"] .proj:nth-of-type(2) .proj-foot', 'p2Foot', 'html'],
+    ['.work-group[data-group="fea"] .proj:nth-of-type(3) h3', 'p3Title'], ['.work-group[data-group="fea"] .proj:nth-of-type(3) p:not(.work-sub)', 'p3Text'],
+    ['.work-group[data-group="fea"] .proj:nth-of-type(3) .proj-foot', 'p3Foot', 'html'],
+    ['.work-group[data-group="fea"] .proj:nth-of-type(4) h3', 'p4Title'], ['.work-group[data-group="fea"] .proj:nth-of-type(4) p:not(.work-sub)', 'p4Text'],
+    ['.work-group[data-group="fea"] .proj:nth-of-type(4) .proj-foot', 'p4Foot', 'html'], ['.work-group[data-group="fea"] .proj:nth-of-type(4) .ph-text', 'phAnalysis'],
+    ['.work-group[data-group="cad"] .proj:nth-of-type(1) h3', 'p5Title'], ['.work-group[data-group="cad"] .proj:nth-of-type(1) p:not(.work-sub)', 'p5Text'],
+    ['.work-group[data-group="cad"] .proj:nth-of-type(1) .proj-foot', 'p5Foot', 'html'], ['.work-group[data-group="cad"] .proj:nth-of-type(1) .ph-text', 'phPrototype'],
+    ['.work-group[data-group="cad"] .proj:nth-of-type(2) h3', 'p6Title'], ['.work-group[data-group="cad"] .proj:nth-of-type(2) p:not(.work-sub)', 'p6Text'],
+    ['.work-group[data-group="cad"] .proj:nth-of-type(2) .proj-foot', 'p6Foot', 'html'], ['.work-group[data-group="cad"] .proj:nth-of-type(2) .ph-text', 'phCatia'],
+    ['.work-group[data-group="other"] .proj:nth-of-type(1) h3', 'p7Title'], ['.work-group[data-group="other"] .proj:nth-of-type(1) p:not(.work-sub)', 'p7Text'],
+    ['.work-group[data-group="other"] .proj:nth-of-type(1) .proj-foot', 'p7Foot', 'html'], ['.work-group[data-group="other"] .proj:nth-of-type(1) .ph-text', 'phFabrication'],
+    ['.work-group[data-group="other"] .proj:nth-of-type(2) h3', 'p8Title'], ['.work-group[data-group="other"] .proj:nth-of-type(2) p:not(.work-sub)', 'p8Text'],
+    ['.work-group[data-group="other"] .proj:nth-of-type(2) .proj-foot', 'p8Foot', 'html'], ['.work-group[data-group="other"] .proj:nth-of-type(2) .ph-text', 'phConcept'],
+    ['#experience .label', 'experienceLabel'], ['#experience h2', 'experienceTitle', 'html'],
+    ['#experience .tl-row:nth-child(1) .d1', 'exp1Date'], ['#experience .tl-row:nth-child(1) .d2', 'exp1Duration'],
+    ['#experience .tl-row:nth-child(1) h3', 'exp1Title'], ['#experience .tl-row:nth-child(1) .org', 'exp1Org'],
+    ['#experience .tl-row:nth-child(2) .d1', 'exp2Date'], ['#experience .tl-row:nth-child(2) .d2', 'exp2Duration'],
+    ['#experience .tl-row:nth-child(2) h3', 'exp2Title'], ['#experience .tl-row:nth-child(2) .org', 'exp2Org'],
+    ['#experience .tl-row:nth-child(3) .d1', 'exp3Date'], ['#experience .tl-row:nth-child(3) .d2', 'exp3Duration'],
+    ['#experience .tl-row:nth-child(3) h3', 'exp3Title'], ['#experience .tl-row:nth-child(3) .org', 'exp3Org'],
+    ['#certificates .label', 'certLabel'], ['#certificates h2', 'certTitle', 'html'], ['#certificates .cert-intro', 'certIntro'],
+    ['.cert-card:nth-child(1) .cert-label', 'cert1Label'], ['.cert-card:nth-child(1) h3', 'cert1Title'], ['.cert-card:nth-child(1) .cert-meta', 'cert1Meta'], ['.cert-card:nth-child(1) .cert-note', 'cert1Note'],
+    ['.cert-card:nth-child(2) .cert-label', 'cert2Label'], ['.cert-card:nth-child(2) h3', 'cert2Title'], ['.cert-card:nth-child(2) .cert-meta', 'cert2Meta'], ['.cert-card:nth-child(2) .cert-note', 'cert2Note'],
+    ['.cert-card:nth-child(3) .cert-label', 'cert2Label'], ['.cert-card:nth-child(3) h3', 'cert3Title'], ['.cert-card:nth-child(3) .cert-meta', 'cert3Meta'], ['.cert-card:nth-child(3) .cert-note', 'cert3Note'],
+    ['#skills .label', 'skillsLabel'], ['#skills h2', 'skillsTitle', 'html'], ['#skills .skills-tag', 'skillsTag', 'html'],
+    ['#skills .tool-col:nth-child(1) .t-label', 'skill1Label', 'html'], ['#skills .tool-col:nth-child(1) li:nth-child(1)', 'skill1a', 'html'], ['#skills .tool-col:nth-child(1) li:nth-child(2)', 'skill1b', 'html'], ['#skills .tool-col:nth-child(1) li:nth-child(3)', 'skill1c', 'html'],
+    ['#skills .tool-col:nth-child(2) .t-label', 'skill2Label', 'html'], ['#skills .tool-col:nth-child(2) li:nth-child(1)', 'skill2a', 'html'], ['#skills .tool-col:nth-child(2) li:nth-child(2)', 'skill2b', 'html'], ['#skills .tool-col:nth-child(2) li:nth-child(3)', 'skill2c', 'html'],
+    ['#skills .tool-col:nth-child(3) .t-label', 'skill3Label', 'html'], ['#skills .tool-col:nth-child(3) li:nth-child(1)', 'skill3a', 'html'], ['#skills .tool-col:nth-child(3) li:nth-child(2)', 'skill3b', 'html'], ['#skills .tool-col:nth-child(3) li:nth-child(3)', 'skill3c', 'html'],
+    ['#skills .marquee-track', 'marquee', 'html'], ['#contact .label', 'contactLabel'], ['#contact h2', 'contactTitle', 'html'],
+    ['.email-card .c-label', 'emailLabel'], ['.email-card .c-go', 'emailGo'], ['.connect .c-label', 'connectLabel'], ['.connect .soon .s-handle', 'grabcadSoon'],
+    ['.msg-card > .c-label', 'directMessage'], ['.msg-card .m-title', 'messageTitle', 'html'], ['label[for="fName"]', 'nameLabel'], ['label[for="fMail"]', 'mailLabel'], ['label[for="fMsg"]', 'msgLabel'],
+    ['#msgForm button[type="submit"]', 'sendMessage'], ['footer .foot-inner span:nth-child(2)', 'footerMiddle'], ['footer .foot-inner span:nth-child(3)', 'footerLocation']
+  ];
+
+  const attrBindings = [
+    ['#fName', 'placeholder', 'namePlaceholder'],
+    ['#fMail', 'placeholder', 'mailPlaceholder'],
+    ['#fMsg', 'placeholder', 'msgPlaceholder']
+  ];
+
+  let currentLang = new URLSearchParams(location.search).get('lang') || localStorage.getItem('portfolioLang') || 'en';
+  if (!translations[currentLang]) currentLang = 'en';
+
+  const t = key => translations[currentLang][key];
+  const setList = (selector, items) => {
+    document.querySelectorAll(selector).forEach((el, i) => { if (items[i]) el.textContent = items[i]; });
+  };
+  const applyLanguage = lang => {
+    currentLang = translations[lang] ? lang : 'en';
+    localStorage.setItem('portfolioLang', currentLang);
+    const copy = translations[currentLang];
+    document.documentElement.lang = currentLang;
+    document.title = copy.docTitle;
+    const meta = document.querySelector('meta[name="description"]');
+    if (meta) meta.setAttribute('content', copy.metaDescription);
+    bindings.forEach(([selector, key, mode]) => {
+      const el = document.querySelector(selector);
+      if (!el || copy[key] === undefined) return;
+      if (mode === 'html') el.innerHTML = copy[key];
+      else el.textContent = copy[key];
+    });
+    attrBindings.forEach(([selector, attr, key]) => {
+      const el = document.querySelector(selector);
+      if (el && copy[key] !== undefined) el.setAttribute(attr, copy[key]);
+    });
+    setList('#experience .tl-row:nth-child(1) li', copy.exp1Bullets);
+    setList('#experience .tl-row:nth-child(2) li', copy.exp2Bullets);
+    setList('#experience .tl-row:nth-child(3) li', copy.exp3Bullets);
+    setList('.proj-tags span', copy.projectTags);
+    const download = document.querySelector('.hero-cta a:nth-child(1)');
+    const view = document.querySelector('.hero-cta a:nth-child(2)');
+    if (download) { download.href = copy.cvHref; download.setAttribute('download', copy.cvDownloadName); }
+    if (view) view.href = copy.cvHref;
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      const active = btn.dataset.lang === currentLang;
+      btn.classList.toggle('active', active);
+      btn.setAttribute('aria-pressed', String(active));
+    });
+    document.querySelectorAll('.cert-open').forEach(btn => { btn.textContent = copy.certOpen; });
+    document.querySelectorAll('.cert-card').forEach(card => {
+      const state = card.dataset.certState || 'pending';
+      const status = card.querySelector('.cert-status');
+      if (status) status.textContent = copy.certStatus[state] || copy.certStatus.pending;
+    });
+  };
+
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', () => applyLanguage(btn.dataset.lang));
+  });
+  applyLanguage(currentLang);
+
   // reveal on scroll
   const io = new IntersectionObserver(
     es => es.forEach(e => { if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } }),
@@ -832,26 +1290,29 @@
   };
   document.querySelectorAll('.cert-card[data-pdf]').forEach(card => {
     const pdf = card.dataset.pdf;
-    const title = card.dataset.title || card.querySelector('h3').textContent;
     const btn = card.querySelector('.cert-open');
     const status = card.querySelector('.cert-status');
-    const markReady = text => {
+    const markState = state => {
+      card.dataset.certState = state;
+      status.textContent = translations[currentLang].certStatus[state] || translations[currentLang].certStatus.pending;
+    };
+    const markReady = state => {
       card.classList.add('ready');
-      status.textContent = text;
+      markState(state);
       btn.disabled = false;
     };
-    btn.addEventListener('click', () => openCertViewer(title, pdf));
+    btn.addEventListener('click', () => openCertViewer(card.querySelector('h3').textContent, pdf));
     if (location.protocol === 'file:') {
-      markReady('Local preview');
+      markReady('local');
     } else {
       fetch(pdf, { method: 'HEAD', cache: 'no-store' })
         .then(res => {
           if (!res.ok) throw new Error('missing certificate');
-          markReady('PDF ready');
+          markReady('ready');
         })
         .catch(() => {
           card.classList.remove('ready');
-          status.textContent = 'PDF pending';
+          markState('pending');
           btn.disabled = true;
         });
     }
@@ -882,13 +1343,14 @@
   const toggle = document.getElementById('navToggle'), links = document.getElementById('navLinks');
   toggle.addEventListener('click', () => links.classList.toggle('open'));
   links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
+  links.querySelectorAll('.lang-btn').forEach(btn => btn.addEventListener('click', () => links.classList.remove('open')));
 
   // direct-message form → opens the visitor's mail client with the message prefilled
   document.getElementById('msgForm').addEventListener('submit', ev => {
     ev.preventDefault();
     const n = document.getElementById('fName').value, m = document.getElementById('fMail').value, t = document.getElementById('fMsg').value;
     location.href = 'mailto:srikanth.uppiretla@gmail.com'
-      + '?subject=' + encodeURIComponent('Portfolio contact from ' + n)
+      + '?subject=' + encodeURIComponent(translations[currentLang].mailSubjectPrefix + n)
       + '&body=' + encodeURIComponent(t + '\n\n— ' + n + ' (' + m + ')');
   });
 </script>
