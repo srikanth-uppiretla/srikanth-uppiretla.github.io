@@ -163,6 +163,36 @@
   .tl-what li{font-size:.78rem;line-height:1.7;color:var(--ink-soft);padding-left:18px;position:relative;margin-bottom:7px}
   .tl-what li::before{content:"◆";position:absolute;left:0;top:0;font-size:.5rem;color:var(--orange)}
 
+  /* ── Certificates (cream) ───────────────────────────── */
+  #certificates{background:var(--cream);color:var(--ink);padding:90px 0;border-top:1px solid var(--line-cream)}
+  .cert-head{display:flex;justify-content:space-between;align-items:flex-end;gap:42px}
+  .cert-intro{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-faint);text-align:right;line-height:2;padding-bottom:52px;max-width:430px}
+  .cert-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+  .cert-card{background:var(--light);border:1px solid var(--line-cream);padding:34px 32px;display:flex;flex-direction:column;gap:15px;min-height:330px;transition:transform .2s ease,box-shadow .2s ease}
+  .cert-card:hover{transform:translateY(-5px);box-shadow:0 18px 44px rgba(26,22,17,.12)}
+  .cert-top{display:flex;justify-content:space-between;align-items:center;gap:16px}
+  .cert-num{font-size:.8rem;font-weight:700;color:var(--orange);letter-spacing:.1em}
+  .cert-status{font-size:.56rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-faint);border:1px solid var(--line-cream);padding:5px 10px}
+  .cert-card.ready .cert-status{color:var(--orange);border-color:rgba(240,78,35,.35)}
+  .cert-label{font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--orange);font-weight:700;margin-top:8px}
+  .cert-card h3{font-family:var(--serif);font-weight:600;font-size:1.45rem;line-height:1.25;color:var(--ink)}
+  .cert-meta{font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint);line-height:1.8}
+  .cert-note{font-size:.76rem;line-height:1.7;color:var(--ink-soft);border-top:1px solid var(--line-cream);padding-top:16px;flex:1}
+  .cert-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:4px}
+  .cert-btn{font-family:var(--mono);font-size:.68rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:13px 18px;border:2px solid rgba(26,22,17,.35);background:transparent;color:var(--ink);cursor:pointer;transition:all .2s ease}
+  .cert-btn:hover{border-color:var(--orange);color:var(--orange);transform:translateY(-2px)}
+  .cert-btn:disabled{opacity:.45;cursor:not-allowed;transform:none;border-color:var(--line-cream);color:var(--ink-faint)}
+  body.viewer-open{overflow:hidden}
+  .cert-viewer{position:fixed;inset:0;z-index:220;display:none;align-items:center;justify-content:center;background:rgba(23,19,16,.88);padding:24px}
+  .cert-viewer.open{display:flex}
+  .cert-viewer-panel{width:min(1120px,calc(100vw - 48px));height:min(86vh,820px);background:var(--cream);border:1px solid rgba(240,78,35,.5);box-shadow:0 24px 80px rgba(0,0,0,.45);display:flex;flex-direction:column}
+  .cert-viewer-bar{display:flex;justify-content:space-between;align-items:center;gap:18px;padding:18px 22px;border-bottom:1px solid var(--line-cream);background:var(--light)}
+  .cert-viewer-title{font-family:var(--serif);font-size:1.25rem;font-weight:600;color:var(--ink);line-height:1.2}
+  .cert-viewer-actions{display:flex;gap:10px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+  .cert-viewer-actions a,.cert-viewer-actions button{font-family:var(--mono);font-size:.62rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;border:1px solid rgba(26,22,17,.35);background:transparent;color:var(--ink);padding:10px 14px;cursor:pointer}
+  .cert-viewer-actions a:hover,.cert-viewer-actions button:hover{border-color:var(--orange);color:var(--orange)}
+  .cert-frame{width:100%;height:100%;border:0;background:#fff;flex:1}
+
   /* ── Education (cream) ───────────────── */
   #education{background:var(--cream);color:var(--ink);padding:90px 0;border-top:1px solid var(--line-cream)}
   .edu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
@@ -216,6 +246,9 @@
     .toolkit{grid-template-columns:1fr}
     .tool-col{border-right:0;border-bottom:1px solid var(--line-dark)}
     .work-grid{grid-template-columns:1fr}
+    .cert-grid{grid-template-columns:1fr}
+    .cert-head{flex-direction:column;align-items:flex-start}
+    .cert-intro{text-align:left;padding-bottom:30px}
     .edu-grid{grid-template-columns:1fr}
     .contact-grid{grid-template-columns:1fr}
     .hero-grid{grid-template-columns:1fr;gap:40px}
@@ -233,6 +266,9 @@
     .form-row{grid-template-columns:1fr}
     .skills-head{flex-direction:column;align-items:flex-start}
     .skills-tag{text-align:left;padding-bottom:30px}
+    .cert-viewer{padding:12px}
+    .cert-viewer-panel{width:calc(100vw - 24px);height:88vh}
+    .cert-viewer-bar{align-items:flex-start;flex-direction:column}
   }
 </style>
 </head>
@@ -247,6 +283,7 @@
       <li><a href="#education">Education</a></li>
       <li><a href="#work">Work</a></li>
       <li><a href="#experience">Experience</a></li>
+      <li><a href="#certificates">Certificates</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#contact">Contact</a></li>
       <li><a class="nav-cta" href="mailto:srikanth.uppiretla@gmail.com">Let's Talk</a></li>
@@ -578,6 +615,47 @@
   </div>
 </section>
 
+<section id="certificates">
+  <div class="wrap">
+    <div class="cert-head">
+      <div>
+        <p class="label">Certificates</p>
+        <h2>Proof ready<br>for <span class="hl">review</span>.</h2>
+      </div>
+      <p class="cert-intro">Recruiter-facing documents for education, language and technical training.</p>
+    </div>
+
+    <div class="cert-grid">
+      <article class="cert-card reveal" data-pdf="certificates/german-b2.pdf" data-title="German Language B2">
+        <div class="cert-top"><span class="cert-num">01</span><span class="cert-status">PDF pending</span></div>
+        <p class="cert-label">Language</p>
+        <h3>German Language B2</h3>
+        <p class="cert-meta">GISMA Business School · Hannover</p>
+        <p class="cert-note">Proof document for German language training from A1 to B2, supporting engineering communication and daily work in Germany.</p>
+        <div class="cert-actions"><button class="cert-btn cert-open" type="button" disabled>Open certificate</button></div>
+      </article>
+
+      <article class="cert-card reveal" data-pdf="certificates/msc-space-engineering.pdf" data-title="M.Sc. Space Engineering">
+        <div class="cert-top"><span class="cert-num">02</span><span class="cert-status">PDF pending</span></div>
+        <p class="cert-label">Degree</p>
+        <h3>M.Sc. Space Engineering</h3>
+        <p class="cert-meta">University of Bremen · 2025</p>
+        <p class="cert-note">Recruiter-facing proof for the master's degree connected to structural analysis, space systems and launch vehicle engineering.</p>
+        <div class="cert-actions"><button class="cert-btn cert-open" type="button" disabled>Open certificate</button></div>
+      </article>
+
+      <article class="cert-card reveal" data-pdf="certificates/bsc-mechanical-engineering.pdf" data-title="B.Sc. Mechanical Engineering">
+        <div class="cert-top"><span class="cert-num">03</span><span class="cert-status">PDF pending</span></div>
+        <p class="cert-label">Degree</p>
+        <h3>B.Sc. Mechanical Engineering</h3>
+        <p class="cert-meta">Lovely Professional University · 2017</p>
+        <p class="cert-note">Recruiter-facing proof for the mechanical engineering foundation behind CAD design, prototyping and structural analysis work.</p>
+        <div class="cert-actions"><button class="cert-btn cert-open" type="button" disabled>Open certificate</button></div>
+      </article>
+    </div>
+  </div>
+</section>
+
 <section id="skills" class="grid-dark">
   <div class="wrap">
     <div class="skills-head">
@@ -663,6 +741,20 @@
   </div>
 </section>
 
+<div class="cert-viewer" id="certViewer" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="certViewerTitle">
+  <div class="cert-viewer-panel">
+    <div class="cert-viewer-bar">
+      <div class="cert-viewer-title" id="certViewerTitle">Certificate</div>
+      <div class="cert-viewer-actions">
+        <a id="certDownload" href="#" download>Download PDF</a>
+        <a id="certOpenTab" href="#" target="_blank" rel="noopener">Open tab</a>
+        <button id="certClose" type="button">Close</button>
+      </div>
+    </div>
+    <iframe class="cert-frame" id="certFrame" title="Certificate PDF viewer"></iframe>
+  </div>
+</div>
+
 
 
 
@@ -715,6 +807,61 @@
     });
   }));
 
+  // certificate cards → same-page PDF reader
+  const certViewer = document.getElementById('certViewer');
+  const certFrame = document.getElementById('certFrame');
+  const certTitle = document.getElementById('certViewerTitle');
+  const certDownload = document.getElementById('certDownload');
+  const certOpenTab = document.getElementById('certOpenTab');
+  const certClose = document.getElementById('certClose');
+  const openCertViewer = (title, pdf) => {
+    certTitle.textContent = title;
+    certFrame.src = pdf + '#toolbar=1&navpanes=0&view=FitH';
+    certDownload.href = pdf;
+    certOpenTab.href = pdf;
+    certViewer.classList.add('open');
+    certViewer.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('viewer-open');
+    certClose.focus();
+  };
+  const closeCertViewer = () => {
+    certViewer.classList.remove('open');
+    certViewer.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('viewer-open');
+    certFrame.src = 'about:blank';
+  };
+  document.querySelectorAll('.cert-card[data-pdf]').forEach(card => {
+    const pdf = card.dataset.pdf;
+    const title = card.dataset.title || card.querySelector('h3').textContent;
+    const btn = card.querySelector('.cert-open');
+    const status = card.querySelector('.cert-status');
+    const markReady = text => {
+      card.classList.add('ready');
+      status.textContent = text;
+      btn.disabled = false;
+    };
+    btn.addEventListener('click', () => openCertViewer(title, pdf));
+    if (location.protocol === 'file:') {
+      markReady('Local preview');
+    } else {
+      fetch(pdf, { method: 'HEAD', cache: 'no-store' })
+        .then(res => {
+          if (!res.ok) throw new Error('missing certificate');
+          markReady('PDF ready');
+        })
+        .catch(() => {
+          card.classList.remove('ready');
+          status.textContent = 'PDF pending';
+          btn.disabled = true;
+        });
+    }
+  });
+  certClose.addEventListener('click', closeCertViewer);
+  certViewer.addEventListener('click', ev => { if (ev.target === certViewer) closeCertViewer(); });
+  document.addEventListener('keydown', ev => {
+    if (ev.key === 'Escape' && certViewer.classList.contains('open')) closeCertViewer();
+  });
+
   // scroll-spy — highlight the nav link of the section in view
   const spyLinks = {};
   document.querySelectorAll('.nav-links a:not(.nav-cta)').forEach(a => spyLinks[a.getAttribute('href')] = a);
@@ -726,7 +873,7 @@
       if (link) link.classList.add('active');
     });
   }, { rootMargin: '-40% 0px -55% 0px' });
-  ['top', 'skills', 'work', 'experience', 'education', 'contact'].forEach(id => {
+  ['top', 'education', 'work', 'experience', 'certificates', 'skills', 'contact'].forEach(id => {
     const el = document.getElementById(id);
     if (el) spy.observe(el);
   });

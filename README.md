@@ -15,6 +15,7 @@ orange accent (`#f04e23`).
 | `index.html` | **The entire website** — all text, styling and scripts in one file |
 | `img/photo.jpg` | Profile photo (About section) |
 | `img/` | Put project renders / screenshots here |
+| `certificates/` | Put recruiter-visible certificate PDFs here |
 | `cv/Srikanth_Uppiretla_CV.pdf` | The CV behind the "Download CV" button |
 | `.github/workflows/pages.yml` | Auto-deploys the site on every push — don't touch |
 | `.nojekyll` | Tells GitHub to serve files as-is — don't touch |
@@ -59,6 +60,7 @@ Open `index.html` and search (`Ctrl+F`) for the phrase in quotes:
 | Scrolling tool ticker | `marquee-track` (edit **both** copies — the text is duplicated to make the loop seamless) |
 | Project cards | `id="work"` — each card is an `<article class="proj">` block |
 | Experience timeline | `id="experience"` — each entry is a `<div class="tl-row">` |
+| Certificate cards / PDF viewer | `id="certificates"` and `cert-viewer` |
 | Education cards / languages | `id="education"` |
 | Email / LinkedIn / GitHub / GrabCAD links | `id="contact"` |
 | Accent color, fonts, spacing | `:root` at the top — all design values are CSS variables |
@@ -91,6 +93,24 @@ The same trick works for timeline entries and education cards.
 
 > ⚠ **Rocket Factory Augsburg material:** get written clearance before publishing
 > any geometry, FEM plots or numbers beyond what's already in the public CV.
+
+---
+
+## Adding certificate PDFs
+
+Save certificate PDFs in `certificates/` using the filenames already referenced in
+`index.html`:
+
+- `certificates/german-b2.pdf`
+- `certificates/msc-space-engineering.pdf`
+- `certificates/bsc-mechanical-engineering.pdf`
+
+After upload, run the site through a local server (`npx serve .`) and open the
+Certificates section. Cards automatically switch from "PDF pending" to "PDF ready"
+when the referenced file exists. To add another certificate, copy one whole
+`<article class="cert-card">…</article>` block inside `id="certificates"`, update
+the title, text and `data-pdf` filename, then place the matching PDF in
+`certificates/`.
 
 ---
 
