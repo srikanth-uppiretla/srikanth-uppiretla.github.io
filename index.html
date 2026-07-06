@@ -69,10 +69,21 @@
   .nav-links a.active::after{transform:scaleX(1)}
   .nav-cta{background:var(--orange);color:#fff !important;padding:12px 24px !important;font-size:.74rem !important;font-weight:700;box-shadow:0 0 20px rgba(240,78,35,.45);transition:all .2s ease}
   .nav-cta:hover{background:#d8431c;box-shadow:0 0 30px rgba(240,78,35,.6)}
-  .lang-switch{display:flex;gap:4px;border:1px solid var(--line-cream);padding:3px;background:rgba(255,255,255,.28)}
-  .lang-btn{border:0;background:transparent;color:var(--ink-soft);font-family:var(--mono);font-size:.6rem;font-weight:700;letter-spacing:0;text-transform:uppercase;padding:7px 9px;cursor:pointer;transition:all .2s ease;white-space:nowrap}
-  .lang-btn:hover{color:var(--orange)}
-  .lang-btn.active{background:var(--orange);color:#fff}
+  .lang-switch{display:flex;align-items:center;gap:8px;border:0;padding:0;background:transparent}
+  .lang-btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;min-height:38px;border:1px solid rgba(26,22,17,.18);background:rgba(255,255,255,.34);color:var(--ink-soft);font-family:var(--mono);font-size:.64rem;font-weight:700;letter-spacing:0;text-transform:uppercase;padding:9px 12px;cursor:pointer;transition:all .2s ease;white-space:nowrap}
+  .lang-btn:hover{border-color:var(--orange);background:#fff;color:var(--orange)}
+  .lang-btn.active{border-color:var(--orange);background:var(--orange);color:#fff;box-shadow:0 0 18px rgba(240,78,35,.35)}
+  .lang-btn.active:hover{background:#d8431c;color:#fff}
+  .lang-flag{width:18px;height:12px;display:inline-block;flex:0 0 auto;border:1px solid rgba(26,22,17,.18);box-shadow:0 0 0 1px rgba(255,255,255,.28) inset}
+  .flag-en{background:
+    linear-gradient(0deg,transparent 42%,#fff 42% 58%,transparent 58%),
+    linear-gradient(90deg,transparent 42%,#fff 42% 58%,transparent 58%),
+    linear-gradient(0deg,transparent 46%,#c8102e 46% 54%,transparent 54%),
+    linear-gradient(90deg,transparent 46%,#c8102e 46% 54%,transparent 54%),
+    linear-gradient(27deg,transparent 44%,#fff 44% 49%,#c8102e 49% 53%,#fff 53% 58%,transparent 58%),
+    linear-gradient(-27deg,transparent 44%,#fff 44% 49%,#c8102e 49% 53%,#fff 53% 58%,transparent 58%),
+    #012169;background-size:100% 100%}
+  .flag-de{background:linear-gradient(#000 0 33.333%,#dd0000 33.333% 66.666%,#ffce00 66.666% 100%)}
   .nav-toggle{display:none;background:none;border:1px solid var(--line-cream);color:var(--ink);font-family:var(--mono);font-size:.7rem;letter-spacing:.15em;padding:8px 14px;cursor:pointer}
 
   /* ── Hero ────────────────────────────── */
@@ -266,7 +277,8 @@
     .nav-links{display:none;position:absolute;top:64px;left:0;right:0;background:var(--cream);flex-direction:column;align-items:stretch;padding:10px 0;border-bottom:1px solid var(--line-cream)}
     .nav-links.open{display:flex}
     .nav-links a{padding:14px 28px}
-    .lang-switch{margin:8px 28px 4px;align-self:flex-start}
+    .lang-switch{margin:8px 28px 4px;align-self:flex-start;flex-wrap:wrap}
+    .lang-btn{min-width:126px}
     .nav-toggle{display:block}
     .form-row{grid-template-columns:1fr}
     .skills-head{flex-direction:column;align-items:flex-start}
@@ -290,11 +302,11 @@
       <li><a href="#experience">Experience</a></li>
       <li><a href="#certificates">Certificates</a></li>
       <li><a href="#skills">Skills</a></li>
-      <li><a href="#contact">Contact</a></li>
       <li class="lang-switch" aria-label="Language selector">
-        <button class="lang-btn active" type="button" data-lang="en" aria-pressed="true">🇬🇧 English</button>
-        <button class="lang-btn" type="button" data-lang="de" aria-pressed="false">🇩🇪 Deutsch</button>
+        <button class="lang-btn active" type="button" data-lang="en" aria-pressed="true"><span class="lang-flag flag-en" aria-hidden="true"></span><span>English</span></button>
+        <button class="lang-btn" type="button" data-lang="de" aria-pressed="false"><span class="lang-flag flag-de" aria-hidden="true"></span><span>Deutsch</span></button>
       </li>
+      <li><a href="#contact">Contact</a></li>
       <li><a class="nav-cta" href="mailto:srikanth.uppiretla@gmail.com">Let's Talk</a></li>
     </ul>
   </div>
