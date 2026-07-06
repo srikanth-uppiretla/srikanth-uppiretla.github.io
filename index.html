@@ -64,11 +64,9 @@
   .nav-links{display:flex;gap:8px;list-style:none;align-items:center}
   .nav-links a{font-size:.68rem;font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft);padding:8px 12px;transition:color .25s ease;position:relative}
   .nav-links a:hover{color:var(--orange)}
-  .nav-links a:not(.nav-cta)::after{content:"";position:absolute;left:12px;right:12px;bottom:1px;height:2px;background:var(--orange);transform:scaleX(0);transform-origin:left;transition:transform .35s cubic-bezier(.22,1,.36,1)}
+  .nav-links a::after{content:"";position:absolute;left:12px;right:12px;bottom:1px;height:2px;background:var(--orange);transform:scaleX(0);transform-origin:left;transition:transform .35s cubic-bezier(.22,1,.36,1)}
   .nav-links a.active{color:var(--orange);font-weight:700}
   .nav-links a.active::after{transform:scaleX(1)}
-  .nav-cta{background:var(--orange);color:#fff !important;padding:12px 24px !important;font-size:.74rem !important;font-weight:700;box-shadow:0 0 20px rgba(240,78,35,.45);transition:all .2s ease}
-  .nav-cta:hover{background:#d8431c;box-shadow:0 0 30px rgba(240,78,35,.6)}
   .lang-switch{display:flex;align-items:center;gap:8px;border:0;padding:0;background:transparent}
   .lang-btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;min-height:38px;border:1px solid rgba(26,22,17,.18);background:rgba(255,255,255,.34);color:var(--ink-soft);font-family:var(--mono);font-size:.64rem;font-weight:700;letter-spacing:0;text-transform:uppercase;padding:9px 12px;cursor:pointer;transition:all .2s ease;white-space:nowrap}
   .lang-btn:hover{border-color:var(--orange);background:#fff;color:var(--orange)}
@@ -302,12 +300,11 @@
       <li><a href="#experience">Experience</a></li>
       <li><a href="#certificates">Certificates</a></li>
       <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
       <li class="lang-switch" aria-label="Language selector">
         <button class="lang-btn active" type="button" data-lang="en" aria-pressed="true"><span class="lang-flag flag-en" aria-hidden="true"></span><span>English</span></button>
         <button class="lang-btn" type="button" data-lang="de" aria-pressed="false"><span class="lang-flag flag-de" aria-hidden="true"></span><span>Deutsch</span></button>
       </li>
-      <li><a href="#contact">Contact</a></li>
-      <li><a class="nav-cta" href="mailto:srikanth.uppiretla@gmail.com">Let's Talk</a></li>
     </ul>
   </div>
 </nav>
@@ -808,7 +805,6 @@
       navCertificates: 'Certificates',
       navSkills: 'Skills',
       navContact: 'Contact',
-      navTalk: "Let's Talk",
       navMenu: 'MENU',
       heroHi: "Hi, it's me",
       heroRolePrimary: 'Engineering Portfolio',
@@ -972,7 +968,6 @@
       navCertificates: 'Zertifikate',
       navSkills: 'Kenntnisse',
       navContact: 'Kontakt',
-      navTalk: 'Kontakt',
       navMenu: 'MENÜ',
       heroHi: 'Hallo, ich bin',
       heroRolePrimary: 'Ingenieurportfolio',
@@ -1130,7 +1125,7 @@
     ['.nav-toggle', 'navMenu'], ['.nav-links a[href="#top"]', 'navAbout'], ['.nav-links a[href="#education"]', 'navEducation'],
     ['.nav-links a[href="#work"]', 'navWork'], ['.nav-links a[href="#experience"]', 'navExperience'],
     ['.nav-links a[href="#certificates"]', 'navCertificates'], ['.nav-links a[href="#skills"]', 'navSkills'],
-    ['.nav-links a[href="#contact"]', 'navContact'], ['.nav-cta', 'navTalk'],
+    ['.nav-links a[href="#contact"]', 'navContact'],
     ['.hero .hi', 'heroHi'], ['.hero-role .r1', 'heroRolePrimary'], ['.hero-role .r2', 'heroRoleSecondary'],
     ['.hero-cta a:nth-child(1)', 'downloadCv'], ['.hero-cta a:nth-child(2)', 'viewCv'], ['.hero-cta a:nth-child(3)', 'getInTouch'],
     ['.status-pill', 'statusPill'], ['.hero-about', 'heroAbout', 'html'],
@@ -1337,7 +1332,7 @@
 
   // scroll-spy — highlight the nav link of the section in view
   const spyLinks = {};
-  document.querySelectorAll('.nav-links a:not(.nav-cta)').forEach(a => spyLinks[a.getAttribute('href')] = a);
+  document.querySelectorAll('.nav-links a').forEach(a => spyLinks[a.getAttribute('href')] = a);
   const spy = new IntersectionObserver(es => {
     es.forEach(e => {
       if (!e.isIntersecting) return;
