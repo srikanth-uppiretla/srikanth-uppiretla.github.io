@@ -251,10 +251,12 @@
   .contact-head .label{justify-content:center}
   .contact-head h2{margin:20px 0 0}
   .contact-body{max-width:920px;margin:0 auto;position:relative;z-index:2}
-  .email-card{border:1px solid var(--orange);padding:34px 36px;text-align:center;background:rgba(240,78,35,.03);box-shadow:0 0 44px rgba(240,78,35,.12);margin-bottom:18px}
-  .email-card .c-label{font-size:.62rem;letter-spacing:.24em;text-transform:uppercase;color:var(--light-faint);margin-bottom:12px}
-  .email-card .c-value{font-family:var(--serif);font-size:clamp(1.3rem,2.6vw,1.7rem);color:var(--light);word-break:break-all}
-  .c-actions{display:flex;gap:12px;margin-top:24px;flex-wrap:wrap;justify-content:center}
+  .contact-primary{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+  .cm-card{border:1px solid var(--line-dark);padding:24px 26px;display:flex;flex-direction:column;transition:border-color .25s ease,background .25s ease}
+  .cm-card:hover{border-color:rgba(240,78,35,.45);background:rgba(240,78,35,.04)}
+  .cm-label{font-family:var(--mono);font-size:.58rem;letter-spacing:.24em;text-transform:uppercase;color:var(--light-faint);margin-bottom:11px}
+  .cm-value{font-family:var(--serif);font-size:1.25rem;color:var(--light);word-break:break-all;margin-bottom:20px}
+  .cm-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:auto}
   .c-btn{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:.6rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--light);border:1px solid rgba(255,255,255,.28);background:transparent;padding:12px 18px;cursor:pointer;transition:all .2s ease}
   .c-btn:hover{border-color:var(--orange);color:var(--orange)}
   .c-btn.copied{border-color:var(--orange);color:var(--orange)}
@@ -297,6 +299,7 @@
     .label::before{width:26px}
     .cert-head{flex-direction:column;align-items:flex-start}
     .edu-grid{grid-template-columns:1fr}
+    .contact-primary{grid-template-columns:1fr}
     .social-row{grid-template-columns:1fr}
     .hero-grid{grid-template-columns:1fr;gap:40px}
     .hero-photo{max-width:280px;justify-self:start}
@@ -823,15 +826,28 @@
       <h2>Let's build something<br>that <span class="hl">works</span>.</h2>
     </div>
     <div class="contact-body">
-      <div class="email-card reveal">
-        <div class="c-label">Email</div>
-        <div class="c-value">srikanth.uppiretla@gmail.com</div>
-        <div class="c-actions">
-          <button type="button" class="c-btn" id="copyEmail" data-email="srikanth.uppiretla@gmail.com">
-            <svg class="c-copy-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-            <span class="c-copy-txt">Copy</span>
-          </button>
-          <a class="c-btn c-btn-send" href="mailto:srikanth.uppiretla@gmail.com">Send →</a>
+      <div class="contact-primary">
+        <div class="cm-card reveal">
+          <span class="cm-label">Email</span>
+          <span class="cm-value">srikanth.uppiretla@gmail.com</span>
+          <div class="cm-actions">
+            <button type="button" class="c-btn js-copy" data-copy="srikanth.uppiretla@gmail.com">
+              <svg class="c-copy-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              <span class="c-copy-txt">Copy</span>
+            </button>
+            <a class="c-btn c-btn-send" href="mailto:srikanth.uppiretla@gmail.com">Send →</a>
+          </div>
+        </div>
+        <div class="cm-card reveal">
+          <span class="cm-label">Phone</span>
+          <span class="cm-value">+49 179 2695583</span>
+          <div class="cm-actions">
+            <button type="button" class="c-btn js-copy" data-copy="+49 179 2695583">
+              <svg class="c-copy-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              <span class="c-copy-txt">Copy</span>
+            </button>
+            <a class="c-btn c-btn-send" href="tel:+491792695583">Call →</a>
+          </div>
         </div>
       </div>
       <div class="social-row">
@@ -1017,6 +1033,7 @@
       contactLabel: 'Get in touch',
       contactTitle: 'Let\'s build something<br>that <span class="hl">works</span>.',
       emailLabel: 'Email',
+      phoneLabel: 'Phone',
       emailGo: '→ Click to send a message',
       connectLabel: 'Connect',
       grabcadSoon: 'Profile coming soon',
@@ -1183,6 +1200,7 @@
       contactLabel: 'Kontakt',
       contactTitle: 'Lassen Sie uns etwas<br><span class="hl">Solides</span> entwickeln.',
       emailLabel: 'E-Mail',
+      phoneLabel: 'Telefon',
       emailGo: '→ Nachricht senden',
       connectLabel: 'Vernetzen',
       grabcadSoon: 'Profil folgt',
@@ -1254,7 +1272,7 @@
     ['#skills .tool-col:nth-child(2) .t-label', 'skill2Label', 'html'], ['#skills .tool-col:nth-child(2) li:nth-child(1)', 'skill2a', 'html'], ['#skills .tool-col:nth-child(2) li:nth-child(2)', 'skill2b', 'html'], ['#skills .tool-col:nth-child(2) li:nth-child(3)', 'skill2c', 'html'],
     ['#skills .tool-col:nth-child(3) .t-label', 'skill3Label', 'html'], ['#skills .tool-col:nth-child(3) li:nth-child(1)', 'skill3a', 'html'], ['#skills .tool-col:nth-child(3) li:nth-child(2)', 'skill3b', 'html'], ['#skills .tool-col:nth-child(3) li:nth-child(3)', 'skill3c', 'html'],
     ['#skills .marquee-track', 'marquee', 'html'], ['#contact .label', 'contactLabel'], ['#contact h2', 'contactTitle', 'html'],
-    ['.email-card .c-label', 'emailLabel'], ['.social-card.soon .social-handle', 'grabcadSoon'],
+    ['.contact-primary .cm-card:nth-child(1) .cm-label', 'emailLabel'], ['.contact-primary .cm-card:nth-child(2) .cm-label', 'phoneLabel'], ['.social-card.soon .social-handle', 'grabcadSoon'],
     ['.msg-card > .c-label', 'directMessage'], ['.msg-card .m-title', 'messageTitle', 'html'], ['label[for="fName"]', 'nameLabel'], ['label[for="fMail"]', 'mailLabel'], ['label[for="fMsg"]', 'msgLabel'],
     ['#msgForm button[type="submit"]', 'sendMessage'], ['footer .foot-inner span:nth-child(2)', 'footerMiddle'], ['footer .foot-inner span:nth-child(3)', 'footerLocation']
   ];
@@ -1438,26 +1456,25 @@
   links.querySelectorAll('.lang-btn').forEach(btn => btn.addEventListener('click', () => links.classList.remove('open')));
 
   // direct-message form → opens the visitor's mail client with the message prefilled
-  const copyEmailBtn = document.getElementById('copyEmail');
-  if (copyEmailBtn) {
-    copyEmailBtn.addEventListener('click', async () => {
-      const email = copyEmailBtn.dataset.email;
-      const label = copyEmailBtn.querySelector('.c-copy-txt');
+  document.querySelectorAll('.js-copy').forEach(btn => {
+    btn.addEventListener('click', async () => {
+      const val = btn.dataset.copy;
+      const label = btn.querySelector('.c-copy-txt');
       try {
-        await navigator.clipboard.writeText(email);
+        await navigator.clipboard.writeText(val);
       } catch (e) {
         const ta = document.createElement('textarea');
-        ta.value = email; ta.style.position = 'fixed'; ta.style.opacity = '0';
+        ta.value = val; ta.style.position = 'fixed'; ta.style.opacity = '0';
         document.body.appendChild(ta); ta.select();
         try { document.execCommand('copy'); } catch (_) {}
         ta.remove();
       }
-      copyEmailBtn.classList.add('copied');
-      const original = label.textContent;
-      label.textContent = 'Copied';
-      setTimeout(() => { copyEmailBtn.classList.remove('copied'); label.textContent = original; }, 1600);
+      btn.classList.add('copied');
+      const original = label ? label.textContent : '';
+      if (label) label.textContent = 'Copied';
+      setTimeout(() => { btn.classList.remove('copied'); if (label) label.textContent = original; }, 1600);
     });
-  }
+  });
 </script>
 
 </body>
