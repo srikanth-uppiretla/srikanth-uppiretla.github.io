@@ -182,6 +182,7 @@
   .cert-item:disabled{cursor:default}
   .ci-index{justify-self:start;font-size:.85rem;font-weight:700;color:var(--orange);letter-spacing:.06em}
   .ci-main{display:flex;flex-direction:column;align-items:center;gap:5px;min-width:0;text-align:center}
+  .ci-logo{height:30px;max-width:140px;width:auto;object-fit:contain;margin-bottom:12px}
   .ci-cat{font-size:.58rem;letter-spacing:.26em;text-transform:uppercase;color:var(--ink-faint);font-weight:700}
   .ci-title{font-family:var(--serif);font-weight:600;font-size:1.4rem;line-height:1.2;color:var(--ink)}
   .ci-meta{font-size:.66rem;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-faint)}
@@ -193,7 +194,7 @@
   .cert-explorer.viewing .cert-item{grid-template-columns:auto 1fr;gap:16px;padding:16px 22px}
   .cert-explorer.viewing .ci-main{align-items:flex-start;text-align:left}
   .cert-explorer.viewing .ci-title{font-size:1.14rem}
-  .cert-explorer.viewing .ci-meta,.cert-explorer.viewing .ci-view{display:none}
+  .cert-explorer.viewing .ci-meta,.cert-explorer.viewing .ci-view,.cert-explorer.viewing .ci-logo{display:none}
 
   .cert-stage{flex:0 1 0;min-width:0;overflow:hidden;opacity:0;margin-left:0;display:flex;flex-direction:column;background:var(--light);border:1px solid rgba(240,78,35,.4);box-shadow:0 26px 70px rgba(26,22,17,.16);transition:flex-grow .62s cubic-bezier(.66,0,.2,1),opacity .4s ease .12s,margin-left .62s cubic-bezier(.66,0,.2,1)}
   .cert-explorer.viewing .cert-stage{flex-grow:1.55;opacity:1;margin-left:28px}
@@ -721,20 +722,10 @@
     <div class="cert-explorer" id="certExplorer">
       <div class="cert-list" id="certList" role="tablist" aria-label="Certificates">
         <button class="cert-item reveal" type="button" role="tab" aria-selected="false" disabled
-                data-pdf="certificates/german-b1.pdf" data-title="German Language B1">
+                data-pdf="certificates/msc-space-engineering.pdf" data-title="M.Sc. Space Engineering">
           <span class="ci-index">01</span>
           <span class="ci-main">
-            <span class="ci-cat">Language</span>
-            <span class="ci-title">German Language B1</span>
-            <span class="ci-meta">GISMA Business School · Hannover</span>
-          </span>
-          <span class="ci-view"><svg class="ci-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg><span>View</span></span>
-        </button>
-
-        <button class="cert-item reveal" type="button" role="tab" aria-selected="false" disabled
-                data-pdf="certificates/msc-space-engineering.pdf" data-title="M.Sc. Space Engineering">
-          <span class="ci-index">02</span>
-          <span class="ci-main">
+            <img class="ci-logo" src="img/logos/uni-bremen.svg" alt="University of Bremen logo">
             <span class="ci-cat">Degree</span>
             <span class="ci-title">M.Sc. Space Engineering</span>
             <span class="ci-meta">University of Bremen · 2025</span>
@@ -744,11 +735,24 @@
 
         <button class="cert-item reveal" type="button" role="tab" aria-selected="false" disabled
                 data-pdf="certificates/bsc-mechanical-engineering.pdf" data-title="B.Sc. Mechanical Engineering">
-          <span class="ci-index">03</span>
+          <span class="ci-index">02</span>
           <span class="ci-main">
+            <img class="ci-logo" src="img/logos/lpu.png" alt="Lovely Professional University logo">
             <span class="ci-cat">Degree</span>
             <span class="ci-title">B.Sc. Mechanical Engineering</span>
             <span class="ci-meta">Lovely Professional University · Jalandhar, India · 2017</span>
+          </span>
+          <span class="ci-view"><svg class="ci-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg><span>View</span></span>
+        </button>
+
+        <button class="cert-item reveal" type="button" role="tab" aria-selected="false" disabled
+                data-pdf="certificates/german-b1.pdf" data-title="German Language B1">
+          <span class="ci-index">03</span>
+          <span class="ci-main">
+            <img class="ci-logo" src="img/logos/gisma.svg" alt="GISMA Business School logo">
+            <span class="ci-cat">Language</span>
+            <span class="ci-title">German Language B1</span>
+            <span class="ci-meta">GISMA Business School · Hannover</span>
           </span>
           <span class="ci-view"><svg class="ci-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg><span>View</span></span>
         </button>
@@ -1270,9 +1274,9 @@
     ['#experience .tl-row:nth-child(3) .d1', 'exp3Date'], ['#experience .tl-row:nth-child(3) .d2', 'exp3Duration'],
     ['#experience .tl-row:nth-child(3) h3', 'exp3Title'], ['#experience .tl-row:nth-child(3) .org', 'exp3Org'],
     ['#certificates .label', 'certLabel'], ['#certificates h2', 'certTitle', 'html'],
-    ['.cert-item:nth-child(1) .ci-cat', 'cert1Label'], ['.cert-item:nth-child(1) .ci-title', 'cert1Title'], ['.cert-item:nth-child(1) .ci-meta', 'cert1Meta'],
-    ['.cert-item:nth-child(2) .ci-cat', 'cert2Label'], ['.cert-item:nth-child(2) .ci-title', 'cert2Title'], ['.cert-item:nth-child(2) .ci-meta', 'cert2Meta'],
-    ['.cert-item:nth-child(3) .ci-cat', 'cert2Label'], ['.cert-item:nth-child(3) .ci-title', 'cert3Title'], ['.cert-item:nth-child(3) .ci-meta', 'cert3Meta'],
+    ['.cert-item:nth-child(1) .ci-cat', 'cert2Label'], ['.cert-item:nth-child(1) .ci-title', 'cert2Title'], ['.cert-item:nth-child(1) .ci-meta', 'cert2Meta'],
+    ['.cert-item:nth-child(2) .ci-cat', 'cert2Label'], ['.cert-item:nth-child(2) .ci-title', 'cert3Title'], ['.cert-item:nth-child(2) .ci-meta', 'cert3Meta'],
+    ['.cert-item:nth-child(3) .ci-cat', 'cert1Label'], ['.cert-item:nth-child(3) .ci-title', 'cert1Title'], ['.cert-item:nth-child(3) .ci-meta', 'cert1Meta'],
     ['#skills .label', 'skillsLabel'],
     ['#skills .tool-col:nth-child(1) .t-cat', 'skillCat1'],
     ['#skills .tool-col:nth-child(2) .t-cat', 'skillCat2'],
