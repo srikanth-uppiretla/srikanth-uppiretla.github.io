@@ -204,7 +204,7 @@
 
   /* ── Education · cards (cream) ───────────── */
   #education{background:var(--cream-2);color:var(--ink);padding:48px 0;border-top:1px solid var(--line-cream)}
-  .edu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:start}
+  .edu-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;align-items:start}
   .edu-card{background:var(--light);border:1px solid var(--line-cream);padding:32px 30px;display:flex;flex-direction:column;transition:box-shadow .3s ease,border-color .3s ease}
   .edu-card:hover{box-shadow:0 16px 44px rgba(26,22,17,.09);border-color:rgba(240,78,35,.28)}
   .edu-card .e-logo{height:46px;display:flex;align-items:center;margin-bottom:18px}
@@ -425,24 +425,6 @@
             <span class="edu-chip">Vehicle Dynamics</span>
             <span class="edu-chip">Control Engineering</span>
             <span class="edu-chip">Manufacturing Processes</span>
-          </div>
-        </div>
-      </div>
-      <div class="edu-card reveal">
-        <div class="e-logo"><img src="img/logos/gisma.svg" alt="GISMA Business School logo"></div>
-        <span class="e-label">GISMA Business School</span>
-        <h3>German Language A1 — B1</h3>
-        <p class="e-meta">Hannover, Germany</p>
-        <div class="edu-mod">
-          <span class="edu-mod-label">Levels &amp; skills</span>
-          <div class="edu-chips">
-            <span class="edu-chip">Level A1</span>
-            <span class="edu-chip">Level A2</span>
-            <span class="edu-chip">Level B1</span>
-            <span class="edu-chip">Listening</span>
-            <span class="edu-chip">Reading</span>
-            <span class="edu-chip">Writing</span>
-            <span class="edu-chip">Speaking</span>
           </div>
         </div>
       </div>
@@ -1221,7 +1203,6 @@
     ['#education .label', 'educationLabel'],
     ['#education .edu-card:nth-child(1) .e-meta', 'edu1Meta'], ['#education .edu-card:nth-child(1) .edu-mod-label', 'eduMod1Label'],
     ['#education .edu-card:nth-child(2) h3', 'edu2Title'], ['#education .edu-card:nth-child(2) .e-meta', 'edu2Meta'], ['#education .edu-card:nth-child(2) .edu-mod-label', 'eduMod3Label'],
-    ['#education .edu-card:nth-child(3) h3', 'edu3Title'], ['#education .edu-card:nth-child(3) .e-meta', 'edu3Meta'], ['#education .edu-card:nth-child(3) .edu-mod-label', 'eduMod2Label'],
     ['.lang:nth-child(1) .l-name', 'langEnglish'], ['.lang:nth-child(2) .l-name', 'langGerman'],
     ['.lang:nth-child(3) .l-name', 'langHindi'], ['.lang:nth-child(3) .l-level', 'langFluent'],
     ['.lang:nth-child(4) .l-name', 'langTelugu'], ['.lang:nth-child(4) .l-level', 'langNative'],
