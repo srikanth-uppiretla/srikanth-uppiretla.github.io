@@ -172,27 +172,26 @@
   /* ── Certificates · explorer (cream) ─────────────────── */
   #certificates{background:var(--cream);color:var(--ink);padding:90px 0;border-top:1px solid var(--line-cream)}
   .cert-head{display:flex;justify-content:space-between;align-items:flex-end;gap:42px}
-  .cert-intro{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-faint);text-align:right;line-height:2;padding-bottom:52px;max-width:430px}
 
   .cert-explorer{display:flex;align-items:stretch;min-height:520px}
   .cert-list{flex:1 1 0;min-width:0;display:flex;flex-direction:column;justify-content:center;gap:16px;transition:flex-grow .62s cubic-bezier(.66,0,.2,1)}
   .cert-explorer.viewing .cert-list{flex-grow:.6}
 
-  .cert-item{position:relative;display:flex;align-items:center;gap:22px;width:100%;text-align:left;background:var(--light);border:1px solid var(--line-cream);padding:28px 30px;cursor:pointer;font-family:var(--mono);color:var(--ink);overflow:hidden;transition:transform .35s cubic-bezier(.5,0,.15,1),box-shadow .35s ease,border-color .3s ease,background .3s ease}
+  .cert-item{position:relative;display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);align-items:center;gap:18px;width:100%;background:var(--light);border:1px solid var(--line-cream);padding:16px 30px;cursor:pointer;font-family:var(--mono);color:var(--ink);transition:box-shadow .3s ease,border-color .3s ease,background .3s ease}
   .cert-item::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--orange);transform:scaleY(0);transform-origin:top;transition:transform .4s cubic-bezier(.5,0,.15,1)}
-  .cert-item:hover:not(:disabled){transform:translateX(7px);box-shadow:0 16px 42px rgba(26,22,17,.11);border-color:rgba(240,78,35,.35)}
+  .cert-item:hover:not(:disabled){box-shadow:0 14px 38px rgba(26,22,17,.10);border-color:rgba(240,78,35,.35)}
   .cert-item.active{border-color:rgba(240,78,35,.55)}
   .cert-item.active::before{transform:scaleY(1)}
   .cert-item:disabled{cursor:default}
-  .ci-index{font-size:.85rem;font-weight:700;color:var(--orange);letter-spacing:.06em;flex:0 0 auto}
-  .ci-main{display:flex;flex-direction:column;gap:6px;min-width:0;flex:1 1 auto}
-  .ci-cat{font-size:.58rem;letter-spacing:.24em;text-transform:uppercase;color:var(--ink-faint);font-weight:700}
-  .ci-title{font-family:var(--serif);font-weight:600;font-size:1.42rem;line-height:1.2;color:var(--ink)}
+  .ci-index{justify-self:start;font-size:.85rem;font-weight:700;color:var(--orange);letter-spacing:.06em}
+  .ci-main{display:flex;flex-direction:column;align-items:center;gap:5px;min-width:0;text-align:center}
+  .ci-cat{font-size:.58rem;letter-spacing:.26em;text-transform:uppercase;color:var(--ink-faint);font-weight:700}
+  .ci-title{font-family:var(--serif);font-weight:600;font-size:1.4rem;line-height:1.2;color:var(--ink)}
   .ci-meta{font-size:.66rem;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-faint)}
-  .ci-state{flex:0 0 auto;width:9px;height:9px;border-radius:50%;background:var(--light-soft);transition:background .3s,box-shadow .3s}
-  .cert-item.ready .ci-state{background:var(--orange);box-shadow:0 0 0 4px rgba(240,78,35,.16)}
-  .ci-arrow{flex:0 0 auto;font-size:1.15rem;color:var(--orange);opacity:0;transform:translateX(-8px);transition:opacity .3s ease,transform .3s ease}
-  .cert-item:hover:not(:disabled) .ci-arrow,.cert-item.active .ci-arrow{opacity:1;transform:translateX(0)}
+  .ci-view{justify-self:end;display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:.6rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft);border:1px solid rgba(26,22,17,.28);padding:9px 14px;white-space:nowrap;transition:all .25s ease}
+  .ci-eye{width:15px;height:15px;flex:0 0 auto}
+  .cert-item:hover:not(:disabled) .ci-view,.cert-item.active .ci-view{border-color:var(--orange);color:#fff;background:var(--orange);box-shadow:0 0 16px rgba(240,78,35,.3)}
+  .cert-item:disabled .ci-view{opacity:.3}
 
   .cert-stage{flex:0 1 0;min-width:0;overflow:hidden;opacity:0;margin-left:0;display:flex;flex-direction:column;background:var(--light);border:1px solid rgba(240,78,35,.4);box-shadow:0 26px 70px rgba(26,22,17,.16);transition:flex-grow .62s cubic-bezier(.66,0,.2,1),opacity .4s ease .12s,margin-left .62s cubic-bezier(.66,0,.2,1)}
   .cert-explorer.viewing .cert-stage{flex-grow:1.55;opacity:1;margin-left:28px}
@@ -270,7 +269,6 @@
     .tool-col{border-right:0;border-bottom:1px solid var(--line-dark)}
     .work-grid{grid-template-columns:1fr}
     .cert-head{flex-direction:column;align-items:flex-start}
-    .cert-intro{text-align:left;padding-bottom:30px}
     .edu-grid{grid-template-columns:1fr}
     .contact-grid{grid-template-columns:1fr}
     .hero-grid{grid-template-columns:1fr;gap:40px}
@@ -292,7 +290,10 @@
     .skills-tag{text-align:left;padding-bottom:30px}
     .cert-explorer{min-height:0}
     .cert-explorer.viewing .cert-list{flex-grow:1}
-    .cert-item:hover:not(:disabled){transform:none}
+    .cert-item{padding:14px 18px;gap:12px}
+    .ci-title{font-size:1.2rem}
+    .ci-view span{display:none}
+    .ci-view{padding:9px 11px}
     .cert-stage{position:fixed;inset:0;z-index:240;margin-left:0;opacity:1;border:0;transform:translateY(100%);transition:transform .45s cubic-bezier(.5,0,.15,1)}
     .cert-explorer.viewing .cert-stage{margin-left:0;transform:translateY(0)}
     body.cert-viewing{overflow:hidden}
@@ -657,7 +658,6 @@
         <p class="label">Certificates</p>
         <h2>Education, Language and<br><span class="hl">Technical Proof Documents</span>.</h2>
       </div>
-      <p class="cert-intro">Recruiter-facing documents for education, language and technical training.</p>
     </div>
 
     <div class="cert-explorer" id="certExplorer">
@@ -670,8 +670,7 @@
             <span class="ci-title">German Language B1</span>
             <span class="ci-meta">GISMA Business School · Hannover</span>
           </span>
-          <span class="ci-state" aria-hidden="true"></span>
-          <span class="ci-arrow" aria-hidden="true">→</span>
+          <span class="ci-view"><svg class="ci-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg><span>View</span></span>
         </button>
 
         <button class="cert-item reveal" type="button" role="tab" aria-selected="false" disabled
@@ -682,8 +681,7 @@
             <span class="ci-title">M.Sc. Space Engineering</span>
             <span class="ci-meta">University of Bremen · 2025</span>
           </span>
-          <span class="ci-state" aria-hidden="true"></span>
-          <span class="ci-arrow" aria-hidden="true">→</span>
+          <span class="ci-view"><svg class="ci-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg><span>View</span></span>
         </button>
 
         <button class="cert-item reveal" type="button" role="tab" aria-selected="false" disabled
@@ -692,10 +690,9 @@
           <span class="ci-main">
             <span class="ci-cat">Degree</span>
             <span class="ci-title">B.Sc. Mechanical Engineering</span>
-            <span class="ci-meta">Lovely Professional University · 2017</span>
+            <span class="ci-meta">Lovely Professional University · Jalandhar, India · 2017</span>
           </span>
-          <span class="ci-state" aria-hidden="true"></span>
-          <span class="ci-arrow" aria-hidden="true">→</span>
+          <span class="ci-view"><svg class="ci-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg><span>View</span></span>
         </button>
       </div>
 
@@ -943,7 +940,7 @@
       cert2Meta: 'University of Bremen · 2025',
       cert2Note: 'Recruiter-facing proof for the master\'s degree connected to structural analysis, space systems and launch vehicle engineering.',
       cert3Title: 'B.Sc. Mechanical Engineering',
-      cert3Meta: 'Lovely Professional University · 2017',
+      cert3Meta: 'Lovely Professional University · Jalandhar, India · 2017',
       cert3Note: 'Recruiter-facing proof for the mechanical engineering foundation behind CAD design, prototyping and structural analysis work.',
       skillsLabel: 'What I bring',
       skillsTitle: 'CAD/CAE, FEM and<br><span style="color:var(--orange)">Engineering Tools</span>.',
@@ -1106,7 +1103,7 @@
       cert2Meta: 'University of Bremen · 2025',
       cert2Note: 'Recruiter-relevanter Nachweis für den Masterabschluss mit Bezug zu Strukturanalyse, Raumfahrtsystemen und Launch-Vehicle-Engineering.',
       cert3Title: 'B.Sc. Mechanical Engineering',
-      cert3Meta: 'Lovely Professional University · 2017',
+      cert3Meta: 'Lovely Professional University · Jalandhar, Indien · 2017',
       cert3Note: 'Recruiter-relevanter Nachweis für die Maschinenbau-Basis hinter CAD-Konstruktion, Prototyping und Strukturanalyse.',
       skillsLabel: 'Was ich mitbringe',
       skillsTitle: 'CAD/CAE, FEM und<br><span style="color:var(--orange)">Engineering-Tools</span>.',
@@ -1190,7 +1187,7 @@
     ['#experience .tl-row:nth-child(2) h3', 'exp2Title'], ['#experience .tl-row:nth-child(2) .org', 'exp2Org'],
     ['#experience .tl-row:nth-child(3) .d1', 'exp3Date'], ['#experience .tl-row:nth-child(3) .d2', 'exp3Duration'],
     ['#experience .tl-row:nth-child(3) h3', 'exp3Title'], ['#experience .tl-row:nth-child(3) .org', 'exp3Org'],
-    ['#certificates .label', 'certLabel'], ['#certificates h2', 'certTitle', 'html'], ['#certificates .cert-intro', 'certIntro'],
+    ['#certificates .label', 'certLabel'], ['#certificates h2', 'certTitle', 'html'],
     ['.cert-item:nth-child(1) .ci-cat', 'cert1Label'], ['.cert-item:nth-child(1) .ci-title', 'cert1Title'], ['.cert-item:nth-child(1) .ci-meta', 'cert1Meta'],
     ['.cert-item:nth-child(2) .ci-cat', 'cert2Label'], ['.cert-item:nth-child(2) .ci-title', 'cert2Title'], ['.cert-item:nth-child(2) .ci-meta', 'cert2Meta'],
     ['.cert-item:nth-child(3) .ci-cat', 'cert2Label'], ['.cert-item:nth-child(3) .ci-title', 'cert3Title'], ['.cert-item:nth-child(3) .ci-meta', 'cert3Meta'],
