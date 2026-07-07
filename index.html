@@ -46,7 +46,7 @@
   h2 .hl{color:var(--orange)}
   h2 .hl-soft{color:var(--peach)}
   /* centered solo section title (label promoted to heading, tagline removed) */
-  .label.sec-solo{display:block;text-align:center;font-family:var(--serif);font-weight:600;font-size:clamp(2rem,3.6vw,2.7rem);line-height:1.15;letter-spacing:-.005em;text-transform:capitalize;color:var(--ink);padding-bottom:22px;margin:0 0 48px;position:relative}
+  .label.sec-solo{display:block;text-align:center;font-family:var(--serif);font-weight:600;font-size:clamp(2rem,3.6vw,2.7rem);line-height:1.15;letter-spacing:-.005em;text-transform:capitalize;color:var(--ink);padding-bottom:22px;margin:0 0 34px;position:relative}
   .label.sec-solo::before{content:"";position:absolute;left:50%;bottom:0;transform:translateX(-50%);top:auto;width:48px;height:3px;background:var(--orange)}
 
   /* buttons */
@@ -105,7 +105,7 @@
   .hero-about strong{color:var(--light);font-weight:600}
 
   /* ── Skills (dark) ───────────────────── */
-  #skills{background:var(--cream-2);color:var(--ink);padding:90px 0;border-top:1px solid var(--line-cream);position:relative}
+  #skills{background:var(--cream-2);color:var(--ink);padding:48px 0;border-top:1px solid var(--line-cream);position:relative}
   .toolkit{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line-cream);background:var(--light);margin-top:10px}
   .tool-col{padding:40px 38px;border-right:1px solid var(--line-cream)}
   .tool-col:last-child{border-right:0}
@@ -116,7 +116,7 @@
   .tool-col .t-name{display:block;font-family:var(--mono);font-size:.9rem;font-weight:500;letter-spacing:.07em;text-transform:uppercase;color:var(--ink);line-height:1.5}
 
   /* ── Work (cream) ────────────────────── */
-  #work{background:var(--cream-2);color:var(--ink);padding:90px 0;border-top:1px solid var(--line-cream)}
+  #work{background:var(--cream-2);color:var(--ink);padding:48px 0;border-top:1px solid var(--line-cream)}
   .work-note{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-faint);margin:-40px 0 30px}
   .work-filter{display:flex;gap:14px;flex-wrap:wrap;margin:0 0 30px}
   .wf-btn{font-family:var(--mono);font-size:.8rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;padding:13px 30px;border:2px solid var(--line-cream);background:transparent;color:var(--ink-soft);cursor:pointer;transition:all .2s ease}
@@ -151,7 +151,7 @@
   .proj-foot b{color:var(--orange);font-weight:700}
 
   /* ── Experience (cream) ──────────────── */
-  #experience{background:var(--cream-2);color:var(--ink);padding:90px 0;border-top:1px solid var(--line-cream)}
+  #experience{background:var(--cream-2);color:var(--ink);padding:48px 0;border-top:1px solid var(--line-cream)}
   .tl{max-width:860px}
   .tl-row{display:grid;grid-template-columns:240px 40px 1fr;padding:26px 0}
   .tl-when .d1{font-size:.7rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--orange)}
@@ -166,7 +166,7 @@
   .tl-what li::before{content:"◆";position:absolute;left:0;top:0;font-size:.5rem;color:var(--orange)}
 
   /* ── Certificates · card grid (cream) ───────────── */
-  #certificates{background:var(--cream-2);color:var(--ink);padding:90px 0;border-top:1px solid var(--line-cream)}
+  #certificates{background:var(--cream-2);color:var(--ink);padding:48px 0;border-top:1px solid var(--line-cream)}
   .cert-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
   .cert-card{position:relative;display:flex;flex-direction:column;text-align:left;background:var(--light);border:1px solid rgba(240,78,35,.45);border-radius:6px;padding:22px 24px;cursor:pointer;font-family:var(--mono);color:var(--ink);box-shadow:0 0 22px rgba(240,78,35,.10);transition:transform .28s ease,box-shadow .28s ease,border-color .28s ease}
   .cert-card:hover:not(:disabled){transform:translateY(-4px);border-color:var(--orange);box-shadow:0 0 30px rgba(240,78,35,.32),0 14px 40px rgba(26,22,17,.12)}
@@ -203,7 +203,7 @@
   @media (prefers-reduced-motion:reduce){.cert-card,#modalFrame{transition-duration:.001ms !important}.cert-modal-spin{animation:none}}
 
   /* ── Education · cards (cream) ───────────── */
-  #education{background:var(--cream-2);color:var(--ink);padding:90px 0;border-top:1px solid var(--line-cream)}
+  #education{background:var(--cream-2);color:var(--ink);padding:48px 0;border-top:1px solid var(--line-cream)}
   .edu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:start}
   .edu-card{background:var(--light);border:1px solid var(--line-cream);padding:32px 30px;display:flex;flex-direction:column;transition:box-shadow .3s ease,border-color .3s ease}
   .edu-card:hover{box-shadow:0 16px 44px rgba(26,22,17,.09);border-color:rgba(240,78,35,.28)}
@@ -224,7 +224,7 @@
   .lang .l-level{font-size:1.05rem;letter-spacing:.18em;text-transform:uppercase;color:var(--orange);margin-top:8px;font-weight:700}
 
   /* ── Contact (dark) ──────────────────── */
-  #contact{background:var(--dark);padding:100px 0 80px;position:relative;overflow:hidden}
+  #contact{background:var(--dark);padding:48px 0;position:relative;overflow:hidden}
   #contact .contact-glow{position:absolute;inset:0;background:radial-gradient(800px 500px at 20% 20%,rgba(240,78,35,.1),transparent 60%);pointer-events:none}
   .contact-head{text-align:center;margin-bottom:50px;position:relative;z-index:2}
   .contact-head .label{justify-content:center}
