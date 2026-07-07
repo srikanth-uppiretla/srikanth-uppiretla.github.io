@@ -105,22 +105,21 @@
   .hero-about strong{color:var(--light);font-weight:600}
 
   /* ── Skills (dark) ───────────────────── */
-  #skills{background:var(--dark);padding:90px 0;position:relative}
-  #skills .label.sec-solo{color:var(--light)}
-  .toolkit{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line-dark);background:var(--dark-2);margin-top:10px}
-  .tool-col{padding:40px 38px;border-right:1px solid var(--line-dark)}
+  #skills{background:var(--cream-2);color:var(--ink);padding:90px 0;border-top:1px solid var(--line-cream);position:relative}
+  .toolkit{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line-cream);background:var(--light);margin-top:10px}
+  .tool-col{padding:40px 38px;border-right:1px solid var(--line-cream)}
   .tool-col:last-child{border-right:0}
   .tool-col .t-label{font-size:.64rem;letter-spacing:.2em;text-transform:uppercase;color:var(--orange);font-weight:700;margin-bottom:24px}
-  .tool-col .t-num{color:var(--light-faint)}
+  .tool-col .t-num{color:var(--ink-faint)}
   .tool-col ul{list-style:none}
-  .tool-col li{padding:15px 0;border-bottom:1px solid var(--line-dark)}
+  .tool-col li{padding:15px 0;border-bottom:1px solid var(--line-cream)}
   .tool-col li:last-child{border-bottom:0}
-  .tool-col .t-name{display:block;font-family:var(--serif);font-size:1.5rem;font-weight:600;color:var(--light);line-height:1.22}
+  .tool-col .t-name{display:block;font-family:var(--serif);font-size:1.5rem;font-weight:600;color:var(--ink);line-height:1.22}
   .tool-col li.core .t-name{color:var(--orange)}
-  .tool-col li small{display:block;font-family:var(--mono);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--light-faint);margin-top:6px}
+  .tool-col li small{display:block;font-family:var(--mono);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint);margin-top:6px}
 
   /* ── Work (cream) ────────────────────── */
-  #work{background:var(--cream);color:var(--ink);padding:90px 0;border-top:1px solid var(--line-cream)}
+  #work{background:var(--cream-2);color:var(--ink);padding:90px 0;border-top:1px solid var(--line-cream)}
   .work-note{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-faint);margin:-40px 0 30px}
   .work-filter{display:flex;gap:14px;flex-wrap:wrap;margin:0 0 30px}
   .wf-btn{font-family:var(--mono);font-size:.8rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;padding:13px 30px;border:2px solid var(--line-cream);background:transparent;color:var(--ink-soft);cursor:pointer;transition:all .2s ease}
@@ -170,7 +169,7 @@
   .tl-what li::before{content:"◆";position:absolute;left:0;top:0;font-size:.5rem;color:var(--orange)}
 
   /* ── Certificates · explorer (cream) ─────────────────── */
-  #certificates{background:var(--cream);color:var(--ink);padding:90px 0;border-top:1px solid var(--line-cream)}
+  #certificates{background:var(--cream-2);color:var(--ink);padding:90px 0;border-top:1px solid var(--line-cream)}
   .cert-head{display:flex;justify-content:space-between;align-items:flex-end;gap:42px}
 
   .cert-explorer{display:flex;align-items:stretch;min-height:520px}
@@ -221,7 +220,7 @@
   }
 
   /* ── Education · cards (cream) ───────────── */
-  #education{background:var(--cream);color:var(--ink);padding:90px 0;border-top:1px solid var(--line-cream)}
+  #education{background:var(--cream-2);color:var(--ink);padding:90px 0;border-top:1px solid var(--line-cream)}
   .edu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:start}
   .edu-card{background:var(--light);border:1px solid var(--line-cream);padding:32px 30px;display:flex;flex-direction:column;transition:box-shadow .3s ease,border-color .3s ease}
   .edu-card:hover{box-shadow:0 16px 44px rgba(26,22,17,.09);border-color:rgba(240,78,35,.28)}
@@ -293,7 +292,7 @@
   /* ── Responsive ──────────────────────── */
   @media (max-width:960px){
     .toolkit{grid-template-columns:1fr}
-    .tool-col{border-right:0;border-bottom:1px solid var(--line-dark)}
+    .tool-col{border-right:0;border-bottom:1px solid var(--line-cream)}
     .tool-col:last-child{border-bottom:0}
     .work-grid{grid-template-columns:1fr}
     .label{font-size:1.15rem;letter-spacing:.18em;gap:10px}
@@ -778,7 +777,7 @@
   </div>
 </section>
 
-<section id="skills" class="grid-dark">
+<section id="skills">
   <div class="wrap">
     <p class="label sec-solo">Skills</p>
     <div class="toolkit reveal">
