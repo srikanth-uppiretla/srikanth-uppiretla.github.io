@@ -106,16 +106,19 @@
 
   /* ── Skills (dark) ───────────────────── */
   #skills{background:var(--dark);padding:90px 0;position:relative}
-  .skills-head{display:flex;justify-content:space-between;align-items:flex-end;gap:40px}
-  .skills-tag{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--light-faint);text-align:right;line-height:2;padding-bottom:70px}
-  .toolkit{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line-dark);background:var(--dark-2)}
-  .tool-col{padding:44px 40px;border-right:1px solid var(--line-dark)}
-  .tool-col:last-child{border-right:0}
-  .tool-col .t-label{font-size:.66rem;letter-spacing:.22em;text-transform:uppercase;color:var(--orange);margin-bottom:26px}
-  .tool-col ul{list-style:none}
-  .tool-col li{font-family:var(--serif);font-size:1.35rem;color:var(--light);padding:13px 0;border-bottom:1px solid var(--line-dark)}
-  .tool-col li:last-child{border-bottom:0}
-  .tool-col li small{display:block;font-family:var(--mono);font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;color:var(--light-faint);margin-top:3px}
+  #skills .label.sec-solo{color:var(--light)}
+  .skills-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .skill-cat{border:1px solid var(--line-dark);background:var(--dark-2);padding:32px 34px;transition:border-color .25s ease}
+  .skill-cat:hover{border-color:rgba(240,78,35,.3)}
+  .skill-cat-head{display:flex;align-items:center;gap:14px;margin-bottom:24px}
+  .skill-cat-ico{width:42px;height:42px;border:1px solid rgba(240,78,35,.4);border-radius:9px;display:flex;align-items:center;justify-content:center;color:var(--orange);flex:0 0 auto}
+  .skill-cat-ico svg{width:20px;height:20px}
+  .skill-cat-name{font-family:var(--serif);font-size:1.3rem;font-weight:600;color:var(--light);line-height:1.2}
+  .skill-tools{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:18px}
+  .skill-tool{font-family:var(--mono);font-size:.72rem;letter-spacing:.03em;color:var(--light);border:1px solid var(--line-dark);background:rgba(255,255,255,.02);padding:9px 13px;border-radius:4px;transition:border-color .2s ease,color .2s ease,background .2s ease}
+  .skill-tool:hover{border-color:var(--orange);color:var(--orange)}
+  .skill-tool.primary{border-color:var(--orange);color:#fff;background:var(--orange);font-weight:700;box-shadow:0 0 16px rgba(240,78,35,.3)}
+  .skill-sub{font-family:var(--mono);font-size:.62rem;letter-spacing:.13em;text-transform:uppercase;color:var(--light-faint);line-height:1.9;border-top:1px solid var(--line-dark);padding-top:16px}
 
   /* ── Work (cream) ────────────────────── */
   #work{background:var(--cream);color:var(--ink);padding:90px 0;border-top:1px solid var(--line-cream)}
@@ -290,8 +293,7 @@
 
   /* ── Responsive ──────────────────────── */
   @media (max-width:960px){
-    .toolkit{grid-template-columns:1fr}
-    .tool-col{border-right:0;border-bottom:1px solid var(--line-dark)}
+    .skills-grid{grid-template-columns:1fr}
     .work-grid{grid-template-columns:1fr}
     .label{font-size:1.15rem;letter-spacing:.18em;gap:10px}
     .label::before{width:26px}
@@ -777,34 +779,60 @@
 
 <section id="skills" class="grid-dark">
   <div class="wrap">
-    <div class="skills-head">
-      <div><p class="label">What I bring</p><h2>CAD/CAE, FEM and<br><span style="color:var(--orange)">Engineering Tools</span>.</h2></div>
-      <p class="skills-tag">From CAD models to FEM checks —<br>tools for practical engineering work.</p>
-    </div>
-    <div class="toolkit reveal">
-      <div class="tool-col">
-        <p class="t-label">01 / CAD &amp; Mechanical Design</p>
-        <ul>
-          <li>CATIA V6<small>Part · Assembly · Surfaces</small></li>
-          <li>Siemens NX · Inventor<small>CAD for design and analysis</small></li>
-          <li>Mechanical Design<small>Prototypes · Jigs · CAD surfaces</small></li>
-        </ul>
+    <p class="label sec-solo">Skills</p>
+    <div class="skills-grid">
+      <div class="skill-cat reveal">
+        <div class="skill-cat-head">
+          <span class="skill-cat-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg></span>
+          <span class="skill-cat-name">CAD &amp; Mechanical Design</span>
+        </div>
+        <div class="skill-tools">
+          <span class="skill-tool primary">CATIA V5</span>
+          <span class="skill-tool">CATIA V6</span>
+          <span class="skill-tool">Siemens NX</span>
+          <span class="skill-tool">Autodesk Inventor</span>
+        </div>
+        <p class="skill-sub">CAD surfaces · Assemblies · Mechanical prototyping</p>
       </div>
-      <div class="tool-col">
-        <p class="t-label">02 / FEM &amp; CAE</p>
-        <ul>
-          <li>FEMAP · NX Nastran<small>Linear &amp; nonlinear (SOL 106)</small></li>
-          <li>ANSYS<small>Structural FEM</small></li>
-          <li>Strength &amp; Buckling<small>NASA SP-8007 · Bruhn · CLT</small></li>
-        </ul>
+
+      <div class="skill-cat reveal">
+        <div class="skill-cat-head">
+          <span class="skill-cat-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="1"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/><line x1="9" y1="3" x2="9" y2="21"/><line x1="15" y1="3" x2="15" y2="21"/></svg></span>
+          <span class="skill-cat-name">FEM &amp; Simulation</span>
+        </div>
+        <div class="skill-tools">
+          <span class="skill-tool">NX Nastran</span>
+          <span class="skill-tool">FEMAP</span>
+          <span class="skill-tool">ANSYS</span>
+        </div>
+        <p class="skill-sub">Linear &amp; nonlinear FEM · Strength &amp; buckling assessment</p>
       </div>
-      <div class="tool-col">
-        <p class="t-label">03 / Engineering Delivery</p>
-        <ul>
-          <li>Python · MATLAB<small>Parametric optimization frameworks</small></li>
-          <li>CFRP &amp; Manufacturing<small>Filament winding · Quality review</small></li>
-          <li>Technical Documentation<small>Trade-offs · Reviews · Decisions</small></li>
-        </ul>
+
+      <div class="skill-cat reveal">
+        <div class="skill-cat-head">
+          <span class="skill-cat-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></span>
+          <span class="skill-cat-name">Programming &amp; Automation</span>
+        </div>
+        <div class="skill-tools">
+          <span class="skill-tool">Python</span>
+          <span class="skill-tool">MATLAB</span>
+          <span class="skill-tool">LaTeX</span>
+        </div>
+        <p class="skill-sub">Parametric optimization · Scripting · Documentation</p>
+      </div>
+
+      <div class="skill-cat reveal">
+        <div class="skill-cat-head">
+          <span class="skill-cat-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></span>
+          <span class="skill-cat-name">Manufacturing &amp; Documentation</span>
+        </div>
+        <div class="skill-tools">
+          <span class="skill-tool">CFRP Structures</span>
+          <span class="skill-tool">Filament Winding</span>
+          <span class="skill-tool">Quality Control</span>
+          <span class="skill-tool">Technical Documentation</span>
+        </div>
+        <p class="skill-sub">Composite fabrication · Quality control · Engineering reviews</p>
       </div>
     </div>
   </div>
@@ -1008,7 +1036,15 @@
       cert3Title: 'B.Sc. Mechanical Engineering',
       cert3Meta: 'Lovely Professional University · Jalandhar, India · 2017',
       cert3Note: 'Recruiter-facing proof for the mechanical engineering foundation behind CAD design, prototyping and structural analysis work.',
-      skillsLabel: 'What I bring',
+      skillsLabel: 'Skills',
+      skillCat1: 'CAD & Mechanical Design',
+      skillCat2: 'FEM & Simulation',
+      skillCat3: 'Programming & Automation',
+      skillCat4: 'Manufacturing & Documentation',
+      skillSub1: 'CAD surfaces · Assemblies · Mechanical prototyping',
+      skillSub2: 'Linear & nonlinear FEM · Strength & buckling assessment',
+      skillSub3: 'Parametric optimization · Scripting · Documentation',
+      skillSub4: 'Composite fabrication · Quality control · Engineering reviews',
       skillsTitle: 'CAD/CAE, FEM and<br><span style="color:var(--orange)">Engineering Tools</span>.',
       skillsTag: 'From CAD models to FEM checks —<br>tools for practical engineering work.',
       skill1Label: '01 / CAD &amp; Mechanical Design',
@@ -1175,7 +1211,15 @@
       cert3Title: 'B.Sc. Mechanical Engineering',
       cert3Meta: 'Lovely Professional University · Jalandhar, Indien · 2017',
       cert3Note: 'Recruiter-relevanter Nachweis für die Maschinenbau-Basis hinter CAD-Konstruktion, Prototyping und Strukturanalyse.',
-      skillsLabel: 'Was ich mitbringe',
+      skillsLabel: 'Kenntnisse',
+      skillCat1: 'CAD & Mechanische Konstruktion',
+      skillCat2: 'FEM & Simulation',
+      skillCat3: 'Programmierung & Automatisierung',
+      skillCat4: 'Fertigung & Dokumentation',
+      skillSub1: 'CAD-Flächen · Baugruppen · Prototyping',
+      skillSub2: 'Lineare & nichtlineare FEM · Festigkeit & Beulnachweis',
+      skillSub3: 'Parametrische Optimierung · Scripting · Dokumentation',
+      skillSub4: 'Composite-Fertigung · Qualitätskontrolle · Reviews',
       skillsTitle: 'CAD/CAE, FEM und<br><span style="color:var(--orange)">Engineering-Tools</span>.',
       skillsTag: 'Von CAD-Modellen bis FEM-Checks —<br>Werkzeuge für praktische Engineering-Aufgaben.',
       skill1Label: '01 / CAD &amp; Maschinenbau',
@@ -1261,10 +1305,11 @@
     ['.cert-item:nth-child(1) .ci-cat', 'cert1Label'], ['.cert-item:nth-child(1) .ci-title', 'cert1Title'], ['.cert-item:nth-child(1) .ci-meta', 'cert1Meta'],
     ['.cert-item:nth-child(2) .ci-cat', 'cert2Label'], ['.cert-item:nth-child(2) .ci-title', 'cert2Title'], ['.cert-item:nth-child(2) .ci-meta', 'cert2Meta'],
     ['.cert-item:nth-child(3) .ci-cat', 'cert2Label'], ['.cert-item:nth-child(3) .ci-title', 'cert3Title'], ['.cert-item:nth-child(3) .ci-meta', 'cert3Meta'],
-    ['#skills .label', 'skillsLabel'], ['#skills h2', 'skillsTitle', 'html'], ['#skills .skills-tag', 'skillsTag', 'html'],
-    ['#skills .tool-col:nth-child(1) .t-label', 'skill1Label', 'html'], ['#skills .tool-col:nth-child(1) li:nth-child(1)', 'skill1a', 'html'], ['#skills .tool-col:nth-child(1) li:nth-child(2)', 'skill1b', 'html'], ['#skills .tool-col:nth-child(1) li:nth-child(3)', 'skill1c', 'html'],
-    ['#skills .tool-col:nth-child(2) .t-label', 'skill2Label', 'html'], ['#skills .tool-col:nth-child(2) li:nth-child(1)', 'skill2a', 'html'], ['#skills .tool-col:nth-child(2) li:nth-child(2)', 'skill2b', 'html'], ['#skills .tool-col:nth-child(2) li:nth-child(3)', 'skill2c', 'html'],
-    ['#skills .tool-col:nth-child(3) .t-label', 'skill3Label', 'html'], ['#skills .tool-col:nth-child(3) li:nth-child(1)', 'skill3a', 'html'], ['#skills .tool-col:nth-child(3) li:nth-child(2)', 'skill3b', 'html'], ['#skills .tool-col:nth-child(3) li:nth-child(3)', 'skill3c', 'html'],
+    ['#skills .label', 'skillsLabel'],
+    ['#skills .skill-cat:nth-child(1) .skill-cat-name', 'skillCat1'], ['#skills .skill-cat:nth-child(1) .skill-sub', 'skillSub1'],
+    ['#skills .skill-cat:nth-child(2) .skill-cat-name', 'skillCat2'], ['#skills .skill-cat:nth-child(2) .skill-sub', 'skillSub2'],
+    ['#skills .skill-cat:nth-child(3) .skill-cat-name', 'skillCat3'], ['#skills .skill-cat:nth-child(3) .skill-sub', 'skillSub3'],
+    ['#skills .skill-cat:nth-child(4) .skill-cat-name', 'skillCat4'], ['#skills .skill-cat:nth-child(4) .skill-sub', 'skillSub4'],
     ['#contact .label', 'contactLabel'], ['#contact h2', 'contactTitle', 'html'],
     ['.contact-primary .cm-card:nth-child(1) .cm-label', 'emailLabel'], ['.contact-primary .cm-card:nth-child(2) .cm-label', 'phoneLabel'], ['.social-card.soon .social-handle', 'grabcadSoon'],
     ['.msg-card > .c-label', 'directMessage'], ['.msg-card .m-title', 'messageTitle', 'html'], ['label[for="fName"]', 'nameLabel'], ['label[for="fMail"]', 'mailLabel'], ['label[for="fMsg"]', 'msgLabel'],
