@@ -192,6 +192,11 @@
   .ci-eye{width:15px;height:15px;flex:0 0 auto}
   .cert-item:hover:not(:disabled) .ci-view,.cert-item.active .ci-view{border-color:var(--orange);color:#fff;background:var(--orange);box-shadow:0 0 16px rgba(240,78,35,.3)}
   .cert-item:disabled .ci-view{opacity:.3}
+  /* rail (viewing) state — compact, left-aligned, no View button so nothing collides */
+  .cert-explorer.viewing .cert-item{grid-template-columns:auto 1fr;gap:16px;padding:16px 22px}
+  .cert-explorer.viewing .ci-main{align-items:flex-start;text-align:left}
+  .cert-explorer.viewing .ci-title{font-size:1.14rem}
+  .cert-explorer.viewing .ci-meta,.cert-explorer.viewing .ci-view{display:none}
 
   .cert-stage{flex:0 1 0;min-width:0;overflow:hidden;opacity:0;margin-left:0;display:flex;flex-direction:column;background:var(--light);border:1px solid rgba(240,78,35,.4);box-shadow:0 26px 70px rgba(26,22,17,.16);transition:flex-grow .62s cubic-bezier(.66,0,.2,1),opacity .4s ease .12s,margin-left .62s cubic-bezier(.66,0,.2,1)}
   .cert-explorer.viewing .cert-stage{flex-grow:1.55;opacity:1;margin-left:28px}
@@ -234,13 +239,18 @@
   /* ── Contact (dark) ──────────────────── */
   #contact{background:var(--dark);padding:100px 0 80px;position:relative;overflow:hidden}
   #contact .contact-glow{position:absolute;inset:0;background:radial-gradient(800px 500px at 20% 20%,rgba(240,78,35,.1),transparent 60%);pointer-events:none}
-  .contact-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:34px;position:relative;z-index:2}
-  .email-card{border:1px solid var(--orange);padding:34px 36px;display:block;transition:background .2s;box-shadow:0 0 30px rgba(240,78,35,.15)}
-  .email-card:hover{background:rgba(240,78,35,.08)}
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:34px;align-items:start;position:relative;z-index:2}
+  .email-card{border:1px solid var(--orange);padding:34px 36px;display:block;box-shadow:0 0 30px rgba(240,78,35,.15)}
   .email-card .c-label{font-size:.64rem;letter-spacing:.24em;text-transform:uppercase;color:var(--light-faint);margin-bottom:12px}
   .email-card .c-value{font-family:var(--serif);font-size:1.5rem;color:var(--light);word-break:break-all}
-  .email-card .c-go{font-size:.64rem;letter-spacing:.2em;text-transform:uppercase;color:var(--orange);margin-top:18px;font-weight:700}
-  .connect{border:1px solid var(--line-dark);margin-top:26px}
+  .c-actions{display:flex;gap:12px;margin-top:22px;flex-wrap:wrap}
+  .c-btn{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:.6rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--light);border:1px solid rgba(255,255,255,.28);background:transparent;padding:11px 16px;cursor:pointer;transition:all .2s ease}
+  .c-btn:hover{border-color:var(--orange);color:var(--orange)}
+  .c-btn.copied{border-color:var(--orange);color:var(--orange)}
+  .c-btn-send{background:var(--orange);color:#fff;border-color:var(--orange)}
+  .c-btn-send:hover{background:#d8431c;color:#fff;border-color:#d8431c}
+  .c-copy-ico{width:14px;height:14px;flex:0 0 auto}
+  .connect{border:1px solid var(--line-dark)}
   .connect .c-label{font-size:.64rem;letter-spacing:.24em;text-transform:uppercase;color:var(--light-faint);padding:22px 30px 6px}
   .connect a{display:flex;justify-content:space-between;align-items:center;padding:20px 30px;border-top:1px solid var(--line-dark);transition:background .15s}
   .connect a:hover{background:rgba(255,255,255,.04)}
@@ -764,39 +774,31 @@
     <p class="label">Get in touch</p>
     <h2>Let's build something<br>that <span class="hl">works</span>.</h2>
     <div class="contact-grid">
-      <div class="reveal">
-        <a class="email-card" href="mailto:srikanth.uppiretla@gmail.com">
-          <div class="c-label">Email</div>
-          <div class="c-value">srikanth.uppiretla@gmail.com</div>
-          <div class="c-go">→ Click to send a message</div>
-        </a>
-        <div class="connect">
-          <div class="c-label">Connect</div>
-          <a href="https://linkedin.com/in/srikanth-uppiretla" target="_blank" rel="noopener">
-            <div><div class="s-name">LinkedIn</div><div class="s-handle">in/srikanth-uppiretla</div></div>
-            <span class="s-arrow">↗</span>
-          </a>
-          <a href="https://github.com/srikanth-uppiretla" target="_blank" rel="noopener">
-            <div><div class="s-name">GitHub</div><div class="s-handle">/srikanth-uppiretla</div></div>
-            <span class="s-arrow">↗</span>
-          </a>
-          <a class="soon" href="#contact" onclick="return false">
-            <div><div class="s-name">GrabCAD</div><div class="s-handle">Profile coming soon</div></div>
-            <span class="s-arrow">…</span>
-          </a>
+      <div class="email-card reveal">
+        <div class="c-label">Email</div>
+        <div class="c-value">srikanth.uppiretla@gmail.com</div>
+        <div class="c-actions">
+          <button type="button" class="c-btn" id="copyEmail" data-email="srikanth.uppiretla@gmail.com">
+            <svg class="c-copy-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            <span class="c-copy-txt">Copy</span>
+          </button>
+          <a class="c-btn c-btn-send" href="mailto:srikanth.uppiretla@gmail.com">Send →</a>
         </div>
       </div>
-      <div class="msg-card reveal">
-        <div class="c-label" style="font-size:.64rem;letter-spacing:.24em;text-transform:uppercase;color:var(--light-faint)">Direct message</div>
-        <p class="m-title">Send me a note <span class="hl-soft">straight to my inbox</span>.</p>
-        <form id="msgForm">
-          <div class="form-row">
-            <div class="field"><label for="fName">Name</label><input id="fName" type="text" placeholder="Your name" required></div>
-            <div class="field"><label for="fMail">Email</label><input id="fMail" type="email" placeholder="you@example.com" required></div>
-          </div>
-          <div class="field"><label for="fMsg">Message</label><textarea id="fMsg" rows="5" placeholder="Tell me about your project, role or opportunity…" required></textarea></div>
-          <button class="btn btn-fill" type="submit">Send Message →</button>
-        </form>
+      <div class="connect reveal">
+        <div class="c-label">Connect</div>
+        <a href="https://linkedin.com/in/srikanth-uppiretla" target="_blank" rel="noopener">
+          <div><div class="s-name">LinkedIn</div><div class="s-handle">in/srikanth-uppiretla</div></div>
+          <span class="s-arrow">↗</span>
+        </a>
+        <a href="https://github.com/srikanth-uppiretla" target="_blank" rel="noopener">
+          <div><div class="s-name">GitHub</div><div class="s-handle">/srikanth-uppiretla</div></div>
+          <span class="s-arrow">↗</span>
+        </a>
+        <a class="soon" href="#contact" onclick="return false">
+          <div><div class="s-name">GrabCAD</div><div class="s-handle">Profile coming soon</div></div>
+          <span class="s-arrow">…</span>
+        </a>
       </div>
     </div>
   </div>
@@ -1380,13 +1382,26 @@
   links.querySelectorAll('.lang-btn').forEach(btn => btn.addEventListener('click', () => links.classList.remove('open')));
 
   // direct-message form → opens the visitor's mail client with the message prefilled
-  document.getElementById('msgForm').addEventListener('submit', ev => {
-    ev.preventDefault();
-    const n = document.getElementById('fName').value, m = document.getElementById('fMail').value, t = document.getElementById('fMsg').value;
-    location.href = 'mailto:srikanth.uppiretla@gmail.com'
-      + '?subject=' + encodeURIComponent(translations[currentLang].mailSubjectPrefix + n)
-      + '&body=' + encodeURIComponent(t + '\n\n— ' + n + ' (' + m + ')');
-  });
+  const copyEmailBtn = document.getElementById('copyEmail');
+  if (copyEmailBtn) {
+    copyEmailBtn.addEventListener('click', async () => {
+      const email = copyEmailBtn.dataset.email;
+      const label = copyEmailBtn.querySelector('.c-copy-txt');
+      try {
+        await navigator.clipboard.writeText(email);
+      } catch (e) {
+        const ta = document.createElement('textarea');
+        ta.value = email; ta.style.position = 'fixed'; ta.style.opacity = '0';
+        document.body.appendChild(ta); ta.select();
+        try { document.execCommand('copy'); } catch (_) {}
+        ta.remove();
+      }
+      copyEmailBtn.classList.add('copied');
+      const original = label.textContent;
+      label.textContent = 'Copied';
+      setTimeout(() => { copyEmailBtn.classList.remove('copied'); label.textContent = original; }, 1600);
+    });
+  }
 </script>
 
 </body>
