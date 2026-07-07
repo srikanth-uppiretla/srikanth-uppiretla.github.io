@@ -45,6 +45,9 @@
   h2{font-family:var(--serif);font-weight:500;font-size:clamp(2.3rem,4.2vw,3.15rem);line-height:1.1;letter-spacing:-.01em;margin:22px 0 46px}
   h2 .hl{color:var(--orange)}
   h2 .hl-soft{color:var(--peach)}
+  /* centered solo section title (label promoted to heading, tagline removed) */
+  .label.sec-solo{display:block;text-align:center;font-family:var(--serif);font-weight:600;font-size:clamp(2rem,3.6vw,2.7rem);line-height:1.15;letter-spacing:-.005em;text-transform:capitalize;color:var(--ink);padding-bottom:22px;margin:0 0 48px;position:relative}
+  .label.sec-solo::before{content:"";position:absolute;left:50%;bottom:0;transform:translateX(-50%);top:auto;width:48px;height:3px;background:var(--orange)}
 
   /* buttons */
   .btn{display:inline-flex;align-items:center;gap:12px;font-family:var(--mono);font-size:.86rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;padding:19px 34px;border:2px solid var(--orange);cursor:pointer;transition:all .2s ease}
@@ -385,8 +388,7 @@
 
 <section id="education">
   <div class="wrap">
-    <p class="label">Education</p>
-    <h2>Space Engineering +<br><span class="hl">Mechanical Engineering</span> Foundation.</h2>
+    <p class="label sec-solo">Education</p>
     <div class="edu-grid">
       <div class="edu-card reveal">
         <div class="e-logo"><img src="img/logos/uni-bremen.svg" alt="University of Bremen logo"></div>
@@ -424,9 +426,7 @@
 
 <section id="work">
   <div class="wrap">
-    <p class="label">Selected work</p>
-    <h2>CAD, FEM and Prototype<br><span class="hl">Engineering Projects</span>.</h2>
-    <p class="work-note">CAD, FEM and project evidence are added as material is cleared for publication.</p>
+    <p class="label sec-solo">Selected work</p>
 
     <div class="work-filter">
       <button class="wf-btn active" data-filter="all">All</button>
@@ -607,8 +607,7 @@
 
 <section id="experience">
   <div class="wrap">
-    <p class="label">Experience</p>
-    <h2>Structural Analysis, CAD<br>and <span class="hl">Composite Engineering</span>.</h2>
+    <p class="label sec-solo">Experience</p>
     <div class="tl">
 
       <div class="tl-row reveal">
@@ -665,12 +664,7 @@
 
 <section id="certificates">
   <div class="wrap">
-    <div class="cert-head">
-      <div>
-        <p class="label">Certificates</p>
-        <h2>Education, Language and<br><span class="hl">Technical Proof Documents</span>.</h2>
-      </div>
-    </div>
+    <p class="label sec-solo">Certificates</p>
 
     <div class="cert-explorer" id="certExplorer">
       <div class="cert-list" id="certList" role="tablist" aria-label="Certificates">
