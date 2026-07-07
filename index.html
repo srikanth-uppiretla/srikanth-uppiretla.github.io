@@ -40,9 +40,9 @@
   .grid-cream{background-image:linear-gradient(var(--line-cream) 1px,transparent 1px),linear-gradient(90deg,var(--line-cream) 1px,transparent 1px);background-size:64px 64px}
 
   /* type helpers */
-  .label{font-family:var(--mono);font-size:1.15rem;font-weight:700;letter-spacing:.32em;text-transform:uppercase;color:var(--orange)}
-  .label::before{content:"— "}
-  h2{font-family:var(--serif);font-weight:500;font-size:clamp(2.4rem,5vw,3.8rem);line-height:1.08;letter-spacing:-.01em;margin:18px 0 48px}
+  .label{display:inline-flex;align-items:center;gap:12px;font-family:var(--mono);font-size:1.4rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--orange)}
+  .label::before{content:"";width:34px;height:3px;background:var(--orange);flex:0 0 auto}
+  h2{font-family:var(--serif);font-weight:500;font-size:clamp(2.3rem,4.2vw,3.15rem);line-height:1.1;letter-spacing:-.01em;margin:22px 0 46px}
   h2 .hl{color:var(--orange)}
   h2 .hl-soft{color:var(--peach)}
 
@@ -278,6 +278,8 @@
     .toolkit{grid-template-columns:1fr}
     .tool-col{border-right:0;border-bottom:1px solid var(--line-dark)}
     .work-grid{grid-template-columns:1fr}
+    .label{font-size:1.15rem;letter-spacing:.18em;gap:10px}
+    .label::before{width:26px}
     .cert-head{flex-direction:column;align-items:flex-start}
     .edu-grid{grid-template-columns:1fr}
     .contact-grid{grid-template-columns:1fr}
