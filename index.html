@@ -105,7 +105,7 @@
   .hero-about strong{color:var(--light);font-weight:600}
 
   /* ── Skills (dark) ───────────────────── */
-  #skills{background:var(--dark);padding:90px 0 0;position:relative}
+  #skills{background:var(--dark);padding:90px 0;position:relative}
   .skills-head{display:flex;justify-content:space-between;align-items:flex-end;gap:40px}
   .skills-tag{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--light-faint);text-align:right;line-height:2;padding-bottom:70px}
   .toolkit{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line-dark);background:var(--dark-2)}
@@ -116,11 +116,6 @@
   .tool-col li{font-family:var(--serif);font-size:1.35rem;color:var(--light);padding:13px 0;border-bottom:1px solid var(--line-dark)}
   .tool-col li:last-child{border-bottom:0}
   .tool-col li small{display:block;font-family:var(--mono);font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;color:var(--light-faint);margin-top:3px}
-  .marquee{margin-top:110px;border-top:1px solid var(--line-dark);border-bottom:1px solid var(--line-dark);overflow:hidden;padding:34px 0;white-space:nowrap}
-  .marquee-track{display:inline-block;animation:scroll 36s linear infinite}
-  .marquee span{font-family:var(--serif);font-size:2.2rem;color:var(--light);margin:0 28px}
-  .marquee .dia{color:var(--orange);font-size:1.3rem;vertical-align:middle}
-  @keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
   /* ── Work (cream) ────────────────────── */
   #work{background:var(--cream);color:var(--ink);padding:90px 0;border-top:1px solid var(--line-cream)}
@@ -252,10 +247,13 @@
   .contact-head h2{margin:20px 0 0}
   .contact-body{max-width:920px;margin:0 auto;position:relative;z-index:2}
   .contact-primary{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
-  .cm-card{border:1px solid var(--line-dark);padding:24px 26px;display:flex;flex-direction:column;transition:border-color .25s ease,background .25s ease}
+  .cm-card{border:1px solid var(--line-dark);padding:26px 28px;display:flex;flex-direction:column;transition:border-color .25s ease,background .25s ease}
   .cm-card:hover{border-color:rgba(240,78,35,.45);background:rgba(240,78,35,.04)}
-  .cm-label{font-family:var(--mono);font-size:.58rem;letter-spacing:.24em;text-transform:uppercase;color:var(--light-faint);margin-bottom:11px}
-  .cm-value{font-family:var(--serif);font-size:1.25rem;color:var(--light);word-break:break-all;margin-bottom:20px}
+  .cm-top{display:flex;align-items:center;gap:13px;margin-bottom:18px}
+  .cm-ico{width:40px;height:40px;border:1px solid rgba(240,78,35,.4);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--orange);flex:0 0 auto}
+  .cm-ico svg{width:18px;height:18px}
+  .cm-label{font-family:var(--mono);font-size:.58rem;letter-spacing:.24em;text-transform:uppercase;color:var(--light-faint)}
+  .cm-value{font-family:var(--mono);font-size:1.02rem;letter-spacing:.01em;color:var(--light);word-break:break-all;margin-bottom:22px}
   .cm-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:auto}
   .c-btn{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:.6rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--light);border:1px solid rgba(255,255,255,.28);background:transparent;padding:12px 18px;cursor:pointer;transition:all .2s ease}
   .c-btn:hover{border-color:var(--orange);color:var(--orange)}
@@ -810,12 +808,6 @@
       </div>
     </div>
   </div>
-  <div class="marquee" aria-hidden="true">
-    <div class="marquee-track">
-      <span>CATIA V6</span><span class="dia">◆</span><span>Siemens NX</span><span class="dia">◆</span><span>FEMAP</span><span class="dia">◆</span><span>NX Nastran</span><span class="dia">◆</span><span>ANSYS</span><span class="dia">◆</span><span>Python</span><span class="dia">◆</span><span>MATLAB</span><span class="dia">◆</span><span>CFRP</span><span class="dia">◆</span><span>Technical Documentation</span><span class="dia">◆</span>
-      <span>CATIA V6</span><span class="dia">◆</span><span>Siemens NX</span><span class="dia">◆</span><span>FEMAP</span><span class="dia">◆</span><span>NX Nastran</span><span class="dia">◆</span><span>ANSYS</span><span class="dia">◆</span><span>Python</span><span class="dia">◆</span><span>MATLAB</span><span class="dia">◆</span><span>CFRP</span><span class="dia">◆</span><span>Technical Documentation</span><span class="dia">◆</span>
-    </div>
-  </div>
 </section>
 
 <section id="contact" class="grid-dark">
@@ -828,7 +820,10 @@
     <div class="contact-body">
       <div class="contact-primary">
         <div class="cm-card reveal">
-          <span class="cm-label">Email</span>
+          <div class="cm-top">
+            <span class="cm-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg></span>
+            <span class="cm-label">Email</span>
+          </div>
           <span class="cm-value">srikanth.uppiretla@gmail.com</span>
           <div class="cm-actions">
             <button type="button" class="c-btn js-copy" data-copy="srikanth.uppiretla@gmail.com">
@@ -839,13 +834,12 @@
           </div>
         </div>
         <div class="cm-card reveal">
-          <span class="cm-label">Phone</span>
+          <div class="cm-top">
+            <span class="cm-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span>
+            <span class="cm-label">Phone</span>
+          </div>
           <span class="cm-value">+49 179 2695583</span>
           <div class="cm-actions">
-            <button type="button" class="c-btn js-copy" data-copy="+49 179 2695583">
-              <svg class="c-copy-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-              <span class="c-copy-txt">Copy</span>
-            </button>
             <a class="c-btn c-btn-send" href="tel:+491792695583">Call →</a>
           </div>
         </div>
@@ -1271,7 +1265,7 @@
     ['#skills .tool-col:nth-child(1) .t-label', 'skill1Label', 'html'], ['#skills .tool-col:nth-child(1) li:nth-child(1)', 'skill1a', 'html'], ['#skills .tool-col:nth-child(1) li:nth-child(2)', 'skill1b', 'html'], ['#skills .tool-col:nth-child(1) li:nth-child(3)', 'skill1c', 'html'],
     ['#skills .tool-col:nth-child(2) .t-label', 'skill2Label', 'html'], ['#skills .tool-col:nth-child(2) li:nth-child(1)', 'skill2a', 'html'], ['#skills .tool-col:nth-child(2) li:nth-child(2)', 'skill2b', 'html'], ['#skills .tool-col:nth-child(2) li:nth-child(3)', 'skill2c', 'html'],
     ['#skills .tool-col:nth-child(3) .t-label', 'skill3Label', 'html'], ['#skills .tool-col:nth-child(3) li:nth-child(1)', 'skill3a', 'html'], ['#skills .tool-col:nth-child(3) li:nth-child(2)', 'skill3b', 'html'], ['#skills .tool-col:nth-child(3) li:nth-child(3)', 'skill3c', 'html'],
-    ['#skills .marquee-track', 'marquee', 'html'], ['#contact .label', 'contactLabel'], ['#contact h2', 'contactTitle', 'html'],
+    ['#contact .label', 'contactLabel'], ['#contact h2', 'contactTitle', 'html'],
     ['.contact-primary .cm-card:nth-child(1) .cm-label', 'emailLabel'], ['.contact-primary .cm-card:nth-child(2) .cm-label', 'phoneLabel'], ['.social-card.soon .social-handle', 'grabcadSoon'],
     ['.msg-card > .c-label', 'directMessage'], ['.msg-card .m-title', 'messageTitle', 'html'], ['label[for="fName"]', 'nameLabel'], ['label[for="fMail"]', 'mailLabel'], ['label[for="fMsg"]', 'msgLabel'],
     ['#msgForm button[type="submit"]', 'sendMessage'], ['footer .foot-inner span:nth-child(2)', 'footerMiddle'], ['footer .foot-inner span:nth-child(3)', 'footerLocation']
