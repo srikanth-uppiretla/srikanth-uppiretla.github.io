@@ -109,14 +109,15 @@
   .toolkit{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--line-cream);background:var(--light);margin-top:10px}
   .tool-col{padding:40px 38px;border-right:1px solid var(--line-cream)}
   .tool-col:last-child{border-right:0}
-  .tool-col .t-label{font-size:.64rem;letter-spacing:.2em;text-transform:uppercase;color:var(--orange);font-weight:700;margin-bottom:24px}
+  .tool-col .t-label{font-family:var(--mono);font-size:1.1rem;letter-spacing:.09em;text-transform:uppercase;color:var(--orange);font-weight:700;margin-bottom:26px;line-height:1.35}
   .tool-col .t-num{color:var(--ink-faint)}
   .tool-col ul{list-style:none}
-  .tool-col li{padding:15px 0;border-bottom:1px solid var(--line-cream)}
+  .tool-col li{padding:14px 0;border-bottom:1px solid var(--line-cream)}
   .tool-col li:last-child{border-bottom:0}
-  .tool-col .t-name{display:block;font-family:var(--serif);font-size:1.5rem;font-weight:600;color:var(--ink);line-height:1.22}
-  .tool-col li.core .t-name{color:var(--orange)}
-  .tool-col li small{display:block;font-family:var(--mono);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-faint);margin-top:6px}
+  .tool-col .t-name{display:block;font-family:var(--mono);font-size:1.08rem;font-weight:600;color:var(--ink);line-height:1.35;letter-spacing:.01em}
+  .latex{font-family:var(--serif);font-weight:600}
+  .latex .la-a{text-transform:uppercase;font-size:.72em;vertical-align:.22em;margin-left:-.36em;margin-right:-.15em}
+  .latex .la-e{text-transform:uppercase;vertical-align:-.25em;margin-left:-.08em;margin-right:-.05em}
 
   /* ── Work (cream) ────────────────────── */
   #work{background:var(--cream-2);color:var(--ink);padding:90px 0;border-top:1px solid var(--line-cream)}
@@ -784,26 +785,28 @@
       <div class="tool-col">
         <p class="t-label"><span class="t-num">01 /</span> <span class="t-cat">CAD &amp; Mechanical Design</span></p>
         <ul>
-          <li class="core"><span class="t-name">CATIA V5 &amp; V6</span><small>Part · Assembly · Surfaces</small></li>
-          <li><span class="t-name">Siemens NX · Inventor</span><small>CAD for design &amp; analysis</small></li>
-          <li><span class="t-name">Drafting &amp; GD&amp;T</span><small>Assembly &amp; production drawings</small></li>
+          <li><span class="t-name">CATIA V5 · V6</span></li>
+          <li><span class="t-name">Siemens NX · Inventor</span></li>
+          <li><span class="t-name">Drafting · GD&amp;T</span></li>
         </ul>
       </div>
       <div class="tool-col">
         <p class="t-label"><span class="t-num">02 /</span> <span class="t-cat">FEM &amp; Simulation</span></p>
         <ul>
-          <li><span class="t-name">Simcenter Nastran</span><small>Linear &amp; nonlinear FEM (SOL 106)</small></li>
-          <li><span class="t-name">Simcenter Femap</span><small>Pre- &amp; post-processing</small></li>
-          <li><span class="t-name">ANSYS</span><small>Structural FEM</small></li>
-          <li><span class="t-name">Strength &amp; Buckling</span><small>NASA SP-8007 · Bruhn · CLT</small></li>
+          <li><span class="t-name">Simcenter Nastran</span></li>
+          <li><span class="t-name">FEMAP</span></li>
+          <li><span class="t-name">ANSYS</span></li>
+          <li><span class="t-name">Strength · Buckling</span></li>
         </ul>
       </div>
       <div class="tool-col">
         <p class="t-label"><span class="t-num">03 /</span> <span class="t-cat">Engineering Delivery</span></p>
         <ul>
-          <li><span class="t-name">Python · MATLAB</span><small>Parametric optimization frameworks</small></li>
-          <li><span class="t-name">CFRP &amp; Manufacturing</span><small>Filament winding · Quality review</small></li>
-          <li><span class="t-name">Technical Documentation</span><small>Trade-offs · Reviews · Decisions</small></li>
+          <li><span class="t-name">Python · MATLAB</span></li>
+          <li><span class="t-name">CFRP · Manufacturing</span></li>
+          <li><span class="t-name">Technical Documentation</span></li>
+          <li><span class="t-name"><span class="latex">L<span class="la-a">a</span>T<span class="la-e">e</span>X</span></span></li>
+          <li><span class="t-name">Engineering &amp; Aerospace Standards</span></li>
         </ul>
       </div>
     </div>
@@ -1318,9 +1321,6 @@
     setList('#experience .tl-row:nth-child(2) li', copy.exp2Bullets);
     setList('#experience .tl-row:nth-child(3) li', copy.exp3Bullets);
     setList('.proj-tags span', copy.projectTags);
-    setList('#skills .tool-col:nth-child(1) li small', copy.skillCol1Subs);
-    setList('#skills .tool-col:nth-child(2) li small', copy.skillCol2Subs);
-    setList('#skills .tool-col:nth-child(3) li small', copy.skillCol3Subs);
     const download = document.querySelector('.hero-cta a:nth-child(1)');
     const view = document.querySelector('.hero-cta a:nth-child(2)');
     if (download) { download.href = copy.cvHref; download.setAttribute('download', copy.cvDownloadName); }
