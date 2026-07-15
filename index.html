@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -181,7 +181,6 @@
   .cert-card:hover:not(:disabled) .cc-view{background:var(--orange);color:#fff;box-shadow:0 0 20px rgba(240,78,35,.5)}
   .cc-chev{width:13px;height:13px;flex:0 0 auto}
   .cert-card:disabled .cc-view{color:var(--ink-faint);border-color:var(--line-cream);box-shadow:none}
-  .cert-access-note{margin-top:18px;font-size:.68rem;line-height:1.7;color:var(--ink-soft);max-width:760px}
 
   body.cert-modal-open{overflow:hidden}
   .cert-modal{position:fixed;inset:0;z-index:240;display:none;align-items:center;justify-content:center;background:rgba(23,19,16,.9);padding:24px}
@@ -717,7 +716,7 @@
     <p class="label sec-solo">Certificates</p>
 
     <div class="cert-grid" id="certGrid">
-      <button class="cert-card reveal" type="button" data-protected-url="https://srikanth-certs.pages.dev" data-title="M.Sc. Space Engineering">
+      <button class="cert-card reveal" type="button" disabled data-pdf="certificates/msc-space-engineering.pdf" data-title="M.Sc. Space Engineering">
         <div class="cc-head"><span class="cc-num">01</span><img class="cc-logo" src="img/logos/uni-bremen.svg" alt="University of Bremen logo"></div>
         <span class="cc-cat">Degree</span>
         <span class="cc-title">M.Sc. Space Engineering</span>
@@ -725,7 +724,7 @@
         <span class="cc-view">View <svg class="cc-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
       </button>
 
-      <button class="cert-card reveal" type="button" data-protected-url="https://srikanth-certs.pages.dev" data-title="B.Sc. Mechanical Engineering">
+      <button class="cert-card reveal" type="button" disabled data-pdf="certificates/bsc-mechanical-engineering.pdf" data-title="B.Sc. Mechanical Engineering">
         <div class="cc-head"><span class="cc-num">02</span><img class="cc-logo" src="img/logos/lpu.png" alt="Lovely Professional University logo"></div>
         <span class="cc-cat">Degree</span>
         <span class="cc-title">B.Sc. Mechanical Engineering</span>
@@ -733,7 +732,7 @@
         <span class="cc-view">View <svg class="cc-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
       </button>
 
-      <button class="cert-card reveal" type="button" data-protected-url="https://srikanth-certs.pages.dev" data-title="German Language B1">
+      <button class="cert-card reveal" type="button" disabled data-pdf="certificates/german-b1.pdf" data-title="German Language B1">
         <div class="cc-head"><span class="cc-num">03</span><img class="cc-logo" src="img/logos/gisma.svg" alt="GISMA Business School logo"></div>
         <span class="cc-cat">Language</span>
         <span class="cc-title">German Language B1</span>
@@ -741,7 +740,7 @@
         <span class="cc-view">View <svg class="cc-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
       </button>
 
-      <button class="cert-card reveal" type="button" data-protected-url="https://srikanth-certs.pages.dev" data-title="Basics of CATIA V5">
+      <button class="cert-card reveal" type="button" disabled data-pdf="certificates/skill-lync-catia-v5.pdf" data-title="Basics of CATIA V5">
         <div class="cc-head"><span class="cc-num">04</span><img class="cc-logo" src="img/logos/skill-lync.png" alt="Skill-Lync logo"></div>
         <span class="cc-cat">Workshop</span>
         <span class="cc-title">Basics of CATIA V5</span>
@@ -749,8 +748,6 @@
         <span class="cc-view">View <svg class="cc-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg></span>
       </button>
     </div>
-
-    <p class="cert-access-note reveal">Certificates are available through a protected portal. Access is granted by email one-time code.</p>
 
     <div class="cert-modal" id="certModal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="modalTitle">
       <div class="cert-modal-panel">
@@ -1339,13 +1336,57 @@
     });
   }));
 
-  // certificate cards open the protected certificate portal
+  // certificate cards → modal PDF reader
   const certCards = [...document.querySelectorAll('.cert-card')];
-  certCards.forEach(card => {
-    card.addEventListener('click', () => {
-      window.open(card.dataset.protectedUrl || 'https://srikanth-certs.pages.dev', '_blank', 'noopener');
-    });
+  const certModal = document.getElementById('certModal');
+  const modalFrame = document.getElementById('modalFrame');
+  const modalTitle = document.getElementById('modalTitle');
+  const modalCat = document.getElementById('modalCat');
+  const modalDownload = document.getElementById('modalDownload');
+  const modalTab = document.getElementById('modalTab');
+  const modalClose = document.getElementById('modalClose');
+
+  modalFrame.addEventListener('load', () => {
+    const src = modalFrame.getAttribute('src');
+    if (src && src !== 'about:blank') modalFrame.classList.add('loaded');
   });
+
+  const openCert = card => {
+    if (card.disabled) return;
+    const pdf = card.dataset.pdf;
+    modalFrame.classList.remove('loaded');
+    modalFrame.src = pdf + '#toolbar=1&navpanes=0&view=FitH';
+    modalTitle.textContent = card.dataset.title;
+    modalCat.textContent = card.querySelector('.cc-cat').textContent;
+    modalDownload.href = pdf;
+    modalTab.href = pdf;
+    certModal.classList.add('open');
+    certModal.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('cert-modal-open');
+    modalClose.focus();
+  };
+
+  const closeCert = () => {
+    if (!certModal.classList.contains('open')) return;
+    certModal.classList.remove('open');
+    certModal.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('cert-modal-open');
+    setTimeout(() => { if (!certModal.classList.contains('open')) { modalFrame.classList.remove('loaded'); modalFrame.src = 'about:blank'; } }, 300);
+  };
+
+  certCards.forEach(card => {
+    const setReady = ready => {
+      card.classList.toggle('ready', ready);
+      card.disabled = !ready;
+    };
+    card.addEventListener('click', () => openCert(card));
+    if (location.protocol === 'file:') setReady(true);
+    else fetch(card.dataset.pdf, { method: 'HEAD', cache: 'no-store' }).then(r => setReady(r.ok)).catch(() => setReady(false));
+  });
+
+  modalClose.addEventListener('click', closeCert);
+  certModal.addEventListener('click', ev => { if (ev.target === certModal) closeCert(); });
+  document.addEventListener('keydown', ev => { if (ev.key === 'Escape') closeCert(); });
 
   // scroll-spy — highlight the nav link of the section in view
   const spyLinks = {};
